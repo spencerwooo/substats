@@ -2,6 +2,9 @@
 
 <h5>Serverless Function to Count How Many People are Subscribed to You in Your Favorite Services</h5>
 
+[![Deployed to cloudflare](https://img.shields.io/badge/deployed%20to-Cloudflare%20Workers-f38020?logo=cloudflare)](https://api.spencerwoo.com/substats/)
+[![Uptime Robot status](https://img.shields.io/uptimerobot/status/m784533782-966fa87a7f1afd93c9cc4e51?label=API%20status)](https://stats.uptimerobot.com/92yjVTmk63/784533782)
+
 ## Table of contents
 
 - [Table of contents](#table-of-contents)
