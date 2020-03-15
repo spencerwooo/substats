@@ -1,5 +1,6 @@
 /**
  * Fetch follower stats from sspai
+ *
  * @param {String} slug sspai slug id
  */
 export const fetchSspaiStats = slug => {

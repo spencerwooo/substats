@@ -146,7 +146,8 @@ async function fetchStats(sources, queryKey) {
 }
 
 /**
- * Respond
+ * Respond to query
+ *
  * @param {Request} request
  */
 async function handleRequest(request) {

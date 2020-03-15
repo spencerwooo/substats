@@ -1,5 +1,6 @@
 /**
  * Fetch RSS stats from Feedly
+ *
  * @param {URL} rss RSS subscription link
  */
 export const fetchFeedlyStats = rss => {
