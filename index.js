@@ -159,7 +159,7 @@ async function handleRequest(request) {
     const errorResp = {
       status: respInit.ban.status,
       data: {
-        errorMsg: '[RSS stats] Sorry, only GET requests are accepted.',
+        errorMsg: 'Substats: Sorry, only GET requests are accepted.',
         requestMethod: request.method,
       },
     }
@@ -174,7 +174,7 @@ async function handleRequest(request) {
       status: respInit.ok.status,
       data: {
         greeting:
-          '[RSS stats] Begin with a request to see your RSS subscriber count.',
+          'Substats: Begin with a request to see your RSS subscriber count.',
         request: request.url,
       },
     }
@@ -187,7 +187,7 @@ async function handleRequest(request) {
       status: respInit.invalid.status,
       data: {
         err:
-          '[RSS stats] Invalid request. You should structure your query as such: /?source={YOUR_RSS_PROVIDER}&queryKey={YOUR_RSS_LINK}',
+          'Substats: Invalid request. You should structure your query as such: /?source={YOUR_RSS_PROVIDER}&queryKey={YOUR_RSS_LINK}',
         request: request.url,
       },
     }
