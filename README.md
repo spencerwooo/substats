@@ -69,8 +69,6 @@ Which returns:
 { "status": 200, "data": { "totalSubs": 13, "subsInEachSource": { "feedly": 13 }, "failedSources": {} } }
 ```
 
-![](https://i.loli.net/2020/03/16/oHpxsJXGkYrLENv.png)
-
 You can then use the numbers in `data.totalSubs` in a dynamic badge:
 
 [![](https://img.shields.io/badge/dynamic/json?label=Feedly&query=%24.data.totalSubs&url=https%3A%2F%2Fapi.spencerwoo.com%2Fsubstats%2F%3Fsource%3Dfeedly%26queryKey%3Dhttps%3A%2F%2Fblog.spencerwoo.com%2Fposts%2Findex.xml&color=2bb24c&logo=feedly)](https://api.spencerwoo.com/substats/?source=feedly&queryKey=https://blog.spencerwoo.com/posts/index.xml)
@@ -97,8 +95,6 @@ Which returns:
 }
 ```
 
-![](https://i.loli.net/2020/03/16/ZVv8GOnAtwMJTqC.png)
-
 Enter the badge!
 
 [![](https://img.shields.io/badge/dynamic/json?label=RSS%20subs&query=%24.data.totalSubs&url=https%3A%2F%2Fapi.spencerwoo.com%2Fsubstats%2F%3Fsource%3Dfeedly%257Cinoreader%257Crsshub%26queryKey%3Dhttps%3A%2F%2Fblog.spencerwoo.com%2Fposts%2Findex.xml&color=ffa500&logo=rss)](https://api.spencerwoo.com/substats/?source=feedly|inoreader|rsshub&queryKey=https://blog.spencerwoo.com/posts/index.xml)
@@ -121,8 +117,6 @@ Which returns:
   }
 }
 ```
-
-![](https://i.loli.net/2020/03/16/Y9dUOmJewMq4cyj.png)
 
 And of course, our badges!
 
