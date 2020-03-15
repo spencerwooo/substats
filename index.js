@@ -22,14 +22,12 @@ function parseRequest(req) {
       greet: false,
       // service providers
       source: [],
-      // query keys (link for RSS, username or slug for others)
+      // query keys (feed link for RSS; username or slug for others)
       queryKey: [],
     }
 
     const url = new URL(req)
     const query = qs.parse(url.search, { ignoreQueryPrefix: true })
-    console.log(url.search)
-    console.log(query)
 
     // empty query, send greetings
     if (Object.keys(query).length === 0) {
@@ -37,7 +35,7 @@ function parseRequest(req) {
       return params
     }
 
-    // if source is null or rss link is null, send invalid request
+    // if source is null or query key is null, send invalid request
     if (
       query.source === '' ||
       typeof query.source === 'undefined' ||
@@ -48,22 +46,27 @@ function parseRequest(req) {
       return params
     }
 
-    // parse source and rss in query string
-    if (query.source.length === 1 && query.queryKey.length === 1) {
+    // parse source and queryString in query string
+    if (typeof query.source === 'string' && typeof query.queryKey === 'string') {
       // single query key, maybe multiple sources
       params.source = query.source.split('|')
-      params.queryKey = query.queryKey
+      // populate query key list
+      params.source.forEach(() => {
+        params.queryKey.push(query.queryKey)
+      })
     } else if (query.source.length > 1 || query.queryKey.length > 1) {
       // multiple query key, multiple sources
       if (query.source.length === query.queryKey.length) {
         params.source = query.source
         params.queryKey = query.queryKey
       } else {
-        // source and queryKey count doesn't match
+        // source and queryKey index doesn't match
         params.valid = false
-        return params
       }
+    } else {
+      params.valid = false
     }
+    console.log(params)
     return params
   } catch (error) {
     return null
@@ -71,10 +74,10 @@ function parseRequest(req) {
 }
 
 /**
- * Fetch RSS link statistics from list of RSS providers
+ * Fetch subscriber stats from list of service providers
  *
- * @param {list} sources List of RSS service providers to query
- * @param {URL} url Target RSS link
+ * @param {list} sources List of service providers to query
+ * @param {list} queryKey Target query key list
  */
 async function fetchStats(sources, queryKey) {
   let result = {
@@ -102,7 +105,7 @@ async function fetchStats(sources, queryKey) {
             subs = stats.source.subscribers
           } catch (error) {
             subs = 0
-            result.failedSources[sources[i]] = 'RSS feed not found'
+            result.failedSources[sources[i]] = 'RSS feed not found on Feedly'
           }
         }
         result.totalSubs += subs
@@ -173,8 +176,7 @@ async function handleRequest(request) {
     const greetingResp = {
       status: respInit.ok.status,
       data: {
-        greeting:
-          'Substats: Begin with a request to see your RSS subscriber count.',
+        greeting: 'Substats: Begin with a request to see your subscriber count.',
         request: request.url,
       },
     }
@@ -187,7 +189,7 @@ async function handleRequest(request) {
       status: respInit.invalid.status,
       data: {
         err:
-          'Substats: Invalid request. You should structure your query as such: /?source={YOUR_RSS_PROVIDER}&queryKey={YOUR_RSS_LINK}',
+          'Substats: Invalid request. You should structure your query as such: /?source={YOUR_SERVICE_PROVIDER}&queryKey={YOUR_QUERY}',
         request: request.url,
       },
     }
@@ -196,7 +198,6 @@ async function handleRequest(request) {
 
   // Fetch statistics
   const result = await fetchStats(resp.source, resp.queryKey)
-  console.log(result)
 
   const finalResp = {
     status: respInit.ok.status,

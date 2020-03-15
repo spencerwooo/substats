@@ -9,6 +9,5 @@ export const fetchTwitterStats = name => {
   const url = `https://cdn.syndication.twimg.com/widgets/followbutton/info.json?screen_names=${name}`
 
   const headers = { 'User-Agent': 'substat-bot' }
-  console.log(url)
   return fetch(url, { headers })
 }
