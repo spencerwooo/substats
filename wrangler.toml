@@ -1,8 +1,8 @@
-name = "rss-stats"
+name = "substats"
 type = "webpack"
 account_id = "b87997a496f985b46b927b3f24c61de1"
 workers_dev = true
 
 [env.production]
-route = "api.spencerwoo.com/rss-stats*"
+route = "api.spencerwoo.com/substats*"
 zone_id = "b04152d2c33ff4653cec1a579be6d42a"

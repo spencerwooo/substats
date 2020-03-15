@@ -1,6 +1,8 @@
 import qs from 'qs'
 
 import { fetchFeedlyStats } from './utils/feedly'
+import { fetchSspaiStats } from './utils/sspai'
+import { fetchTwitterStats } from './utils/twitter'
 
 addEventListener('fetch', event => {
   event.respondWith(handleRequest(event.request))
@@ -18,14 +20,16 @@ function parseRequest(req) {
       valid: true,
       // if query is empty, send default greetings message
       greet: false,
-      // RSS service providers (currently Feedly is supported)
+      // service providers
       source: [],
-      // RSS subscription link (URL)
-      rss: '',
+      // query keys (link for RSS, username or slug for others)
+      queryKey: [],
     }
 
     const url = new URL(req)
     const query = qs.parse(url.search, { ignoreQueryPrefix: true })
+    console.log(url.search)
+    console.log(query)
 
     // empty query, send greetings
     if (Object.keys(query).length === 0) {
@@ -37,16 +41,29 @@ function parseRequest(req) {
     if (
       query.source === '' ||
       typeof query.source === 'undefined' ||
-      query.rss === '' ||
-      typeof query.rss === 'undefined'
+      query.queryKey === '' ||
+      typeof query.queryKey === 'undefined'
     ) {
       params.valid = false
       return params
     }
 
     // parse source and rss in query string
-    params.source = query.source.split('|')
-    params.rss = query.rss
+    if (query.source.length === 1 && query.queryKey.length === 1) {
+      // single query key, maybe multiple sources
+      params.source = query.source.split('|')
+      params.queryKey = query.queryKey
+    } else if (query.source.length > 1 || query.queryKey.length > 1) {
+      // multiple query key, multiple sources
+      if (query.source.length === query.queryKey.length) {
+        params.source = query.source
+        params.queryKey = query.queryKey
+      } else {
+        // source and queryKey count doesn't match
+        params.valid = false
+        return params
+      }
+    }
     return params
   } catch (error) {
     return null
@@ -59,39 +76,66 @@ function parseRequest(req) {
  * @param {list} sources List of RSS service providers to query
  * @param {URL} url Target RSS link
  */
-async function fetchStats(sources, url) {
+async function fetchStats(sources, queryKey) {
   let result = {
-    totalSubs: 0,
-    subsInEachSource: {},
-    failedSources: [],
-  }
+      totalSubs: 0,
+      subsInEachSource: {},
+      failedSources: {},
+    },
+    i,
+    subs,
+    response,
+    stats
 
-  for await (const source of sources) {
-    switch (source) {
+  // iterate over sources list and queryKey list
+  for (i = 0; i < sources.length; i += 1) {
+    switch (sources[i]) {
       case 'feedly':
-        try {
-          const response = await fetchFeedlyStats(url)
-          const stats = await response.json()
-          console.log('Success:', source, stats.source)
-
-          // fetch feedly stats failed
-          if (!response.ok) {
-            throw new Error(stats.errorMessage)
+        response = await fetchFeedlyStats(queryKey[i])
+        stats = await response.json()
+        console.log(response, stats)
+        if (!response.ok) {
+          subs = 0
+          result.failedSources[sources[i]] = stats.errorMessage
+        } else {
+          try {
+            subs = stats.source.subscribers
+          } catch (error) {
+            subs = 0
+            result.failedSources[sources[i]] = 'RSS feed not found'
           }
-
-          // fetch feedly stats success
-          const subs = stats.source.subscribers
-          result.totalSubs += subs
-          result.subsInEachSource[source] = subs
-        } catch (error) {
-          console.log(error)
-          result.failedSources.push(source)
         }
+        result.totalSubs += subs
+        result.subsInEachSource[sources[i]] = subs
+        break
+      case 'sspai':
+        response = await fetchSspaiStats(queryKey[i])
+        stats = await response.json()
+        if (stats.error !== 0) {
+          subs = 0
+          result.failedSources[sources[i]] = stats.msg
+        } else {
+          subs = stats.data.followed_count
+        }
+        result.totalSubs += subs
+        result.subsInEachSource[sources[i]] = subs
+        break
+      case 'twitter':
+        response = await fetchTwitterStats(queryKey[i])
+        stats = await response.json()
+        if (stats.length === 0) {
+          subs = 0
+          result.failedSources[sources[i]] = 'Twitter user not found'
+        } else {
+          subs = stats[0]['followers_count']
+        }
+        result.totalSubs += subs
+        result.subsInEachSource[sources[i]] = subs
         break
       default:
-        console.log('Not implemented:', source)
-        result.subsInEachSource[source] = 0
-        result.failedSources.push(source)
+        // not implemented
+        result.subsInEachSource[sources[i]] = 0
+        result.failedSources[sources[i]] = 'Not implemented'
     }
   }
 
@@ -143,7 +187,7 @@ async function handleRequest(request) {
       status: respInit.invalid.status,
       data: {
         err:
-          '[RSS stats] Invalid request. Valid requests: /?source={YOUR_RSS_PROVIDER}&rss={YOUR_RSS_LINK}',
+          '[RSS stats] Invalid request. You should structure your query as such: /?source={YOUR_RSS_PROVIDER}&queryKey={YOUR_RSS_LINK}',
         request: request.url,
       },
     }
@@ -151,7 +195,7 @@ async function handleRequest(request) {
   }
 
   // Fetch statistics
-  const result = await fetchStats(resp.source, resp.rss)
+  const result = await fetchStats(resp.source, resp.queryKey)
   console.log(result)
 
   const finalResp = {
