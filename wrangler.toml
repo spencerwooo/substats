@@ -1,0 +1,6 @@
+name = "rss-stats"
+type = "javascript"
+account_id = "b87997a496f985b46b927b3f24c61de1"
+workers_dev = true
+route = ""
+zone_id = "b04152d2c33ff4653cec1a579be6d42a"
