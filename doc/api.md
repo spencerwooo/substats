@@ -8,6 +8,7 @@
 - [RSS](#rss)
   - [Feedly](#feedly)
 - [Social media](#social-media)
+  - [Instagram](#instagram)
   - [Twitter](#twitter)
 - [Dev](#dev)
   - [GitHub](#github)
@@ -35,6 +36,17 @@ GET /?source=feedly&queryKey={QUERY}
 - **Query key:** the target RSS link, like `https://blog.spencerwoo.com/posts/index.xml` for example. If the feed is not found, 0 subscribers will be returned.
 
 ## Social media
+
+### Instagram
+
+[![](https://img.shields.io/badge/dynamic/json?color=E4405F&label=Instagram%20Followers&query=%24.data.totalSubs&url=https%3A%2F%2Fapi.spencerwoo.com%2Fsubstats%2F%3Fsource%3Dinstagram%26queryKey%3Dvertigo_woo98&logo=instagram&logoColor=white)](https://api.spencerwoo.com/substats/?source=instagram&queryKey=vertigo_woo98)
+
+```http
+GET /?source=instagram&queryKey={QUERY}
+```
+
+- **Source shorthand:** `instagram`
+- **Query key:** Instagram username - the username after `instagram.com/` in your Instagram user profile URL. For instance: a valid Instagram username is the `vertigo_woo98` part in the user profile URL `https://www.instagram.com/vertigo_woo98`.
 
 ### Twitter
 
