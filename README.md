@@ -21,7 +21,13 @@
 
 ## Why I did this?
 
-I initially wanted to combine the subscriber counts of Feedly and Inoreader — two of the most popular RSS providers, to calculate how many people are subscribed to my blog's RSS. Then it occured to me: I could actually make this into a "Hub", where you can provide **a service name, a query key**, and out comes the total subscriber counts of all your services...Hence, I proudly introduce: **Substats**!
+I initially wanted to combine the subscriber numbers of Feedly and Inoreader — two of the most popular RSS providers, to calculate how many people are subscribed to my blog's RSS. Then it occured to me: I could actually make this into a "Hub", where you can provide **a service name, a query key**, and out comes the total subscribers of all your services...Hence, I proudly introduce: **Substats**!
+
+**PROs:**
+
+- 🧊 Serverless deployment, minimum overhead (powered by Cloudflare)
+- 💨 Ultra-fast reachablility for all services (even in mainland China!)
+- 🍚 Simple integration, easy-to-use API with nice badges provided by [Shields.io](https://shields.io/)
 
 ## API
 
@@ -53,13 +59,13 @@ Multiple `{ source: queryKey }` combination:
 GET /?source={SOURCE}&queryKey={QUERY}&source={SOURCE}&queryKey={QUERY}&source={SOURCE}&queryKey={QUERY} ....
 ```
 
-List sequence is preserved!
+_List sequence is preserved!_
 
 ## Examples
 
 ### Single query
 
-You can make a single query to request your RSS subscriber count on Feedly. (Inoreader support is coming!)
+You can make a single query to request your RSS subscribers on Feedly. (Inoreader support is coming!)
 
 ```http
 GET /?source=feedly&queryKey=https://blog.spencerwoo.com/posts/index.xml
