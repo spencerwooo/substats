@@ -7,7 +7,7 @@
 
 <h2>Table of contents</h2>
 
-- [Why I did this](#why-i-did-this)
+- [Why I did this?](#why-i-did-this)
 - [API](#api)
   - [API endpoint](#api-endpoint)
   - [Query string](#query-string)
@@ -19,9 +19,9 @@
 - [Development](#development)
 - [Disclaimer](#disclaimer)
 
-## Why I did this
+## Why I did this?
 
-I initially wanted to combine the subscriber counts of Feedly and Inoreader -- two of the most popular RSS providers, to calculate how many people are subscribed to my blog's RSS. Then it occured to me: I could actually make this into a "Hub", where you can provide **a service name, a query key**, and out comes the total subscriber counts of all your services...Hence, I proudly introduce: **Substats**!
+I initially wanted to combine the subscriber counts of Feedly and Inoreader — two of the most popular RSS providers, to calculate how many people are subscribed to my blog's RSS. Then it occured to me: I could actually make this into a "Hub", where you can provide **a service name, a query key**, and out comes the total subscriber counts of all your services...Hence, I proudly introduce: **Substats**!
 
 ## API
 
@@ -128,7 +128,7 @@ And of course, our badges!
 
 ## Supported services
 
-<h5>For a detailed documentation on the API request rules of each service, please see: <a href="./doc/api.md">doc - api.</a></h5>
+<h5>For a detailed documentation on the API request rules of each service, please see: <a href="./doc/api.md">Substats Service API Documentation.</a></h5>
 
 <table>
   <tr align="center">
