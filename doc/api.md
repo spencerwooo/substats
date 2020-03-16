@@ -13,6 +13,7 @@
 - [Dev](#dev)
   - [GitHub](#github)
 - [Websites](#websites)
+  - [Medium](#medium)
   - [少数派](#%e5%b0%91%e6%95%b0%e6%b4%be)
   - [知乎](#%e7%9f%a5%e4%b9%8e)
 
@@ -63,7 +64,7 @@ GET /?source=twitter&queryKey={QUERY}
 
 ### GitHub
 
-[![](https://img.shields.io/badge/dynamic/json?label=GitHub%20Followers&query=%24.data.totalSubs&url=https%3A%2F%2Fapi.spencerwoo.com%2Fsubstats%2F%3Fsource%3Dgithub%26queryKey%3Dspencerwooo&color=black&logo=github)](https://api.spencerwoo.com/substats/?source=github&queryKey=spencerwooo)
+[![](https://img.shields.io/badge/dynamic/json?label=GitHub%20Followers&query=%24.data.totalSubs&url=https%3A%2F%2Fapi.spencerwoo.com%2Fsubstats%2F%3Fsource%3Dgithub%26queryKey%3Dspencerwooo&color=181717&logo=github)](https://api.spencerwoo.com/substats/?source=github&queryKey=spencerwooo)
 
 ```http
 GET /?source=github&queryKey={QUERY}
@@ -73,6 +74,17 @@ GET /?source=github&queryKey={QUERY}
 - **Query key:** GitHub `user_login` (username) - the username after `github.com/` in your user profile URL. For instance: a valid `user_login` is the `spencerwooo` part in the user profile page URL `https://github.com/spencerwooo`.
 
 ## Websites
+
+### Medium
+
+[![](https://img.shields.io/badge/dynamic/json?label=Medium%20Followers&query=%24.data.totalSubs&url=https%3A%2F%2Fapi.spencerwoo.com%2Fsubstats%2F%3Fsource%3Dmedium%26queryKey%3D%40SpencerWooo&logo=medium&color=12100E)](https://api.spencerwoo.com/substats/?source=medium&queryKey=@SpencerWooo)
+
+```http
+GET /?source=medium&queryKey={QUERY}
+```
+
+- **Source shorthand:** `medium`
+- **Query key:** Medium `username` - the username after `medium.com/` in your Medium user profile URL. For instance: a valid `username` is the `@SpencerWooo` part in the user profile URL `https://medium.com/@SpencerWooo`.
 
 ### 少数派
 

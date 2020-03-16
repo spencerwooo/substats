@@ -142,6 +142,7 @@ And of course, our badges!
     <td><img src="./assets/logo_feedly.png" width="auto" height="50px"/><h6>Feedly</h6></td>
     <td><img src="./assets/logo_github.png" width="auto" height="50px"/><h6>GitHub</h6></td>
     <td><img src="./assets/logo_ins.png" width="auto" height="50px"/><h6>Instagram</h6></td>
+    <td><img src="./assets/logo_medium.png" width="auto" height="50px"/><h6>Medium</h6></td>
     <td><img src="./assets/logo_sspai.png" width="auto" height="50px"/><h6>少数派</h6></td>
     <td><img src="./assets/logo_twitter.png" width="auto" height="50px"/><h6>Twitter</h6></td>
     <td><img src="./assets/logo_zhihu.png" width="auto" height="50px"/><h6>知乎</h6></td>
@@ -150,6 +151,7 @@ And of course, our badges!
     <td><code>feedly</code></td>
     <td><code>github</code></td>
     <td><code>instagram</code></td>
+    <td><code>medium</code></td>
     <td><code>sspai</code></td>
     <td><code>twitter</code></td>
     <td><code>zhihu</code></td>
