@@ -177,7 +177,7 @@ All APIs used in this project are by no means in any relationship with the origi
 
 ---
 
-**📊 Substats** ©Spencer Woo. Released under the [MIT License](./LICENSE).
+**📈📉 Substats** ©Spencer Woo. Released under the [MIT License](./LICENSE).
 
 Authored and maintained by Spencer Woo.
 
