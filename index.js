@@ -3,6 +3,7 @@ import qs from 'qs'
 import { feedlyHandler } from './utils/feedly'
 import { gitHubHandler } from './utils/github'
 import { instagramHandler } from './utils/instagram'
+import { mediumHandler } from './utils/medium'
 import { sspaiHandler } from './utils/sspai'
 import { twitterHandler } from './utils/twitter'
 import { zhihuHandler } from './utils/zhihu'
@@ -108,6 +109,9 @@ async function fetchStats(sources, queryKey) {
         break
       case 'instagram':
         res = await instagramHandler(queryKey[i])
+        break
+      case 'medium':
+        res = await mediumHandler(queryKey[i])
         break
       case 'sspai':
         res = await sspaiHandler(queryKey[i])
