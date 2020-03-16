@@ -1,8 +1,10 @@
 import qs from 'qs'
 
 import { feedlyHandler } from './utils/feedly'
-import { sspaiHandler } from './utils/sspai'
 import { twitterHandler } from './utils/twitter'
+import { gitHubHandler } from './utils/github'
+import { sspaiHandler } from './utils/sspai'
+import { zhihuHandler } from './utils/zhihu'
 
 addEventListener('fetch', event => {
   event.respondWith(handleRequest(event.request))
@@ -100,11 +102,17 @@ async function fetchStats(sources, queryKey) {
       case 'feedly':
         res = await feedlyHandler(queryKey[i])
         break
+      case 'twitter':
+        res = await twitterHandler(queryKey[i])
+        break
+      case 'github':
+        res = await gitHubHandler(queryKey[i])
+        break
       case 'sspai':
         res = await sspaiHandler(queryKey[i])
         break
-      case 'twitter':
-        res = await twitterHandler(queryKey[i])
+      case 'zhihu':
+        res = await zhihuHandler(queryKey[i])
         break
       default:
         // not implemented
