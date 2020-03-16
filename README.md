@@ -141,6 +141,7 @@ And of course, our badges!
   <tr align="center">
     <td><img src="./assets/logo_feedly.png" width="auto" height="50px"/><h6>Feedly</h6></td>
     <td><img src="./assets/logo_github.png" width="auto" height="50px"/><h6>GitHub</h6></td>
+    <td><img src="./assets/logo_ins.png" width="auto" height="50px"/><h6>Instagram</h6></td>
     <td><img src="./assets/logo_sspai.png" width="auto" height="50px"/><h6>少数派</h6></td>
     <td><img src="./assets/logo_twitter.png" width="auto" height="50px"/><h6>Twitter</h6></td>
     <td><img src="./assets/logo_zhihu.png" width="auto" height="50px"/><h6>知乎</h6></td>
@@ -148,6 +149,7 @@ And of course, our badges!
   <tr align="center">
     <td><code>feedly</code></td>
     <td><code>github</code></td>
+    <td><code>instagram</code></td>
     <td><code>sspai</code></td>
     <td><code>twitter</code></td>
     <td><code>zhihu</code></td>
@@ -167,7 +169,19 @@ npm install
 Preview with [cloudflareworkers.com](https://cloudflareworkers.com):
 
 ```bash
-wrangler preview --watch
+npm run dev
+```
+
+Lint JavaScript, Markdown and JSON files with `prettier`:
+
+```bash
+npm run lint
+```
+
+Publish to Cloudflare Workers:
+
+```bash
+npm run publish
 ```
 
 **You can also contribute and help to implement more services that Substats can handle.**
