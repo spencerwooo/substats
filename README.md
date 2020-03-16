@@ -132,14 +132,18 @@ And of course, our badges!
 
 <table>
   <tr align="center">
-    <td><img src="./assets/logo_feedly.png" width="auto" height="50px"/><br><h5>Feedly</h5></td>
-    <td><img src="./assets/logo_sspai.png" width="auto" height="50px"/><br><h5>少数派</h5></td>
-    <td><img src="./assets/logo_twitter.png" width="auto" height="50px"/><br><h5>Twitter</h5></td>
+    <td><img src="./assets/logo_feedly.png" width="auto" height="50px"/><h5>Feedly</h5></td>
+    <td><img src="./assets/logo_github.png" width="auto" height="50px"/><h5>GitHub</h5></td>
+    <td><img src="./assets/logo_sspai.png" width="auto" height="50px"/><h5>少数派</h5></td>
+    <td><img src="./assets/logo_twitter.png" width="auto" height="50px"/><h5>Twitter</h5></td>
+    <td><img src="./assets/logo_zhihu.png" width="auto" height="50px"/><h5>知乎</h5></td>
   </tr>
   <tr align="center">
     <td><code>feedly</code></td>
+    <td><code>github</code></td>
     <td><code>sspai</code></td>
     <td><code>twitter</code></td>
+    <td><code>zhihu</code></td>
   </tr>
 </table>
 
@@ -159,7 +163,7 @@ Preview with [cloudflareworkers.com](https://cloudflareworkers.com):
 wrangler preview --watch
 ```
 
-You can also help me implement more services that Substats can handle.
+**You can also contribute and help to implement more services that Substats can handle.**
 
 ## Disclaimer
 
