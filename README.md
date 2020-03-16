@@ -1,5 +1,4 @@
-<img src="./assets/icons.svg" alt="substats-icon" width="auto" height="100px" align="right">
-<img src="./assets/substats.svg" alt="substats-logo" width="300px" height="auto" />
+<img src="./assets/substats.svg" alt="substats-logo" width="360px" height="auto" />
 
 <h6>Serverless Function to Count How Many People are Subscribed to You in Your Favorite Services</h6>
 
