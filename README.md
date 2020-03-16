@@ -1,8 +1,10 @@
-<img src="./assets/substats.svg" alt="substats-logo" width="360px" height="auto" />
+<img src="./assets/substats.svg" alt="substats-logo" width="300px" height="auto" />
 
-<h5>Serverless Function to Count How Many People are Subscribed to You in Your Favorite Services</h5>
+<img src="./assets/icons.svg" alt="substats-icon" width="auto" height="100px" align="right">
 
-[![Deployed to cloudflare](https://img.shields.io/badge/deployed%20to-Cloudflare%20Workers-f38020?logo=cloudflare)](https://api.spencerwoo.com/substats/)
+<h6>Serverless Function to Count How Many People are Subscribed to You in Your Favorite Services</h6>
+
+[![Deployed to cloudflare](https://img.shields.io/badge/deployed%20on-Cloudflare%20Workers-f38020?logo=cloudflare)](https://api.spencerwoo.com/substats/)
 [![Uptime Robot status](https://img.shields.io/uptimerobot/status/m784533782-966fa87a7f1afd93c9cc4e51?label=status)](https://stats.uptimerobot.com/92yjVTmk63/784533782)
 
 <h2>Table of contents</h2>
@@ -26,12 +28,12 @@ I initially wanted to combine the subscriber numbers of Feedly and Inoreader —
 **PROs:**
 
 - 🧊 Serverless deployment, minimum overhead (powered by Cloudflare)
-- 💨 Ultra-fast reachablility for all services (even in mainland China!)
-- 🍚 Simple integration, easy-to-use API with nice badges provided by [Shields.io](https://shields.io/)
+- 🚀 Ultra-fast reachablility for all services (even in mainland China!)
+- 🎈 Simple integration, easy-to-use API with nice badges provided by [Shields.io](https://shields.io/)
 
 ## API
 
-<h5>Only 'GET' requests are handled in order to integrate with badges.</h5>
+<h6>Only 'GET' requests are handled in order to integrate with badges.</h6>
 
 ### API endpoint
 
@@ -134,15 +136,15 @@ And of course, our badges!
 
 ## Supported services
 
-<h5>For a detailed documentation on the API request rules of each service, please see: <a href="./doc/api.md">Substats Service API Documentation.</a></h5>
+<h6>For a detailed documentation on the API request rules of each service, please see: <a href="./doc/api.md">Substats Service API Documentation.</a></h6>
 
 <table>
   <tr align="center">
-    <td><img src="./assets/logo_feedly.png" width="auto" height="50px"/><h5>Feedly</h5></td>
-    <td><img src="./assets/logo_github.png" width="auto" height="50px"/><h5>GitHub</h5></td>
-    <td><img src="./assets/logo_sspai.png" width="auto" height="50px"/><h5>少数派</h5></td>
-    <td><img src="./assets/logo_twitter.png" width="auto" height="50px"/><h5>Twitter</h5></td>
-    <td><img src="./assets/logo_zhihu.png" width="auto" height="50px"/><h5>知乎</h5></td>
+    <td><img src="./assets/logo_feedly.png" width="auto" height="50px"/><h6>Feedly</h6></td>
+    <td><img src="./assets/logo_github.png" width="auto" height="50px"/><h6>GitHub</h6></td>
+    <td><img src="./assets/logo_sspai.png" width="auto" height="50px"/><h6>少数派</h6></td>
+    <td><img src="./assets/logo_twitter.png" width="auto" height="50px"/><h6>Twitter</h6></td>
+    <td><img src="./assets/logo_zhihu.png" width="auto" height="50px"/><h6>知乎</h6></td>
   </tr>
   <tr align="center">
     <td><code>feedly</code></td>
