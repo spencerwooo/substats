@@ -2,9 +2,9 @@
 
 <h6>Serverless Function to Count How Many People are Subscribed to You in Your Favorite Services</h6>
 
-[![Now on Cloudflare Workers](https://img.shields.io/badge/Now%20on-Cloudflare%20Workers-fa9f1f?logo=cloudflare&logoColor=fa9f1f)](https://api.spencerwoo.com/substats/)
-[![Uptime Robot status](https://img.shields.io/uptimerobot/status/m784533782-966fa87a7f1afd93c9cc4e51?label=Status&color=00B0D8&logo=probot&logoColor=white)](https://stats.uptimerobot.com/92yjVTmk63/784533782)
+[![Now on Cloudflare Workers](https://img.shields.io/badge/Now%20on-Cloudflare%20Workers-f38020?logo=cloudflare&logoColor=f38020)](https://api.spencerwoo.com/substats/)
 [![Deploy](https://github.com/spencerwooo/Substats/workflows/Deploy/badge.svg)](https://github.com/spencerwooo/Substats/actions?query=workflow%3ADeploy)
+[![Uptime Robot status](https://img.shields.io/uptimerobot/status/m784533782-966fa87a7f1afd93c9cc4e51?label=Status&color=00B0D8)](https://stats.uptimerobot.com/92yjVTmk63/784533782)
 
 <h2>Table of contents</h2>
 
