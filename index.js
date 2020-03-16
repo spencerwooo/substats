@@ -1,8 +1,8 @@
 import qs from 'qs'
 
-import { fetchFeedlyStats } from './utils/feedly'
-import { fetchSspaiStats } from './utils/sspai'
-import { fetchTwitterStats } from './utils/twitter'
+import { feedlyHandler } from './utils/feedly'
+import { sspaiHandler } from './utils/sspai'
+import { twitterHandler } from './utils/twitter'
 
 addEventListener('fetch', event => {
   event.respondWith(handleRequest(event.request))
@@ -80,69 +80,49 @@ function parseRequest(req) {
  * @param {list} queryKey Target query key list
  */
 async function fetchStats(sources, queryKey) {
-  let result = {
-      totalSubs: 0,
-      subsInEachSource: {},
-      failedSources: {},
-    },
-    i,
-    subs,
-    response,
-    stats
+  // function's returning value
+  let fetchStatsRes = {
+    totalSubs: 0,
+    subsInEachSource: {},
+    failedSources: {},
+  }
+  // result from upstream service provider
+  let res = {
+    subs: 0,
+    failed: false,
+    failedMsg: '',
+  }
 
-  // iterate over sources list and queryKey list
-  for (i = 0; i < sources.length; i += 1) {
+  // iterate over sources list and queryKey list, we use for loop to accommodate
+  // the await functions more easily
+  for (let i = 0; i < sources.length; i += 1) {
     switch (sources[i]) {
       case 'feedly':
-        response = await fetchFeedlyStats(queryKey[i])
-        stats = await response.json()
-        console.log(response, stats)
-        if (!response.ok) {
-          subs = 0
-          result.failedSources[sources[i]] = stats.errorMessage
-        } else {
-          try {
-            subs = stats.source.subscribers
-          } catch (error) {
-            subs = 0
-            result.failedSources[sources[i]] = 'RSS feed not found on Feedly'
-          }
-        }
-        result.totalSubs += subs
-        result.subsInEachSource[sources[i]] = subs
+        res = await feedlyHandler(queryKey[i])
         break
       case 'sspai':
-        response = await fetchSspaiStats(queryKey[i])
-        stats = await response.json()
-        if (stats.error !== 0) {
-          subs = 0
-          result.failedSources[sources[i]] = stats.msg
-        } else {
-          subs = stats.data.followed_count
-        }
-        result.totalSubs += subs
-        result.subsInEachSource[sources[i]] = subs
+        res = await sspaiHandler(queryKey[i])
         break
       case 'twitter':
-        response = await fetchTwitterStats(queryKey[i])
-        stats = await response.json()
-        if (stats.length === 0) {
-          subs = 0
-          result.failedSources[sources[i]] = 'Twitter user not found'
-        } else {
-          subs = stats[0]['followers_count']
-        }
-        result.totalSubs += subs
-        result.subsInEachSource[sources[i]] = subs
+        res = await twitterHandler(queryKey[i])
         break
       default:
         // not implemented
-        result.subsInEachSource[sources[i]] = 0
-        result.failedSources[sources[i]] = 'Not implemented'
+        res.subs = 0
+        res.failed = true
+        res.failedMsg = 'Not implemented'
+        break
     }
+
+    // populate returned result
+    if (res.failed) {
+      fetchStatsRes.failedSources[sources[i]] = res.failedMsg
+    }
+    fetchStatsRes.totalSubs += res.subs
+    fetchStatsRes.subsInEachSource[sources[i]] = res.subs
   }
 
-  return result
+  return fetchStatsRes
 }
 
 /**
