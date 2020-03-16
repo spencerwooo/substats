@@ -3,11 +3,10 @@
 <h5>Serverless Function to Count How Many People are Subscribed to You in Your Favorite Services</h5>
 
 [![Deployed to cloudflare](https://img.shields.io/badge/deployed%20to-Cloudflare%20Workers-f38020?logo=cloudflare)](https://api.spencerwoo.com/substats/)
-[![Uptime Robot status](https://img.shields.io/uptimerobot/status/m784533782-966fa87a7f1afd93c9cc4e51?label=API%20status)](https://stats.uptimerobot.com/92yjVTmk63/784533782)
+[![Uptime Robot status](https://img.shields.io/uptimerobot/status/m784533782-966fa87a7f1afd93c9cc4e51?label=status)](https://stats.uptimerobot.com/92yjVTmk63/784533782)
 
-## Table of contents
+<h2>Table of contents</h2>
 
-- [Table of contents](#table-of-contents)
 - [Why I did this](#why-i-did-this)
 - [API](#api)
   - [API endpoint](#api-endpoint)
@@ -128,6 +127,8 @@ And of course, our badges!
 [![](https://img.shields.io/badge/dynamic/json?label=Twitter&query=%24.data.subsInEachSource.twitter&url=https%3A%2F%2Fapi.spencerwoo.com%2Fsubstats%2F%3Fsource%3Dsspai%26queryKey%3Dspencerwoo%26source%3Dtwitter%26queryKey%3DrealSpencerWoo&color=1da1f2&logo=twitter&style=for-the-badge)](https://api.spencerwoo.com/substats/?source=sspai&queryKey=spencerwoo&source=twitter&queryKey=realSpencerWoo)
 
 ## Supported services
+
+<h5>For a detailed documentation on the API request rules of each service, please see: <a href="./doc/api.md">doc - api.</a></h5>
 
 <table>
   <tr align="center">
