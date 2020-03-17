@@ -5,14 +5,13 @@
 [![Now on Cloudflare Workers](https://img.shields.io/badge/Now%20on-Cloudflare%20Workers-f38020?logo=cloudflare&logoColor=f38020)](https://api.spencerwoo.com/substats/)
 [![Uptime Robot status](https://img.shields.io/uptimerobot/status/m784533782-966fa87a7f1afd93c9cc4e51?label=Status&color=00B0D8&logo=probot&logoColor=white)](https://stats.uptimerobot.com/92yjVTmk63/784533782)
 [![Deploy](https://github.com/spencerwooo/Substats/workflows/Deploy/badge.svg)](https://github.com/spencerwooo/Substats/actions?query=workflow%3ADeploy)
+[![Netlify](https://img.shields.io/netlify/34dba5ee-8e3f-4c0d-bc4e-1023f4a1c2ae?color=01ad9f&label=Docs&logo=netlify)](https://substats.spencerwoo.com/)
 
 <h2>Table of contents</h2>
 
 - [Why I did this?](#why-i-did-this)
-- [API](#api)
-  - [API endpoint](#api-endpoint)
-  - [Query string](#query-string)
 - [Examples](#examples)
+  - [API endpoint](#api-endpoint)
   - [Single query](#single-query)
   - [Multiple sources with a single query string](#multiple-sources-with-a-single-query-string)
   - [Multiple queries](#multiple-queries)
@@ -30,39 +29,15 @@ I initially wanted to combine the subscriber numbers of Feedly and Inoreader —
 - 🚀 Ultra-fast reachablility for all services (even in mainland China!)
 - 🎈 Simple integration, easy-to-use API with nice badges provided by [Shields.io](https://shields.io/)
 
-## API
+## Examples
 
-<h6>Only 'GET' requests are handled in order to integrate with badges.</h6>
+<h6>Only 'GET' requests are handled in order to integrate with badges. For a detailed documentation on the query format, please see: <a href="https://substats.spencerwoo.com/query.html">Substats Query format.</a></h6>
 
 ### API endpoint
 
 ```
 https://api.spencerwoo.com/substats/
 ```
-
-### Query string
-
-Simple query string:
-
-```http
-GET /?source={SOURCE}&queryKey={QUERY}
-```
-
-Query string shorthand with multiple services and single query (Good for RSS links):
-
-```http
-GET /?source={SOURCE_1}|{SOURCE_2}|{SOURCE_3}&queryKey={QUERY}
-```
-
-Multiple `{ source: queryKey }` combination:
-
-```http
-GET /?source={SOURCE}&queryKey={QUERY}&source={SOURCE}&queryKey={QUERY}&source={SOURCE}&queryKey={QUERY} ....
-```
-
-_List sequence is preserved!_
-
-## Examples
 
 ### Single query
 
@@ -135,7 +110,7 @@ And of course, our badges!
 
 ## Supported services
 
-<h6>For a detailed documentation on the API request rules of each service, please see: <a href="./docs/api.md">Substats API Details.</a></h6>
+<h6>For a detailed documentation on the API request rules of each service, please see: <a href="https://substats.spencerwoo.com/query.html">Substats API Details.</a></h6>
 
 <table>
   <tr align="center">
@@ -160,33 +135,7 @@ And of course, our badges!
 
 ## Development
 
-This is a serverless function deployed on Cloudflare Workers. You should use `wrangler` to build, debug and preview the project.
-
-Install dependencies:
-
-```bash
-npm install
-```
-
-Preview with [cloudflareworkers.com](https://cloudflareworkers.com):
-
-```bash
-npm run dev
-```
-
-Lint JavaScript, Markdown and JSON files with `prettier`:
-
-```bash
-npm run lint
-```
-
-Publish to Cloudflare Workers:
-
-```bash
-npm run publish
-```
-
-**You can also contribute and help to implement more services that Substats can handle.**
+This is a serverless function deployed on Cloudflare Workers. Please check: [How to contribute](https://substats.spencerwoo.com/dev.html) if you want to contribute.
 
 ## Disclaimer
 
