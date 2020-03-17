@@ -23,7 +23,7 @@ GET /?source=feedly&queryKey={QUERY}
 
 ## Social media
 
-### Instagram
+### Instagram <Badge text="new" />
 
 [![](https://img.shields.io/badge/dynamic/json?color=E4405F&label=Instagram%20Followers&query=%24.data.totalSubs&url=https%3A%2F%2Fapi.spencerwoo.com%2Fsubstats%2F%3Fsource%3Dinstagram%26queryKey%3Dvertigo_woo98&logo=instagram&logoColor=white)](https://api.spencerwoo.com/substats/?source=instagram&queryKey=vertigo_woo98)
 
@@ -45,6 +45,21 @@ GET /?source=twitter&queryKey={QUERY}
 - **Source shorthand:** `twitter`
 - **Query key:** Twitter username - the username after `twitter.com/` in your Twitter user profile URL. For instance: a valid Twitter username is the `realSpencerWoo` part in the user profile URL `https://twitter.com/realSpencerWoo`.
 
+### 微博 <Badge text="new" />
+
+[![](https://img.shields.io/badge/dynamic/json?label=%E5%BE%AE%E5%8D%9A%E5%85%B3%E6%B3%A8&query=%24.data.totalSubs&url=https%3A%2F%2Fapi.spencerwoo.com%2Fsubstats%2F%3Fsource%3Dweibo%26queryKey%3D2867502440&color=E6162D&logo=sina-weibo)](https://api.spencerwoo.com/substats/?source=weibo&queryKey=2867502440)
+
+```http
+GET /?source=weibo&queryKey={QUERY}
+```
+
+- **Source shorthand:** `weibo`
+- **Query key:** Weibo `uid` - the user ID after `weibo.com/u/` in your Weibo user profile URL. For instance: a valid Weibo `uid` is the `2867502440` part in the user profile URL `https://weibo.com/u/2867502440`.
+
+:::warning 🚥 Note
+For users who have custom `uid`s for your Weibo account, you can find your `uid` using this method: [什么是微博 uid？怎么查看微博 uid？](http://blog.sina.com.cn/s/blog_9a773e3601010zz9.html)
+:::
+
 ## Dev
 
 ### GitHub
@@ -60,7 +75,7 @@ GET /?source=github&queryKey={QUERY}
 
 ## Websites
 
-### Medium
+### Medium <Badge text="new" />
 
 [![](https://img.shields.io/badge/dynamic/json?label=Medium%20Followers&query=%24.data.totalSubs&url=https%3A%2F%2Fapi.spencerwoo.com%2Fsubstats%2F%3Fsource%3Dmedium%26queryKey%3D%40SpencerWooo&logo=medium&color=12100E)](https://api.spencerwoo.com/substats/?source=medium&queryKey=@SpencerWooo)
 
