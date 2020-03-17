@@ -16,9 +16,28 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
+  min-height: 700px;
   font-family: 'Fira Code', Consolas, Monaco, monospace, Noto Sans CJK SC, Sarasa Gothic SC, Microsoft YaHei, monospace,
     Apple Color Emoji, Segoe UI Emoji;
   background-color: #fafaff;
+}
+
+@media only screen and (max-width: 700px) {
+  body {
+    height: 100%;
+    padding: 2.5rem 1rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
+  #banner {
+    max-width: 100%;
+  }
+
+  #code-banner-container {
+    max-width: 100%;
+  }
 }
 
 h6 {
@@ -55,6 +74,7 @@ h6 {
   padding: 0;
   background-color: transparent;
   border-radius: 0;
+  overflow-wrap: normal;
 }
 
 #code-banner code span {
@@ -95,7 +115,7 @@ h6 {
   right: 0;
   color: hsla(0, 0%, 100%, 0.4);
   font-size: 0.75rem;
-  margin: 0 0.8rem 0.5rem 0;
+  margin: 0 1rem 1rem 0;
 }
 
 strong,
