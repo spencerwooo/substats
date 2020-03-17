@@ -173,7 +173,7 @@ async function handleRequest(request) {
     const greetingResp = {
       status: respInit.ok.status,
       data: {
-        greeting: 'Substats: Begin with a request to see your subscriber count.',
+        greeting: 'Greetings from Substats! For docs, go to: https://substats.spencerwoo.com',
         request: request.url,
       },
     }
@@ -186,7 +186,7 @@ async function handleRequest(request) {
       status: respInit.invalid.status,
       data: {
         err:
-          'Substats: Invalid request. You should structure your query as such: /?source={YOUR_SERVICE_PROVIDER}&queryKey={YOUR_QUERY}',
+          'Substats: Invalid request. You should structure your query like so: /?source={YOUR_SERVICE_PROVIDER}&queryKey={YOUR_QUERY}',
         request: request.url,
       },
     }
