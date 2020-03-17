@@ -2,7 +2,7 @@
 title: Home
 ---
 
-<img src="/img/substats.svg" alt="substats-logo" width="360px" height="auto" >
+<img src="./assets/substats.svg" alt="substats-logo" width="360px" height="auto" >
 
 > Serverless Function to Count How Many People are Subscribed to You in Your Favorite Services
 
@@ -37,8 +37,8 @@ See here for my blog post: [「Substats — 快速统计你在各个平台的关
 <a href="/api.md"><img src="./assets/logo_weibo.png" alt="weibo" width="auto" height="64px"/></a>
 <a href="/api.md"><img src="./assets/logo_zhihu.png" alt="zhihu" width="auto" height="64px"/></a>
 
-## Next
+## What's next?
 
-- For how to structure your requests to accommodate the Substats API, please continue on: [Substats Query Format](/query.md)
-- For a detailed documentation on the API request rules of each service, please see: [Substats API Details](/api.md).
-- To contribute a new platform/service/website, please see: [Contributing](/dev.md)
+- 📖 For how to **structure your requests** to accommodate the Substats API, please continue on: [Docs | Substats Query Format](/query.md).
+- 🎮 For a detailed documentation on the **API request rules of each service**, please continue on: [Docs | Substats API Details](/api.md).
+- 💡 To **contribute** a new platform/service/website integration, please continue on: [Docs | Contributing](/dev.md).

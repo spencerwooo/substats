@@ -2,7 +2,9 @@
 
 ## API
 
-> Only 'GET' requests are handled in order to integrate with badges.
+:::warning 🚦 Note
+Only 'GET' requests are handled in order to integrate with badges.
+:::
 
 ### API endpoint
 

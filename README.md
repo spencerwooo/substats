@@ -31,9 +31,11 @@ I initially wanted to combine the subscriber numbers of Feedly and Inoreader —
 
 ## Examples
 
-<h6>Only 'GET' requests are handled in order to integrate with badges. For a detailed documentation on the query format, please see: <a href="https://substats.spencerwoo.com/query.html">Substats Query format.</a></h6>
+> 📖 For a detailed documentation on the query format, please see: [Docs | Substats Query format](https://substats.spencerwoo.com/query.html).
 
 ### API endpoint
+
+<h6>🚦 Only 'GET' requests are handled in order to integrate with badges. </h6>
 
 ```
 https://api.spencerwoo.com/substats/
@@ -110,7 +112,7 @@ And of course, our badges!
 
 ## Supported services
 
-<h6>For a detailed documentation on the API request rules of each service, please see: <a href="https://substats.spencerwoo.com/api.html">Substats API Details.</a></h6>
+> 📖 For a detailed documentation on the API request rules of each service, please see: [Docs | Substats API Details](https://substats.spencerwoo.com/api.html).
 
 <a href="https://substats.spencerwoo.com/api.html"><img src="./docs/assets/logo_feedly.png" alt="feedly" width="auto" height="64px"/></a>
 <a href="https://substats.spencerwoo.com/api.html"><img src="./docs/assets/logo_twitter.png" alt="twitter" width="auto" height="64px"/></a>
@@ -124,7 +126,7 @@ And of course, our badges!
 
 ## Development
 
-This is a serverless function deployed on Cloudflare Workers. Please check: [How to contribute](https://substats.spencerwoo.com/dev.html) if you want to contribute.
+This is a serverless function deployed on Cloudflare Workers. Please check: [Docs | How to contribute](https://substats.spencerwoo.com/dev.html) if you want to contribute.
 
 ## Disclaimer
 
