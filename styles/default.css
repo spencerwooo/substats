@@ -9,6 +9,8 @@ html {
 }
 
 body {
+  padding: 0;
+  margin: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -16,23 +18,35 @@ body {
   height: 100vh;
   font-family: 'Fira Code', Consolas, Monaco, monospace, Noto Sans CJK SC, Sarasa Gothic SC, Microsoft YaHei, monospace,
     Apple Color Emoji, Segoe UI Emoji;
+  background-color: #fafaff;
 }
 
 h6 {
   font-size: 0.85em;
   color: #6a737d;
-  font-weight: 500;
+  font-weight: 600;
+}
+
+#code-banner-container {
+  perspective: 2000px;
 }
 
 #code-banner {
-  position: relative;
-  padding: 2rem 4rem 2rem 1rem;
-  margin: 3.5rem 0;
+  padding: 1rem 2rem 2rem 1.5rem;
+  margin: 2rem 0;
   overflow: auto;
   font-size: 0.9em;
   line-height: 1.45;
   background-color: #282c34;
-  border-radius: 3px;
+  transform: rotate3d(0, 0, 0, 0deg) rotate(0deg);
+  box-shadow: 2em 4em 6em -2em rgba(0, 0, 0, 0.5), 1em 2em 3.5em -2.5em rgba(0, 0, 0, 0.5);
+  border-radius: 0.5em;
+  will-change: transform;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+#code-banner:hover {
+  transform: rotate3d(0.5, 0.866, 0, 15deg) rotate(1deg);
 }
 
 #code-banner code {
@@ -47,25 +61,57 @@ h6 {
   color: #fff;
 }
 
-#code-banner code #code-class {
+#code-banner code span.accent {
+  color: #f48120;
+}
+
+#code-banner code span.source-highlight {
+  color: #00b0d8;
+}
+
+#code-banner code span.query-highlight {
+  color: #01ad9f;
+}
+
+#code-banner code span.token {
+  transition: opacity 0.25s ease;
+}
+
+#code-banner:hover code span.token {
+  opacity: 0.7;
+}
+
+#code-banner code em {
+  text-transform: uppercase;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 0.75em;
+  color: hsla(0, 0%, 100%, 0.4);
+}
+
+#code-banner #code-class {
   position: absolute;
   bottom: 0;
   right: 0;
   color: hsla(0, 0%, 100%, 0.4);
   font-size: 0.75rem;
-  margin: 0 0.5rem 0.5rem 0;
+  margin: 0 0.8rem 0.5rem 0;
 }
 
 strong,
 em {
-  font-weight: 500;
+  font-weight: 600;
 }
 
 footer {
-  margin-top: 2.5rem;
+  margin-top: 2rem;
   text-align: center;
-  font-size: 0.85em;
+  font-size: 0.75em;
   color: #6a737d;
+}
+
+.first-line {
+  margin-top: 3rem;
 }
 
 .second-line {
@@ -75,10 +121,8 @@ footer {
 a {
   color: #faad3f;
   text-decoration: none;
-  transition-duration: 0.5s;
 }
 
 a:hover {
   text-decoration: underline;
-  transition-duration: 0.5s;
 }
