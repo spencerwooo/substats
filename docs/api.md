@@ -1,21 +1,6 @@
-<img src="../assets/substats.svg" alt="substats-logo" width="360px" height="auto" />
+# API details
 
-<h5>Substats Service API Documentation</h5>
-
-<h2>Table of contents</h2>
-
-- [API endpoint](#api-endpoint)
-- [RSS](#rss)
-  - [Feedly](#feedly)
-- [Social media](#social-media)
-  - [Instagram](#instagram)
-  - [Twitter](#twitter)
-- [Dev](#dev)
-  - [GitHub](#github)
-- [Websites](#websites)
-  - [Medium](#medium)
-  - [少数派](#%e5%b0%91%e6%95%b0%e6%b4%be)
-  - [知乎](#%e7%9f%a5%e4%b9%8e)
+> 🍌 **API docs by services:** detailed API documentation for each service.
 
 ## API endpoint
 
