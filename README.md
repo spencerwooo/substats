@@ -110,7 +110,7 @@ And of course, our badges!
 
 ## Supported services
 
-<h6>For a detailed documentation on the API request rules of each service, please see: <a href="https://substats.spencerwoo.com/query.html">Substats API Details.</a></h6>
+<h6>For a detailed documentation on the API request rules of each service, please see: <a href="https://substats.spencerwoo.com/api.html">Substats API Details.</a></h6>
 
 <table>
   <tr align="center">
