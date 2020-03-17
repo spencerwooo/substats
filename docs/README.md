@@ -41,4 +41,4 @@ See here for my blog post: [「Substats — 快速统计你在各个平台的关
 
 - 📖 For how to **structure your requests** to accommodate the Substats API, please continue on: [Docs | Substats Query Format](/query.md).
 - 🎮 For a detailed documentation on the **API request rules of each service**, please continue on: [Docs | Substats API Details](/api.md).
-- 💡 To **contribute** a new platform/service/website integration, please continue on: [Docs | Contributing](/dev.md).
+- 💡 To **contribute** a new platform/service/website integration, please continue on: [Docs | Contributing](/dev/).

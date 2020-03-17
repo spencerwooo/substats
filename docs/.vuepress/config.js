@@ -20,4 +20,14 @@ module.exports = {
     smoothScroll: true,
     lastUpdated: 'Last Updated',
   },
+  plugins: [
+    [
+      'container',
+      {
+        type: 'vue',
+        before: '<pre class="vue-container"><code>',
+        after: '</code></pre>',
+      },
+    ],
+  ],
 }
