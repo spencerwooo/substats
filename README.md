@@ -120,8 +120,6 @@ And of course, our badges!
     <td><img src="./docs/assets/logo_medium.png" width="auto" height="50px"/><h6>Medium</h6></td>
     <td><img src="./docs/assets/logo_sspai.png" width="auto" height="50px"/><h6>少数派</h6></td>
     <td><img src="./docs/assets/logo_twitter.png" width="auto" height="50px"/><h6>Twitter</h6></td>
-    <td><img src="./docs/assets/logo_weibo.png" width="auto" height="50px"/><h6>微博</h6></td>
-    <td><img src="./docs/assets/logo_zhihu.png" width="auto" height="50px"/><h6>知乎</h6></td>
   </tr>
   <tr align="center">
     <td><code>feedly</code></td>
@@ -130,6 +128,12 @@ And of course, our badges!
     <td><code>medium</code></td>
     <td><code>sspai</code></td>
     <td><code>twitter</code></td>
+  </tr>
+  <tr align="center">
+    <td><img src="./docs/assets/logo_weibo.png" width="auto" height="50px"/><h6>微博</h6></td>
+    <td><img src="./docs/assets/logo_zhihu.png" width="auto" height="50px"/><h6>知乎</h6></td>
+  </tr>
+  <tr align="center">
     <td><code>weibo</code></td>
     <td><code>zhihu</code></td>
   </tr>
