@@ -1,0 +1,84 @@
+/* This is referenced by the worker.js script via jsDelivr
+ * URL: https://cdn.jsdelivr.net/gh/spencerwooo/Substats@{COMMIT_HASH}/styles/default.min.css
+ * You should always commit this CSS file first before referencing it in `index.js`
+ */
+
+html {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: 'Fira Code', Consolas, Monaco, monospace, Noto Sans CJK SC, Sarasa Gothic SC, Microsoft YaHei, monospace,
+    Apple Color Emoji, Segoe UI Emoji;
+}
+
+h6 {
+  font-size: 0.85em;
+  color: #6a737d;
+  font-weight: 500;
+}
+
+#code-banner {
+  position: relative;
+  padding: 2rem 4rem 2rem 1rem;
+  margin: 3.5rem 0;
+  overflow: auto;
+  font-size: 0.9em;
+  line-height: 1.45;
+  background-color: #282c34;
+  border-radius: 3px;
+}
+
+#code-banner code {
+  font-family: 'Fira Code', Consolas, Monaco, monospace;
+  color: #fff;
+  padding: 0;
+  background-color: transparent;
+  border-radius: 0;
+}
+
+#code-banner code span {
+  color: #fff;
+}
+
+#code-banner code #code-class {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  color: hsla(0, 0%, 100%, 0.4);
+  font-size: 0.75rem;
+  margin: 0 0.5rem 0.5rem 0;
+}
+
+strong,
+em {
+  font-weight: 500;
+}
+
+footer {
+  margin-top: 2.5rem;
+  text-align: center;
+  font-size: 0.85em;
+  color: #6a737d;
+}
+
+.second-line {
+  margin-top: 0.4rem;
+}
+
+a {
+  color: #faad3f;
+  text-decoration: none;
+  transition-duration: 0.5s;
+}
+
+a:hover {
+  text-decoration: underline;
+  transition-duration: 0.5s;
+}
