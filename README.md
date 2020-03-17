@@ -1,4 +1,4 @@
-<img src="./assets/substats.svg" alt="substats-logo" width="360px" height="auto" />
+<img src="./docs/assets/substats.svg" alt="substats-logo" width="360px" height="auto" />
 
 <h6>Serverless Function to Count How Many People are Subscribed to You in Your Favorite Services</h6>
 
@@ -135,17 +135,17 @@ And of course, our badges!
 
 ## Supported services
 
-<h6>For a detailed documentation on the API request rules of each service, please see: <a href="./doc/api.md">Substats Service API Documentation.</a></h6>
+<h6>For a detailed documentation on the API request rules of each service, please see: <a href="./docs/api.md">Substats API Details.</a></h6>
 
 <table>
   <tr align="center">
-    <td><img src="./assets/logo_feedly.png" width="auto" height="50px"/><h6>Feedly</h6></td>
-    <td><img src="./assets/logo_github.png" width="auto" height="50px"/><h6>GitHub</h6></td>
-    <td><img src="./assets/logo_ins.png" width="auto" height="50px"/><h6>Instagram</h6></td>
-    <td><img src="./assets/logo_medium.png" width="auto" height="50px"/><h6>Medium</h6></td>
-    <td><img src="./assets/logo_sspai.png" width="auto" height="50px"/><h6>少数派</h6></td>
-    <td><img src="./assets/logo_twitter.png" width="auto" height="50px"/><h6>Twitter</h6></td>
-    <td><img src="./assets/logo_zhihu.png" width="auto" height="50px"/><h6>知乎</h6></td>
+    <td><img src="./docs/assets/logo_feedly.png" width="auto" height="50px"/><h6>Feedly</h6></td>
+    <td><img src="./docs/assets/logo_github.png" width="auto" height="50px"/><h6>GitHub</h6></td>
+    <td><img src="./docs/assets/logo_ins.png" width="auto" height="50px"/><h6>Instagram</h6></td>
+    <td><img src="./docs/assets/logo_medium.png" width="auto" height="50px"/><h6>Medium</h6></td>
+    <td><img src="./docs/assets/logo_sspai.png" width="auto" height="50px"/><h6>少数派</h6></td>
+    <td><img src="./docs/assets/logo_twitter.png" width="auto" height="50px"/><h6>Twitter</h6></td>
+    <td><img src="./docs/assets/logo_zhihu.png" width="auto" height="50px"/><h6>知乎</h6></td>
   </tr>
   <tr align="center">
     <td><code>feedly</code></td>
