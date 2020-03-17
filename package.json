@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "npx prettier --write '**/*.{js,css,json,md}'",
+    "lint": "prettier --write '**/*.{js,css,json,md}'",
     "dev": "wrangler preview --watch",
     "publish": "wrangler publish --env production",
     "docs:dev": "vuepress dev docs",
