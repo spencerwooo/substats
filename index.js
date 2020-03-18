@@ -199,11 +199,11 @@ async function handleRequest(request) {
       <div id="code-banner-container">
         <div id="code-banner">
           <code>
-            <em>Main API</em><br>
-            <span class="token accent">GET</span> <span class="token source-highlight">/?source=</span>{YOUR_SERVICE_PROVIDER}<span class="token query-highlight">?queryKey=</span><span>{YOUR_QUERY}</span><br><br>
+            <em>Query Format</em><br>
+            <span class="token accent">GET</span> <span class="token source-highlight">/?source=</span>{YOUR_SERVICE_PROVIDER}<span class="token query-highlight">&queryKey=</span><span>{YOUR_QUERY}</span><br><br>
             <em>For instance</em><br>
-            <span class="token accent">GET</span> <span class="token source-highlight">/?source=</span>sspai<span class="token query-highlight">?queryKey=</span><span>spencerwoo</span><br>
-            <span class="token accent">GET</span> <span class="token source-highlight">/?source=</span>github<span class="token query-highlight">?queryKey=</span><span>spencerwooo</span><br>
+            <a href="/?source=sspai&queryKey=spencerwoo"><span class="token accent">GET</span> <span class="token source-highlight">/?source=</span><span>sspai</span><span class="token query-highlight">&queryKey=</span><span>spencerwoo</span></a><br>
+            <a href="/?source=github&queryKey=spencerwooo"><span class="token accent">GET</span> <span class="token source-highlight">/?source=</span><span>github</span><span class="token query-highlight">&queryKey=</span><span>spencerwooo</span></a><br>
             <em>...</em>
           </code>
           <span id="code-class">HTTP<span>
