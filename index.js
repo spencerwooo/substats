@@ -108,6 +108,7 @@ async function fetchStats(sources, queryKey) {
     switch (sources[i]) {
       case 'bilibili':
         res = await bilibiliHandler(queryKey[i])
+        break
       case 'feedly':
         res = await feedlyHandler(queryKey[i])
         break
@@ -134,7 +135,6 @@ async function fetchStats(sources, queryKey) {
         break
       case 'weibo':
         res = await weiboHandler(queryKey[i])
-        break
         break
       default:
         // not implemented
