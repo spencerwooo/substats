@@ -25,6 +25,8 @@ GET /?source=feedly&queryKey={QUERY}
 
 ### Bilibili <Badge text="new" />
 
+[![](https://img.shields.io/badge/Bilibili%20Fans-2333-FE7398)](https://api.spencerwoo.com/substats/?source=bilibili&queryKey=208259)
+
 ```http
 GET /?source=bilibili&queryKey={QUERY}
 ```
