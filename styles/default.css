@@ -47,25 +47,27 @@ h6 {
 }
 
 #code-banner-container {
-  perspective: 2000px;
+  perspective: 180px;
 }
 
 #code-banner {
+  position: relative;
   padding: 1rem 2rem 2rem 1.5rem;
   margin: 2rem 0;
   overflow: auto;
   font-size: 0.9em;
   line-height: 1.45;
   background-color: #282c34;
-  transform: rotate3d(0, 0, 0, 0deg) rotate(0deg);
   box-shadow: 2em 4em 6em -2em rgba(0, 0, 0, 0.5), 1em 2em 3.5em -2.5em rgba(0, 0, 0, 0.5);
   border-radius: 0.5em;
-  will-change: transform;
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  -webkit-transition: transform 0.3s ease, box-shadow 0.3s ease;
+  -moz-transition: transform 0.3s ease, box-shadow 0.3s ease;
+  -o-transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-#code-banner:hover {
-  transform: rotate3d(0.5, 0.866, 0, 15deg) rotate(1deg);
+#code-banner a:hover {
+  text-decoration: none;
 }
 
 #code-banner code {
@@ -94,11 +96,12 @@ h6 {
 }
 
 #code-banner code span.token {
-  transition: opacity 0.25s ease;
+  transition: opacity 0.3s ease;
+  opacity: 0.7;
 }
 
 #code-banner:hover code span.token {
-  opacity: 0.7;
+  opacity: 1;
 }
 
 #code-banner code em {
