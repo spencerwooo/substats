@@ -185,6 +185,8 @@ async function handleRequest(request) {
 
   // Empty request, default to landing page
   if (resp.greet) {
+    // latest commit hash for jsDelivr to use when loading external JS and CSS
+    const COMMIT_HASH = 'a5dbafea730dc41afd7c9cf57c0943152171ffd4'
     // Cloudflare doesn't allow static site hosting for free plans,
     // so I have to settle for inline HTML and styles. Sad!
     const landing = `
@@ -195,16 +197,23 @@ async function handleRequest(request) {
       <meta name="viewport" content="width=device-width,initial-scale=1">
       <title>Home | Substats API</title>
       <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
-      <link href="https://cdn.jsdelivr.net/gh/spencerwooo/Substats@5d015b2a87c44bc47f8cc2f64671f34391f9b5b4/styles/default.min.css" rel="stylesheet">
+      <link href="https://cdn.jsdelivr.net/gh/spencerwooo/Substats@${COMMIT_HASH}/styles/default.min.css" rel="stylesheet">
     </head>
     <body>
       <img id="banner" src="https://substats.spencerwoo.com/img/substats.svg" alt="Substats" width="360px" height="auto" />
       <h6>📈📉 Shhhh...we're counting your subscribers!</h6>
       <div>
-        <a href="https://api.spencerwoo.com/substats/"><img src="https://img.shields.io/badge/Now%20on-Cloudflare%20Workers-f38020?logo=cloudflare&logoColor=f38020" alt="Now on Cloudflare Workers" ></a>
-        <a href="https://stats.uptimerobot.com/92yjVTmk63/784533782"><img src="https://img.shields.io/uptimerobot/status/m784533782-966fa87a7f1afd93c9cc4e51?label=Status&color=00B0D8&logo=probot&logoColor=white" alt="Uptime Robot status" ></a>
-        <a href="https://github.com/spencerwooo/Substats/actions?query=workflow%3ADeploy"><img src="https://github.com/spencerwooo/Substats/workflows/Deploy/badge.svg" alt="Deploy" ></a>
-        <a href="https://substats.spencerwoo.com/"><img src="https://img.shields.io/netlify/34dba5ee-8e3f-4c0d-bc4e-1023f4a1c2ae?color=01ad9f&label=Docs&logo=netlify" alt="Netlify" ></a>
+        <a href="https://api.spencerwoo.com/substats/"><img
+            src="https://img.shields.io/badge/Now%20on-Cloudflare%20Workers-f38020?logo=cloudflare&logoColor=f38020"
+            alt="Now on Cloudflare Workers"></a>
+        <a href="https://stats.uptimerobot.com/92yjVTmk63/784533782"><img
+            src="https://img.shields.io/uptimerobot/status/m784533782-966fa87a7f1afd93c9cc4e51?label=Status&color=00B0D8&logo=probot&logoColor=white"
+            alt="Uptime Robot status"></a>
+        <a href="https://github.com/spencerwooo/Substats/actions?query=workflow%3ADeploy"><img
+            src="https://github.com/spencerwooo/Substats/workflows/Deploy/badge.svg" alt="Deploy"></a>
+        <a href="https://substats.spencerwoo.com/"><img
+            src="https://img.shields.io/netlify/34dba5ee-8e3f-4c0d-bc4e-1023f4a1c2ae?color=01ad9f&label=Docs&logo=netlify"
+            alt="Netlify"></a>
       </div>
       <div id="code-banner-container">
         <div id="code-banner">
@@ -215,17 +224,21 @@ async function handleRequest(request) {
             <a href="/substats/?source=sspai&queryKey=spencerwoo"><span class="token accent">GET</span> <span class="token source-highlight">/?source=</span><span>sspai</span><span class="token query-highlight">&queryKey=</span><span>spencerwoo</span></a><br>
             <a href="/substats/?source=github&queryKey=spencerwooo"><span class="token accent">GET</span> <span class="token source-highlight">/?source=</span><span>github</span><span class="token query-highlight">&queryKey=</span><span>spencerwooo</span></a><br>
             <em>...</em>
+            <span id="code-class">HTTP<span>
           </code>
-          <span id="code-class">HTTP<span>
         </div>
       </div>
       <div class="first-line">🚀 IF YOU SEE THIS PAGE, THEN <strong>SUBSTATS</strong> IS UP AND RUNNING.</div>
-      <div class="second-line">🎮 FOR ONLINE DOCUMENTATION, PLEASE REFER TO <a href="https://substats.spencerwoo.com/">SUBSTATS.SPENCERWOO.COM</a>.</div>
+      <div class="second-line">🎮 FOR ONLINE DOCUMENTATION, PLEASE REFER TO <a
+          href="https://substats.spencerwoo.com/">SUBSTATS.SPENCERWOO.COM</a>.</div>
       <footer>
-        <div><a href="https://github.com/spencerwooo/Substats">GITHUB</a> | <a href="https://substats.spencerwoo.com/">DOCUMENTATION</a> | <a href="https://blog.spencerwoo.com/2020/03/substats/">BLOG POST</a></div>
+        <div><a href="https://github.com/spencerwooo/Substats">GITHUB</a> | <a
+            href="https://substats.spencerwoo.com/">DOCUMENTATION</a> | <a
+            href="https://blog.spencerwoo.com/2020/03/substats/">BLOG POST</a></div>
         <div class="second-line">MADE WITH 💗 BY <a href="https://spencerwoo.com">SPENCER WOO</a> ©2020</div>
       </footer>
     </body>
+    <script src="https://cdn.jsdelivr.net/gh/spencerwooo/Substats@${COMMIT_HASH}/styles/default.min.js"></script>
     </html>
     `
     return new Response(landing, respInit.greet)
