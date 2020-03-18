@@ -1,14 +1,17 @@
 import qs from 'qs'
 
+// import API handlers for different platforms
+
+import { bilibiliHandler } from './utils/bilibili'
 import { feedlyHandler } from './utils/feedly'
 import { gitHubHandler } from './utils/github'
 import { instagramHandler } from './utils/instagram'
 import { mediumHandler } from './utils/medium'
 import { sspaiHandler } from './utils/sspai'
+import { telegramHandler } from './utils/telegram'
 import { twitterHandler } from './utils/twitter'
 import { zhihuHandler } from './utils/zhihu'
 import { weiboHandler } from './utils/weibo'
-import { bilibiliHandler } from './utils/bilibili'
 
 addEventListener('fetch', event => {
   event.respondWith(handleRequest(event.request))
@@ -103,6 +106,8 @@ async function fetchStats(sources, queryKey) {
   // the await functions more easily
   for (let i = 0; i < sources.length; i += 1) {
     switch (sources[i]) {
+      case 'bilibili':
+        res = await bilibiliHandler(queryKey[i])
       case 'feedly':
         res = await feedlyHandler(queryKey[i])
         break
@@ -118,6 +123,9 @@ async function fetchStats(sources, queryKey) {
       case 'sspai':
         res = await sspaiHandler(queryKey[i])
         break
+      case 'telegram':
+        res = await telegramHandler(queryKey[i])
+        break
       case 'twitter':
         res = await twitterHandler(queryKey[i])
         break
@@ -127,8 +135,6 @@ async function fetchStats(sources, queryKey) {
       case 'weibo':
         res = await weiboHandler(queryKey[i])
         break
-      case 'bilibili':
-        res = await bilibiliHandler(queryKey[i])
         break
       default:
         // not implemented
