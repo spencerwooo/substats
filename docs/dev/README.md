@@ -8,10 +8,20 @@ sidebar: auto
 
 ## Setting up the project
 
+:::tip 🚥 Note
+You'll need global access to CLI tools installed by `yarn`, so you should add `yarn`'s global binary installation path to your `$PATH`.
+
+```bash
+yarn global bin
+```
+
+You can run the command directly to find the `/bin`'s path.
+:::
+
 Install `wrangler` globally:
 
 ```bash
-yarn global add wrangler
+yarn global add @cloudflare/wrangler
 ```
 
 Install dependencies:
