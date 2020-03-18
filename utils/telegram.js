@@ -7,7 +7,7 @@
  */
 const fetchTelegramStat = chat_id => {
   // Telegram API expects a chat_id
-  const url = `https://api.telegram.org/bot${TG_BOT_TOKEN}/getChatMembersCount?chat_id=${chat_id}`
+  const url = `https://api.telegram.org/bot${TG_BOT_TOKEN}/getChatMembersCount?chat_id=@${chat_id}`
 
   const headers = { 'User-Agent': 'substat-bot' }
   return fetch(url, { headers })
