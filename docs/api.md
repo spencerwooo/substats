@@ -23,6 +23,15 @@ GET /?source=feedly&queryKey={QUERY}
 
 ## Social media
 
+### Bilibili <Badge text="new" />
+
+```http
+GET /?source=bilibili&queryKey={QUERY}
+```
+
+- **Source shorthand:** `bilibili`
+- **Query key:** Bilibili UID - the UID after `space.bilibili.com/` in your Bilibili user profile URL. For instance: a valid Bilibili UID is the `208259` part in the user profile URL `https://space.bilibili.com/208259`.
+
 ### Instagram <Badge text="new" />
 
 [![](https://img.shields.io/badge/dynamic/json?color=E4405F&label=Instagram%20Followers&query=%24.data.totalSubs&url=https%3A%2F%2Fapi.spencerwoo.com%2Fsubstats%2F%3Fsource%3Dinstagram%26queryKey%3Dvertigo_woo98&logo=instagram&logoColor=white)](https://api.spencerwoo.com/substats/?source=instagram&queryKey=vertigo_woo98)
