@@ -47,6 +47,21 @@ GET /?source=instagram&queryKey={QUERY}
 - **Source shorthand:** `instagram`
 - **Query key:** Instagram username - the username after `instagram.com/` in your Instagram user profile URL. For instance: a valid Instagram username is the `vertigo_woo98` part in the user profile URL `https://www.instagram.com/vertigo_woo98`.
 
+### Telegram
+
+:::tip 🪐 Note
+This API is capable of getting both **Telegram Channel subscribers** and **Telegram Group Chat members** if you provide the valid `chat_id` for each service.
+:::
+
+[![](https://img.shields.io/badge/dynamic/json?label=t.me%2FrealSpencerWoo&query=%24.data.totalSubs&url=https%3A%2F%2Fapi.spencerwoo.com%2Fsubstats%2F%3Fsource%3Dtelegram%26queryKey%3DrealSpencerWoo&logo=telegram&color=2CA5E0)](https://api.spencerwoo.com/substats/?source=telegram&queryKey=realSpencerWoo)
+
+```http
+GET /?source=telegram&queryKey={QUERY}
+```
+
+- **Source shorthand:** `telegram`
+- **Query key:** Telegram chat/channel `chat_id` - the `chat_id` after `t.me/` in your Telegram chat/channel URL. For instance: a valid Telegram chat/channel `chat_id` is the `realSpencerWoo` part in the chat/channel URL `https://t.me/realSpencerWoo`.
+
 ### Twitter
 
 [![](https://img.shields.io/badge/dynamic/json?label=Twitter%20Followers&query=%24.data.totalSubs&url=https%3A%2F%2Fapi.spencerwoo.com%2Fsubstats%2F%3Fsource%3Dtwitter%26queryKey%3DrealSpencerWoo&color=1da1f2&logo=twitter)](https://api.spencerwoo.com/substats/?source=twitter&queryKey=realSpencerWoo)
@@ -69,7 +84,7 @@ GET /?source=weibo&queryKey={QUERY}
 - **Source shorthand:** `weibo`
 - **Query key:** Weibo `uid` - the user ID after `weibo.com/u/` in your Weibo user profile URL. For instance: a valid Weibo `uid` is the `2867502440` part in the user profile URL `https://weibo.com/u/2867502440`.
 
-:::warning 🚥 Note
+:::tip 🚥 Note
 For users who have custom `uid`s for your Weibo account, you can find your `uid` using this method: [什么是微博 uid？怎么查看微博 uid？](http://blog.sina.com.cn/s/blog_9a773e3601010zz9.html)
 :::
 
