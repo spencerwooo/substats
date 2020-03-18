@@ -2,7 +2,7 @@
 
 ## API
 
-:::warning 🚦 Note
+:::tip 🚦 Note
 Only 'GET' requests are handled in order to integrate with badges.
 :::
 

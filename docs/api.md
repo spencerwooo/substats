@@ -1,6 +1,8 @@
 # API details
 
-> 🍌 **API docs by services:** detailed API documentation for each service.
+:::tip 🍌 Detailed API reference
+API docs by services: detailed API documentation for each service.
+:::
 
 ## API endpoint
 
