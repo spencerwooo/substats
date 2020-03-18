@@ -8,6 +8,7 @@ import { sspaiHandler } from './utils/sspai'
 import { twitterHandler } from './utils/twitter'
 import { zhihuHandler } from './utils/zhihu'
 import { weiboHandler } from './utils/weibo'
+import { bilibiliHandler } from './utils/bilibili'
 
 addEventListener('fetch', event => {
   event.respondWith(handleRequest(event.request))
@@ -125,6 +126,9 @@ async function fetchStats(sources, queryKey) {
         break
       case 'weibo':
         res = await weiboHandler(queryKey[i])
+        break
+      case 'bilibili':
+        res = await bilibiliHandler(queryKey[i])
         break
       default:
         // not implemented
