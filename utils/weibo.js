@@ -20,6 +20,7 @@ export const weiboHandler = async user_id => {
   const response = await fetchWeiboStat(user_id)
   const stats = await response.json()
   let res = {
+    source: 'weibo',
     subs: 0,
     failed: false,
     failedMsg: '',

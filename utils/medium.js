@@ -19,6 +19,7 @@ const fetchMediumStats = username => {
 export const mediumHandler = async username => {
   let response = await fetchMediumStats(username)
   let res = {
+    source: 'medium',
     subs: 0,
     failed: false,
     failedMsg: '',

@@ -22,6 +22,7 @@ export const twitterHandler = async name => {
   const stats = await response.json()
 
   let res = {
+    source: 'twitter',
     subs: 0,
     failed: false,
     failedMsg: '',

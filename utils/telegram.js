@@ -22,6 +22,7 @@ export const telegramHandler = async chat_id => {
   const response = await fetchTelegramStat(chat_id)
   const stats = await response.json()
   let res = {
+    source: 'telegram',
     subs: 0,
     failed: false,
     failedMsg: '',

@@ -20,6 +20,7 @@ export const zhihuHandler = async url_token => {
   const response = await fetchZhihuStat(url_token)
   const stats = await response.json()
   let res = {
+    source: 'zhihu',
     subs: 0,
     failed: false,
     failedMsg: '',

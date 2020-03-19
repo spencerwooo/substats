@@ -1,17 +1,7 @@
 import qs from 'qs'
 
-// import API handlers for different platforms
-import { bilibiliHandler } from './utils/bilibili'
-import { feedlyHandler } from './utils/feedly'
-import { gitHubHandler } from './utils/github'
-import { instagramHandler } from './utils/instagram'
-import { mediumHandler } from './utils/medium'
-import { newsblurHandler } from './utils/newsblur'
-import { sspaiHandler } from './utils/sspai'
-import { telegramHandler } from './utils/telegram'
-import { twitterHandler } from './utils/twitter'
-import { zhihuHandler } from './utils/zhihu'
-import { weiboHandler } from './utils/weibo'
+// import all handlers from different platforms into a global object
+import { handlerImporter } from './utils/handlerImporter'
 
 addEventListener('fetch', event => {
   event.respondWith(handleRequest(event.request))
@@ -95,66 +85,44 @@ async function fetchStats(sources, queryKey) {
     subsInEachSource: {},
     failedSources: {},
   }
-  // result from upstream service provider
-  let res = {
-    subs: 0,
-    failed: false,
-    failedMsg: '',
-  }
 
-  // iterate over sources list and queryKey list, we use for loop to accommodate
-  // the await functions more easily
-  for (let i = 0; i < sources.length; i += 1) {
-    switch (sources[i]) {
-      case 'bilibili':
-        res = await bilibiliHandler(queryKey[i])
-        break
-      case 'feedly':
-        res = await feedlyHandler(queryKey[i])
-        break
-      case 'github':
-        res = await gitHubHandler(queryKey[i])
-        break
-      case 'instagram':
-        res = await instagramHandler(queryKey[i])
-        break
-      case 'medium':
-        res = await mediumHandler(queryKey[i])
-        break
-      case 'newsblur':
-        res = await newsblurHandler(queryKey[i])
-        break
-      case 'sspai':
-        res = await sspaiHandler(queryKey[i])
-        break
-      case 'telegram':
-        res = await telegramHandler(queryKey[i])
-        break
-      case 'twitter':
-        res = await twitterHandler(queryKey[i])
-        break
-      case 'zhihu':
-        res = await zhihuHandler(queryKey[i])
-        break
-      case 'weibo':
-        res = await weiboHandler(queryKey[i])
-        break
-      default:
-        // not implemented
-        res.subs = 0
-        res.failed = true
-        res.failedMsg = 'Not implemented'
-        break
+  // reference handlers
+  const handlers = handlerImporter()
+
+  // construct big concurrent promise array
+  let resPromise = []
+  sources.forEach((source, i) => {
+    // init source specific array with 0 subs each
+    fetchStatsRes.subsInEachSource[source] = 0
+    // create promise array
+    if (source in handlers) {
+      resPromise.push(handlers[source](queryKey[i]))
+    } else {
+      // not implemented
+      fetchStatsRes.failedSources[source] = 'Not implemented'
     }
+  })
 
-    // populate returned result
-    if (res.failed) {
-      fetchStatsRes.failedSources[sources[i]] = res.failedMsg
-    }
-    fetchStatsRes.totalSubs += res.subs
-    fetchStatsRes.subsInEachSource[sources[i]] = res.subs
-  }
-
+  // parallel requests take off!
+  await Promise.allSettled(resPromise).then(sourceReturns => {
+    sourceReturns.forEach(res => {
+      if (res.status === 'fulfilled') {
+        // promise fulfilled (fetch succeeded)
+        if (res.value.failed) {
+          // error occured on fetch end
+          fetchStatsRes.failedSources[res.value.source] = res.value.failedMsg
+        } else {
+          // successfully fetched subs
+          fetchStatsRes.totalSubs += res.value.subs
+          fetchStatsRes.subsInEachSource[res.value.source] = res.value.subs
+        }
+      }
+      // promise rejected (fetch failed)
+      if (res.status === 'rejected') {
+        fetchStatsRes.failedSources['substats-error'] = res.reason
+      }
+    })
+  })
   return fetchStatsRes
 }
 

@@ -64,6 +64,7 @@ const getCookie = (req, key) => {
  */
 export const newsblurHandler = async rss => {
   let res = {
+    source: 'newsblur',
     subs: 0,
     failed: true,
     failedMsg: '',

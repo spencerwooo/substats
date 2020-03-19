@@ -19,6 +19,7 @@ const fetchInstagramStats = username => {
 export const instagramHandler = async username => {
   const response = await fetchInstagramStats(username)
   let res = {
+    source: 'instagram',
     subs: 0,
     failed: false,
     failedMsg: '',
