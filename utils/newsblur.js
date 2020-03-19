@@ -88,8 +88,9 @@ export const newsblurHandler = async rss => {
         if (stats.result === 'ok') {
           // request success
           if (stats.code === undefined) {
-            // no error code, feed found
+            // no error code, feed found, real success!
             res.subs = stats.subs
+            res.failed = false
           } else {
             // feed not found
             res.failedMsg = stats.message
