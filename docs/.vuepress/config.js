@@ -11,7 +11,6 @@ module.exports = {
     logo: '/img/substats.svg',
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'Builder', link: '/builder/' },
       { text: 'Contribute', link: '/dev/' },
       { text: 'GitHub', link: 'https://github.com/spencerwooo/Substats' },
     ],

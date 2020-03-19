@@ -34,27 +34,29 @@ yarn
 
 The core API backend and the documentations share the same mono-repo. The structure of the project is shown below.
 
+<!-- prettier-ignore-start -->
 ::: vue
 
 .
 📖 _Documentation section_
-├── `docs` _(Documentation, built with VuePress)_
+├── `docs`  _(Documentation, built with VuePress)_
 │   └── ……
 │
 🚡 _API backend_
 ├── index.js _(API starting point)_
 ├── `utils` _(Utility scripts folder)_
 │   ├── handlerImporter.js _(Imports all API handlers from below)_
-│   │
 │   🔑 _API handlers_
-│   ├── feedly.js _(Feedly API integration)_
-│   ├── github.js _(GitHub API integration)_
-│   └── …… _(You get the idea...)_
+│   └── `handlers` _(API integration handlers folder)_
+│       ├── feedly.js _(Feedly API integration)_
+│       ├── github.js _(GitHub API integration)_
+│       └── ……        _(You get the idea...)_
 │
 🚀 _Deployment_
 └── wrangler.toml _(Cloudflare worker deployment config)_
 
 :::
+<!-- prettier-ignore-end -->
 
 ## Building, preview and debugging
 

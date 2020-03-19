@@ -1,15 +1,15 @@
 // import API handlers for different platforms
-import { bilibiliHandler } from './bilibili'
-import { feedlyHandler } from './feedly'
-import { gitHubHandler } from './github'
-import { instagramHandler } from './instagram'
-import { mediumHandler } from './medium'
-import { newsblurHandler } from './newsblur'
-import { sspaiHandler } from './sspai'
-import { telegramHandler } from './telegram'
-import { twitterHandler } from './twitter'
-import { zhihuHandler } from './zhihu'
-import { weiboHandler } from './weibo'
+import { bilibiliHandler } from './handlers/bilibili'
+import { feedlyHandler } from './handlers/feedly'
+import { gitHubHandler } from './handlers/github'
+import { instagramHandler } from './handlers/instagram'
+import { mediumHandler } from './handlers/medium'
+import { newsblurHandler } from './handlers/newsblur'
+import { sspaiHandler } from './handlers/sspai'
+import { telegramHandler } from './handlers/telegram'
+import { twitterHandler } from './handlers/twitter'
+import { zhihuHandler } from './handlers/zhihu'
+import { weiboHandler } from './handlers/weibo'
 
 /**
  * Export implemented handlers to index.js for simple reference
