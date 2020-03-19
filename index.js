@@ -201,6 +201,7 @@ async function handleRequest(request) {
       <title>Home | Substats API</title>
       <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
       <link href="https://cdn.jsdelivr.net/gh/spencerwooo/Substats@${COMMIT_HASH}/styles/default.min.css" rel="stylesheet">
+      <link rel="shortcut icon" type="image/png" sizes="16x16" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACCUlEQVQ4jY2Rz2sTURDHJ0hBPYj4A2yyzcwW7U1UFIrU7Ir/hIfeevAf8KQ28ObZ9qh4KRU8WA2CIVs8elZRhB5EKPWiFTwoWmmSnZeku9HnIbvJNlbsg3d5M3xmvp8HwvjLMG4Ku6uG8YEwTocLJ47DXo8w2V1uQxQ+lrJ75v8ARRvC9F00dncBtUXTvS1Fh/8JsBZyVuUPtudcDJmuhoqeGk2yE4RrUnZO7zlWfRbdkGlRNHUykM22Hiv91dzSxamOGp/YULR/uBYq1wsZP2YgP0TR2Z0OGH+bXv5vomm5qYtTFiCX1tsqXxSm95lIHxrKOZIBDInT2BXGR02VP9bfUhUcYfqU9oRMS5AOEcZKyPhaGM0QbL0x65xKIU3tloT7TrbrauzC4CcAcq05p2AUzhumLGjNLhSO9p0wLWZqTyATFQaT8KIwfR1EomVre41bt1wMGUNhsoZRzE0cBVuZPBQH/o0oKC3Gz/wSAEBTFS8ZTa3EfNwo02Q6wDBVU7hROANxcLkWBb5Nbiuqeed6X0h3h6Slzqb7AKaHENX8KAOwceBdBwDoKOekMEVJ82d7//xIb7vxCWGMk/d3EAX+ywygG694VwAAbBX2CdN6at3M4ygAwJc7zgGTeBCmn9Cueu524FWiFf9FVPNmUmFJ3iXD9NYwvanfRhcAYPUajAjT8947vvoDw+eYQXI6eiYAAAAASUVORK5CYII=" />
     </head>
     <body>
       <img id="banner" src="https://substats.spencerwoo.com/img/substats.svg" alt="Substats" width="360px" height="auto" />
