@@ -18,6 +18,7 @@ const fetchNewsBlurStats = (rss, cookie) => {
 
 /**
  * Authenticate with NewsBlur API
+ * TO-DO: Add CRON job to store cookies in Cloudflare using KV (may require a subscription)
  *
  * @param {string} token NewsBlur login token
  */
@@ -37,7 +38,7 @@ const authNewsBlur = token => {
 
 /**
  * Get NewsBlur login cookie
- * (OMG Cloudflare workers doesn't preserve Cookies? Seriously?)
+ * (OMG Cloudflare Workers don't preserve cookies? Seriously?)
  *
  * @param {string} key cookie name
  */
