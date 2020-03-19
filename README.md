@@ -62,7 +62,7 @@ You can then use the numbers in `data.totalSubs` in a dynamic badge:
 ### Multiple sources with a single query string
 
 ```http
-GET /?source=feedly|inoreader|rsshub&queryKey=https://blog.spencerwoo.com/posts/index.xml
+GET /?source=feedly|inoreader|newsblur&queryKey=https://blog.spencerwoo.com/posts/index.xml
 ```
 
 Which returns:
@@ -71,11 +71,14 @@ Which returns:
 {
   "status": 200,
   "data": {
-    "totalSubs": 13,
-    "subsInEachSource": { "feedly": 13, "inoreader": 0, "rsshub": 0 },
+    "totalSubs": 17,
+    "subsInEachSource": {
+      "feedly": 14,
+      "inoreader": 0,
+      "newsblur": 3
+    },
     "failedSources": {
-      "inoreader": "Not implemented",
-      "rsshub": "Not implemented"
+      "inoreader": "Not implemented"
     }
   }
 }
@@ -83,7 +86,7 @@ Which returns:
 
 Enter the badge!
 
-[![](https://img.shields.io/badge/dynamic/json?label=RSS%20subs&query=%24.data.totalSubs&url=https%3A%2F%2Fapi.spencerwoo.com%2Fsubstats%2F%3Fsource%3Dfeedly%257Cinoreader%257Crsshub%26queryKey%3Dhttps%3A%2F%2Fblog.spencerwoo.com%2Fposts%2Findex.xml&color=ffa500&logo=rss&style=for-the-badge)](https://api.spencerwoo.com/substats/?source=feedly|inoreader|rsshub&queryKey=https://blog.spencerwoo.com/posts/index.xml)
+[![](https://img.shields.io/badge/dynamic/json?label=RSS%20subs&query=%24.data.totalSubs&url=https%3A%2F%2Fapi.spencerwoo.com%2Fsubstats%2F%3Fsource%3Dfeedly%257Cinoreader%257Cnewsblur%26queryKey%3Dhttps%3A%2F%2Fblog.spencerwoo.com%2Fposts%2Findex.xml&color=ffa500&logo=rss&style=for-the-badge)](https://api.spencerwoo.com/substats/?source=feedly|inoreader|newsblur&queryKey=https://blog.spencerwoo.com/posts/index.xml)
 
 ### Multiple queries
 
