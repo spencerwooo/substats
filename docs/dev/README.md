@@ -44,6 +44,9 @@ The core API backend and the documentations share the same mono-repo. The struct
 🚡 _API backend_
 ├── index.js _(API starting point)_
 ├── `utils` _(Utility scripts folder)_
+│   ├── handlerImporter.js _(Imports all API handlers from below)_
+│   │
+│   🔑 _API handlers_
 │   ├── feedly.js _(Feedly API integration)_
 │   ├── github.js _(GitHub API integration)_
 │   └── …… _(You get the idea...)_
@@ -74,10 +77,11 @@ If an API/Service requires authentication, you can store the required token/pass
 You can create a mock account for your desired service, and authenticate with this account. **I strongly discourage you using your personal account for this task.** After you implement an auth-required service, you can make a PR and [email me](mailto:spencerwoo98@gmail.com) the token/password/cookie etc., along with the name of the secret you used. For instance:
 
 ::: vue
+
 <p style="margin-bottom: 0.01rem;">Please upload this secret and token! Thanks.</p>
 
-`Secret name`: YOUR_SERVICE_TOKEN *(Actual variable name used inside the worker)*
-`Secret token`: VGhpcyBpcyBhIHNlY3JldCB0b2tlbiE= *(The secret token itself)*
+`Secret name`: YOUR*SERVICE_TOKEN *(Actual variable name used inside the worker)_
+`Secret token`: VGhpcyBpcyBhIHNlY3JldCB0b2tlbiE= _(The secret token itself)\_
 :::
 
 I will upload and store this value onto Cloudflare Worker before merging the PR. **DO NOT SEND ME YOUR ACTUAL USER ACCOUNT - PASSWORD COMBINATION!**
