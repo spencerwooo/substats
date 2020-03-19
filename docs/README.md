@@ -31,6 +31,7 @@ See here for my blog post: [「Substats — 快速统计你在各个平台的关
 <a href="/api"><img src="./assets/logo_github.png" alt="github" width="auto" height="64px"/></a>
 <a href="/api"><img src="./assets/logo_ins.png" alt="instagram" width="auto" height="64px"/></a>
 <a href="/api"><img src="./assets/logo_medium.png" alt="medium" width="auto" height="64px"/></a>
+<a href="/api"><img src="./assets/logo_newsblur.png" alt="newsblur" width="auto" height="64px"/></a>
 <a href="/api"><img src="./assets/logo_sspai.png" alt="sspai" width="auto" height="64px"/></a>
 <a href="/api"><img src="./assets/logo_tg.png" alt="telegram" width="auto" height="64px"/></a>
 <a href="/api"><img src="./assets/logo_twitter.png" alt="twitter" width="auto" height="64px"/></a>
