@@ -1,12 +1,12 @@
 import qs from 'qs'
 
 // import API handlers for different platforms
-
 import { bilibiliHandler } from './utils/bilibili'
 import { feedlyHandler } from './utils/feedly'
 import { gitHubHandler } from './utils/github'
 import { instagramHandler } from './utils/instagram'
 import { mediumHandler } from './utils/medium'
+import { newsblurHandler } from './utils/newsblur'
 import { sspaiHandler } from './utils/sspai'
 import { telegramHandler } from './utils/telegram'
 import { twitterHandler } from './utils/twitter'
@@ -120,6 +120,9 @@ async function fetchStats(sources, queryKey) {
         break
       case 'medium':
         res = await mediumHandler(queryKey[i])
+        break
+      case 'newsblur':
+        res = await newsblurHandler(queryKey[i])
         break
       case 'sspai':
         res = await sspaiHandler(queryKey[i])
