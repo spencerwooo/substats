@@ -12,6 +12,7 @@ module.exports = {
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Contribute', link: '/dev/' },
+      { text: 'API', link: 'https://api.spencerwoo.com/substats' },
       { text: 'GitHub', link: 'https://github.com/spencerwooo/Substats' },
     ],
     sidebar: ['/', '/query.md', '/api.md'],
