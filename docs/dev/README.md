@@ -67,6 +67,23 @@ Lint JavaScript, Markdown and JSON files with `prettier` (Currently not availabl
 yarn lint
 ```
 
+## Storing secrets and authenticating
+
+If an API/Service requires authentication, you can store the required token/password/cookie etc., with Cloudflare Worker's secret, i.e., environment variables.
+
+You can create a mock account for your desired service, and authenticate with this account. **I strongly discourage you using your personal account for this task.** After you implement an auth-required service, you can make a PR and [email me](mailto:spencerwoo98@gmail.com) the token/password/cookie etc., along with the name of the secret you used. For instance:
+
+::: vue
+<p style="margin-bottom: 0.01rem;">Please upload this secret and token! Thanks.</p>
+
+`Secret name`: YOUR_SERVICE_TOKEN *(Actual variable name used inside the worker)*
+`Secret token`: VGhpcyBpcyBhIHNlY3JldCB0b2tlbiE= *(The secret token itself)*
+:::
+
+I will upload and store this value onto Cloudflare Worker before merging the PR. **DO NOT SEND ME YOUR ACTUAL USER ACCOUNT - PASSWORD COMBINATION!**
+
+An example is the [authentication-required Telegram Bot API](https://github.com/spencerwooo/Substats/blob/master/utils/telegram.js#L1-L14) that I used when implementing the Telegram Channel/Chat group member API. For details on how to use this secret global variable, see: [Environment Variables - Secrets](https://developers.cloudflare.com/workers/reference/apis/environment-variables/).
+
 ## Publishing <Badge text="admin" />
 
 Publish to Cloudflare Workers:
