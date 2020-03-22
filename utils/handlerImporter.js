@@ -1,5 +1,6 @@
 // import API handlers for different platforms
 import { bilibiliHandler } from './handlers/bilibili'
+import { coolapkHandler } from './handlers/coolapk'
 import { feedlyHandler } from './handlers/feedly'
 import { gitHubHandler } from './handlers/github'
 import { instagramHandler } from './handlers/instagram'
@@ -18,6 +19,7 @@ import { zhihuHandler } from './handlers/zhihu'
 export const handlerImporter = () => {
   const handlers = {
     bilibili: bilibiliHandler,
+    coolapk: coolapkHandler,
     feedly: feedlyHandler,
     github: gitHubHandler,
     instagram: instagramHandler,
