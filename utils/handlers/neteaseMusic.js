@@ -5,8 +5,7 @@
  */
 const fetchNeteaseMusic = uid => {
   // Netease Music api module takes user uid as query parameter
-  // TODO: find a valid API
-  const url = `https://music.163.com/#/user/home?id=${uid}`
+  const url = `https://music.163.com/api/v1/user/detail/${uid}`
   const headers = { 'User-Agent': 'substat-bot' }
   return fetch(url, { headers })
 }
@@ -17,11 +16,6 @@ const fetchNeteaseMusic = uid => {
  * @param {string} uid Netease Music user uid
  */
 export const neteaseMusicHandler = async uid => {
-  // TODO: implement netease music API
-  // const response = await fetchNeteaseMusic(uid)
-  // const respHtml = await response.text()
-  // console.log(respHtml)
-
   let res = {
     source: 'neteaseMusic',
     subs: 0,
@@ -29,16 +23,17 @@ export const neteaseMusicHandler = async uid => {
     failedMsg: '',
   }
 
-  try {
-    // TODO: implement netease music fan count
-    const fan_count = 0
-    res.subs = fan_count
-    throw 'To be implemented.'
-  } catch (e) {
+  const response = await fetchNeteaseMusic(uid)
+  const stats = await response.json()
+
+  if (stats.code == 200) {
+    // Netease Music user with uid found
+    res.subs = stats.profile.followeds
+  } else {
     // Netease Music user not found or API failed
     res.failed = true
     res.subs = 0
-    res.failedMsg = e
+    res.failedMsg = 'Netease Music user not found'
   }
   return res
 }
