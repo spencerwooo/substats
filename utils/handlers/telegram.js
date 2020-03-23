@@ -26,7 +26,7 @@ export const telegramHandler = async chatId => {
     source: 'telegram',
     subs: 0,
     failed: false,
-    failedMsg: ''
+    failedMsg: '',
   }
 
   if (stats.ok) {

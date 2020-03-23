@@ -27,12 +27,12 @@ const authNewsBlur = token => {
   const authUrl = 'https://newsblur.com/api/login'
   const authHeaders = {
     'User-Agent': 'substat-bot',
-    'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8'
+    'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8',
   }
   return fetch(authUrl, {
     body: `username=${token}`,
     method: 'POST',
-    headers: authHeaders
+    headers: authHeaders,
   })
 }
 
@@ -67,7 +67,7 @@ export const newsblurHandler = async rss => {
     source: 'newsblur',
     subs: 0,
     failed: true,
-    failedMsg: ''
+    failedMsg: '',
   }
 
   try {

@@ -66,10 +66,16 @@ Preview with [cloudflareworkers.com](https://cloudflareworkers.com):
 yarn dev
 ```
 
-Lint JavaScript, Markdown and JSON files with `prettier` (Currently not available on Windows as a CLI option):
+Lint and automatically fix all fixable JavaScript files with `eslint`:
 
 ```bash
 yarn lint
+```
+
+Prettify all JavaScript files with `prettier`:
+
+```bash
+yarn pretty
 ```
 
 ## Storing secrets and authenticating

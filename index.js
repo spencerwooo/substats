@@ -22,7 +22,7 @@ function parseRequest(req) {
       // service providers
       source: [],
       // query keys (feed link for RSS; username or slug for others)
-      queryKey: []
+      queryKey: [],
     }
 
     const url = new URL(req)
@@ -83,7 +83,7 @@ async function fetchStats(sources, queryKey) {
   const fetchStatsRes = {
     totalSubs: 0,
     subsInEachSource: {},
-    failedSources: {}
+    failedSources: {},
   }
 
   // reference handlers
@@ -136,7 +136,7 @@ async function handleRequest(request) {
     ok: { status: 200, headers: { 'content-type': 'application/json' } },
     greet: { status: 200, headers: { 'content-type': 'text/html' } },
     ban: { status: 403, headers: { 'content-type': 'application/json' } },
-    invalid: { status: 400, headers: { 'content-type': 'application/json' } }
+    invalid: { status: 400, headers: { 'content-type': 'application/json' } },
   }
   let response = null
 
@@ -146,8 +146,8 @@ async function handleRequest(request) {
       status: respInit.ban.status,
       data: {
         errorMsg: 'Substats: Sorry, only GET requests are accepted.',
-        requestMethod: request.method
-      }
+        requestMethod: request.method,
+      },
     }
     return new Response(JSON.stringify(errorResp), respInit.ban)
   }
@@ -223,8 +223,8 @@ async function handleRequest(request) {
       data: {
         err:
           'Substats: Invalid request. You should structure your query like so: /?source={YOUR_SERVICE_PROVIDER}&queryKey={YOUR_QUERY}',
-        request: request.url
-      }
+        request: request.url,
+      },
     }
     return new Response(JSON.stringify(invalidResp), respInit.invalid)
   }
@@ -234,7 +234,7 @@ async function handleRequest(request) {
 
   const finalResp = {
     status: respInit.ok.status,
-    data: result
+    data: result,
   }
 
   response = new Response(JSON.stringify(finalResp), respInit.ok)

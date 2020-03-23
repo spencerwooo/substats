@@ -7,6 +7,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint utils/**/* *.js --color --fix",
+    "pretty": "prettier utils/**/*.js docs/**/*.{js,css,json,md} *.{js,css,json,md} --write",
     "dev": "wrangler preview --watch",
     "publish": "wrangler publish --env production",
     "docs:dev": "vuepress dev docs",

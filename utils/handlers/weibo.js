@@ -23,7 +23,7 @@ export const weiboHandler = async userId => {
     source: 'weibo',
     subs: 0,
     failed: false,
-    failedMsg: ''
+    failedMsg: '',
   }
 
   if (!stats.ok) {

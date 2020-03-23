@@ -20,7 +20,7 @@ export const neteaseMusicHandler = async uid => {
     source: 'neteaseMusic',
     subs: 0,
     failed: false,
-    failedMsg: ''
+    failedMsg: '',
   }
 
   const response = await fetchNeteaseMusic(uid)

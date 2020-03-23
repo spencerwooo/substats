@@ -23,7 +23,7 @@ export const zhihuHandler = async urlToken => {
     source: 'zhihu',
     subs: 0,
     failed: false,
-    failedMsg: ''
+    failedMsg: '',
   }
 
   if (response.status !== 200) {
