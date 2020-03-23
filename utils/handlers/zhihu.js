@@ -1,11 +1,11 @@
 /**
  * Fetch follower stats from Zhihu
  *
- * @param {string} url_token Zhihu user url_token
+ * @param {string} urlToken Zhihu user urlToken
  */
-const fetchZhihuStat = url_token => {
-  // zhihu api module takes user url_token as query parameter
-  const url = `https://www.zhihu.com/api/v4/members/${url_token}/followers?limit=1`
+const fetchZhihuStat = urlToken => {
+  // zhihu api module takes user urlToken as query parameter
+  const url = `https://www.zhihu.com/api/v4/members/${urlToken}/followers?limit=1`
 
   const headers = { 'User-Agent': 'substat-bot' }
   return fetch(url, { headers })
@@ -14,16 +14,16 @@ const fetchZhihuStat = url_token => {
 /**
  * Zhihu API response handler
  *
- * @param {string} url_token Zhihu user url_token
+ * @param {string} urlToken Zhihu user urlToken
  */
-export const zhihuHandler = async url_token => {
-  const response = await fetchZhihuStat(url_token)
+export const zhihuHandler = async urlToken => {
+  const response = await fetchZhihuStat(urlToken)
   const stats = await response.json()
-  let res = {
+  const res = {
     source: 'zhihu',
     subs: 0,
     failed: false,
-    failedMsg: '',
+    failedMsg: ''
   }
 
   if (response.status !== 200) {

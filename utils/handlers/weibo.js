@@ -1,11 +1,11 @@
 /**
  * Get Info about Weibo
  *
- * @param {string} user_id Weibo user ID
+ * @param {string} userId Weibo user ID
  */
-const fetchWeiboStat = user_id => {
+const fetchWeiboStat = userId => {
   // Weibo API expects a user ID
-  const url = `https://m.weibo.cn/api/container/getIndex?containerid=100505${user_id}`
+  const url = `https://m.weibo.cn/api/container/getIndex?containerid=100505${userId}`
 
   const headers = { 'User-Agent': 'substat-bot' }
   return fetch(url, { headers })
@@ -14,16 +14,16 @@ const fetchWeiboStat = user_id => {
 /**
  * Weibo API response handler
  *
- * @param {string} user_id Weibo user ID
+ * @param {string} userId Weibo user ID
  */
-export const weiboHandler = async user_id => {
-  const response = await fetchWeiboStat(user_id)
+export const weiboHandler = async userId => {
+  const response = await fetchWeiboStat(userId)
   const stats = await response.json()
-  let res = {
+  const res = {
     source: 'weibo',
     subs: 0,
     failed: false,
-    failedMsg: '',
+    failedMsg: ''
   }
 
   if (!stats.ok) {

@@ -19,7 +19,7 @@ const fetchSspaiStats = slug => {
 export const sspaiHandler = async slug => {
   const response = await fetchSspaiStats(slug)
   const stats = await response.json()
-  let res = {
+  const res = {
     source: 'sspai',
     subs: 0,
     failed: false,

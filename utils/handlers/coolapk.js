@@ -30,7 +30,7 @@ const fetchCoolapkStat = uid => {
       'QRTBCOgkUTgsTat9WYphFI7kWbvFWaYByO1YjOCdjOxAjOxEkOFJjODlDI7ATNxMjM5MTOxcjMwAjN0AyOxEjNwgDNxITM2kDMzcTOgsTZzkTZlJ2MwUDNhJ2MyYzM',
     Host: 'api.coolapk.com',
     'X-Dark-Mode': '0',
-    'X-App-Token': token,
+    'X-App-Token': token
   }
   return fetch(url, { headers })
 }
@@ -65,11 +65,11 @@ const getAppToken = () => {
  * @param {string} uid Coolapk user uid
  */
 export const coolapkHandler = async uid => {
-  let res = {
+  const res = {
     source: 'coolapk',
     subs: 0,
     failed: false,
-    failedMsg: '',
+    failedMsg: ''
   }
 
   const response = await fetchCoolapkStat(uid)

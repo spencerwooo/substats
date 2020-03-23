@@ -21,7 +21,7 @@ const fetchFeedlyStats = rss => {
 export const feedlyHandler = async rss => {
   const response = await fetchFeedlyStats(rss)
   const stats = await response.json()
-  let res = {
+  const res = {
     source: 'feedly',
     subs: 0,
     failed: false,

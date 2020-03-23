@@ -27,12 +27,12 @@ const authNewsBlur = token => {
   const authUrl = 'https://newsblur.com/api/login'
   const authHeaders = {
     'User-Agent': 'substat-bot',
-    'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8',
+    'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8'
   }
   return fetch(authUrl, {
     body: `username=${token}`,
     method: 'POST',
-    headers: authHeaders,
+    headers: authHeaders
   })
 }
 
@@ -44,11 +44,11 @@ const authNewsBlur = token => {
  */
 const getCookie = (req, key) => {
   let result = null
-  let cookieString = req.headers.get('Set-Cookie')
+  const cookieString = req.headers.get('Set-Cookie')
   if (cookieString) {
-    let cookies = cookieString.split(';')
+    const cookies = cookieString.split(';')
     cookies.forEach(cookie => {
-      let cookieName = cookie.split('=')[0].trim()
+      const cookieName = cookie.split('=')[0].trim()
       if (cookieName === key) {
         result = cookie
       }
@@ -63,15 +63,16 @@ const getCookie = (req, key) => {
  * @param {string} rss NewsBlur RSS feed url to query
  */
 export const newsblurHandler = async rss => {
-  let res = {
+  const res = {
     source: 'newsblur',
     subs: 0,
     failed: true,
-    failedMsg: '',
+    failedMsg: ''
   }
 
   try {
     // authenticate first
+    // eslint-disable-next-line no-undef
     const newsblurLoginResp = await authNewsBlur(NEWSBLUR_TOKEN)
     const newsblurLoginStat = await newsblurLoginResp.json()
 
@@ -84,7 +85,7 @@ export const newsblurHandler = async rss => {
       const cookie = getCookie(newsblurLoginResp, 'newsblur_sessionid')
       const response = await fetchNewsBlurStats(rss, cookie)
 
-      if (response.status == 200) {
+      if (response.status === 200) {
         const stats = await response.json()
 
         if (stats.result === 'ok') {

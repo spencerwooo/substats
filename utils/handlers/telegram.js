@@ -3,11 +3,12 @@
  * API description: https://core.telegram.org/bots/api#getchatmemberscount
  * Auth: {TG_BOT_TOKEN}, stored securely inside Cloudflare Worker's Secrets
  *
- * @param {string} chat_id Telegram user ID
+ * @param {string} chatId Telegram user ID
  */
-const fetchTelegramStat = chat_id => {
-  // Telegram API expects a chat_id
-  const url = `https://api.telegram.org/bot${TG_BOT_TOKEN}/getChatMembersCount?chat_id=@${chat_id}`
+const fetchTelegramStat = chatId => {
+  // Telegram API expects a chatId
+  // eslint-disable-next-line no-undef
+  const url = `https://api.telegram.org/bot${TG_BOT_TOKEN}/getChatMembersCount?chat_id=@${chatId}`
 
   const headers = { 'User-Agent': 'substat-bot' }
   return fetch(url, { headers })
@@ -16,16 +17,16 @@ const fetchTelegramStat = chat_id => {
 /**
  * Telegram API response handler
  *
- * @param {string} chat_id Telegram channel or group's chat_id
+ * @param {string} chatId Telegram channel or group's chatId
  */
-export const telegramHandler = async chat_id => {
-  const response = await fetchTelegramStat(chat_id)
+export const telegramHandler = async chatId => {
+  const response = await fetchTelegramStat(chatId)
   const stats = await response.json()
-  let res = {
+  const res = {
     source: 'telegram',
     subs: 0,
     failed: false,
-    failedMsg: '',
+    failedMsg: ''
   }
 
   if (stats.ok) {

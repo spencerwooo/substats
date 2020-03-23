@@ -18,7 +18,7 @@ const fetchBilibiliStat = uid => {
 export const bilibiliHandler = async uid => {
   const response = await fetchBilibiliStat(uid)
   const stats = await response.json()
-  let res = {
+  const res = {
     source: 'bilibili',
     subs: 0,
     failed: false,

@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "prettier --write '**/*.{js,css,json,md}'",
+    "lint": "eslint utils/**/* *.js --color --fix",
     "dev": "wrangler preview --watch",
     "publish": "wrangler publish --env production",
     "docs:dev": "vuepress dev docs",
@@ -15,6 +15,14 @@
   "author": "spencerwooo <spencerwoo98@foxmail.com>",
   "license": "MIT",
   "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.1",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
     "prettier": "^1.18.2",
     "vuepress": "^1.3.1"
   },

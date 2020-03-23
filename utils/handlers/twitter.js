@@ -21,7 +21,7 @@ export const twitterHandler = async name => {
   const response = await fetchTwitterStats(name)
   const stats = await response.json()
 
-  let res = {
+  const res = {
     source: 'twitter',
     subs: 0,
     failed: false,
@@ -35,7 +35,7 @@ export const twitterHandler = async name => {
     res.failedMsg = 'Twitter user not found'
   } else {
     // found twitter account
-    res.subs = stats[0]['followers_count']
+    res.subs = stats[0].followers_count
   }
 
   return res

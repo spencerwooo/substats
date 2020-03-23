@@ -19,7 +19,7 @@ const fetchGitHubStats = login => {
 export const gitHubHandler = async login => {
   const response = await fetchGitHubStats(login)
   const stats = await response.json()
-  let res = {
+  const res = {
     source: 'github',
     subs: 0,
     failed: false,

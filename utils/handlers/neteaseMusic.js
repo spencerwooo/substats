@@ -16,17 +16,17 @@ const fetchNeteaseMusic = uid => {
  * @param {string} uid Netease Music user uid
  */
 export const neteaseMusicHandler = async uid => {
-  let res = {
+  const res = {
     source: 'neteaseMusic',
     subs: 0,
     failed: false,
-    failedMsg: '',
+    failedMsg: ''
   }
 
   const response = await fetchNeteaseMusic(uid)
   const stats = await response.json()
 
-  if (stats.code == 200) {
+  if (stats.code === 200) {
     // Netease Music user with uid found
     res.subs = stats.profile.followeds
   } else {

@@ -18,7 +18,7 @@ const fetchMediumStats = username => {
  */
 export const mediumHandler = async username => {
   let response = await fetchMediumStats(username)
-  let res = {
+  const res = {
     source: 'medium',
     subs: 0,
     failed: false,
@@ -31,7 +31,7 @@ export const mediumHandler = async username => {
   // default Medium API returns application/text
   response = await response.text()
   // remove leading weird character, then parse Medium response in JSON
-  let stats = JSON.parse(response.replace(JSON_HIJACKING_PREFIX, ''))
+  const stats = JSON.parse(response.replace(JSON_HIJACKING_PREFIX, ''))
 
   // Medium user found
   if (stats.success) {
