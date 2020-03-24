@@ -7,7 +7,7 @@
 [![Deploy](https://github.com/spencerwooo/Substats/workflows/Deploy/badge.svg)](https://github.com/spencerwooo/Substats/actions?query=workflow%3ADeploy)
 [![Netlify](https://img.shields.io/netlify/34dba5ee-8e3f-4c0d-bc4e-1023f4a1c2ae?color=01ad9f&label=Docs&logo=netlify)](https://substats.spencerwoo.com/)
 
-<h6><a href="https://api.spencerwoo.com/substats">🚡 API endpoint</a> | <a href="https://stats.uptimerobot.com/92yjVTmk63/784533782">⏰ Status monitor</a> | <a href="https://substats.spencerwoo.com">📖 Documentation</a></h6>
+[🚩 API endpoint](https://api.spencerwoo.com/substats) · [🚦 Status monitor](https://stats.uptimerobot.com/92yjVTmk63/784533782) · [📖 Documentation](https://substats.spencerwoo.com)
 
 <h2>Table of contents</h2>
 
