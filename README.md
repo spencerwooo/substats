@@ -133,6 +133,7 @@ And of course, our badges!
 <a href="https://substats.spencerwoo.com/api.html"><img src="./docs/assets/logo_newsblur.png" alt="newsblur" width="auto" height="64px"/></a>
 <a href="https://substats.spencerwoo.com/api.html"><img src="./docs/assets/logo_reddit.png" alt="reddit" width="auto" height="64px"/></a>
 <a href="https://substats.spencerwoo.com/api.html"><img src="./docs/assets/logo_sspai.png" alt="sspai" width="auto" height="64px"/></a>
+<a href="https://substats.spencerwoo.com/api.html"><img src="./docs/assets/logo_steam.png" alt="steam" width="auto" height="64px"/></a>
 <a href="https://substats.spencerwoo.com/api.html"><img src="./docs/assets/logo_tg.png" alt="telegram" width="auto" height="64px"/></a>
 <a href="https://substats.spencerwoo.com/api.html"><img src="./docs/assets/logo_twitter.png" alt="twitter" width="auto" height="64px"/></a>
 <a href="https://substats.spencerwoo.com/api.html"><img src="./docs/assets/logo_weibo.png" alt="weibo" width="auto" height="64px"/></a>
