@@ -5,7 +5,7 @@
  */
 const fetchInoreaderStats = rss => {
   // encode inoreader API requests
-  const req = encodeURIComponent(`${rss}`)
+  const req = encodeURIComponent(rss)
 
   // inoreader api module takes an encoded `feed/{link}` URL as query parameter
   const url = `https://www.inoreader.com/autocomplete.php?origin=smart_search&term=${req}`
