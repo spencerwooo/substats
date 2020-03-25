@@ -23,7 +23,22 @@ GET /?source=feedly&queryKey={QUERY}
 - **Source shorthand:** `feedly`
 - **Query key:** the target RSS link, like `https://blog.spencerwoo.com/posts/index.xml` for example. If the feed is not found, 0 subscribers will be returned.
 
-### NewsBlur <Badge text="new" /> <Badge text="slow" type="warning" />
+### Inoreader <Badge text="new" />
+
+:::tip 🌋 Limitations
+Due to Inoreader API limitations, if your feed's total subscribers is larger than 1000, for instance: 6k subs, the Inoreader API will only return `6k`. **In order to compensate for this issue, our API will return the number `6000`.**
+:::
+
+[![Spencer's Blog - Inoreader RSS subscribers](https://img.shields.io/badge/dynamic/json?label=Inoreader%20RSS%20Subscribers&query=%24.data.totalSubs&url=https%3A%2F%2Fapi.spencerwoo.com%2Fsubstats%2F%3Fsource%3Dinoreader%26queryKey%3Dhttps%3A%2F%2Fblog.spencerwoo.com%2Fposts%2Findex.xml&color=282c34&logo=data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNzIiIGhlaWdodD0iNzIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTM2IDBjMTkuODgyIDAgMzYgMTYuMTE4IDM2IDM2UzU1Ljg4MiA3MiAzNiA3MiAwIDU1Ljg4MiAwIDM2IDE2LjExOCAwIDM2IDB6bS03Ljk5IDMwLjk4QzIwLjgyNSAzMC45OCAxNSAzNi44MDQgMTUgNDMuOTkgMTUgNTEuMTc1IDIwLjgyNSA1NyAyOC4wMSA1N2M3LjE4MyAwIDEzLjAwOS01LjgyNSAxMy4wMDktMTMuMDExIDAtNy4xODUtNS44MjYtMTMuMDA5LTEzLjAwOS0xMy4wMDl6bTMuNjcgNS41NjVhMy43MjcgMy43MjcgMCAxMS0uMDA1IDcuNDU0IDMuNzI3IDMuNzI3IDAgMDEuMDA0LTcuNDU0em0tMy42Ny0xNC43NTh2NC42ODdjOS42NTYgMCAxNy41MTYgNy44NTggMTcuNTE2IDE3LjUxNWg0LjY4OWMwLTEyLjI0Mi05Ljk2MS0yMi4yMDItMjIuMjA1LTIyLjIwMnptMC05Ljc4N3Y0LjY4N2M3LjI5MiAwIDE0LjE0OCAyLjg0IDE5LjMwNiA3Ljk5OCA1LjE1OCA1LjE1NyA3Ljk5NSAxMi4wMTQgNy45OTUgMTkuMzA0SDYwYzAtOC41NDQtMy4zMjgtMTYuNTc3LTkuMzctMjIuNjJDNDQuNTg1IDE1LjMyNiAzNi41NTQgMTIgMjguMDEgMTJ6IiBmaWxsPSIjRkZGIiBmaWxsLXJ1bGU9Im5vbnplcm8iLz48L3N2Zz4=&labelColor=007bc7&longCache=true)](https://api.spencerwoo.com/substats/?source=inoreader&queryKey=https://blog.spencerwoo.com/posts/index.xml)
+
+```http
+GET /?source=inoreader&queryKey={QUERY}
+```
+
+- **Source shorthand:** `inoreader`
+- **Query key:** the target RSS link, like `https://blog.spencerwoo.com/posts/index.xml` for example. If the feed is not found, 0 subscribers will be returned.
+
+### NewsBlur <Badge text="slow" type="warning" />
 
 :::tip 🐢 Slow API
 **Substat's NewsBlur route sometimes suffer from frequent latencies** because: ① NewsBlur API itself is not so fast and, ② the API requires authentication. So each time you send a request to Substat, **Substat need to log itself in first**. As my Cloudflare Worker account is a free account, **I don't have access to KV storage** and **Cloudflare Workers itself doesn't provide CRON jobs**, thus I cannot persist the token and have to request for it each time instead.
@@ -40,7 +55,7 @@ GET /?source=newsblur&queryKey={QUERY}
 
 ## Social media
 
-### Bilibili <Badge text="new" />
+### Bilibili
 
 [![Bilibili CEO - 陈睿](https://img.shields.io/badge/dynamic/json?color=FE7398&label=bilibili%20fans&query=%24.data.totalSubs&url=https%3A%2F%2Fapi.spencerwoo.com%2Fsubstats%2F%3Fsource%3Dbilibili%26queryKey%3D208259&logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAD7ElEQVR4nO2dW9WrMBCFK6ESkFAJSKiESqgEHCABCZWAhEpAAhL2ecik5dDc/pXLBDLfWnlqy0xmJ5BMQnq5CIIgCIIgCIIgCIIgCEIBAHQAemYfrgCunD6wAKAHsEKxALgx+bCQD8/S9tmgVqeDr1lLigDgZvDhXso+K9TyTBQRwRJ8AHjntl0Flh5QRAQK/mKxPeayWx2OXpBNBKiHvi34b7T2MC4pAvW6twR/RwkRKPizBN8CgEcuESj4Lwm+BwBjahEk+H8EwJRKhOaCDzW8e1JLfkUUH1NgmR3XmHffHR1l+72BSs8d7w8U+JDAnZERQMcV+CtUi7dNqFqibB4J7vtrq7xKCuAasbTMXCL4T+5aVk6+2xHUrWdhruAR6HIJcOeu2UHI8zyAe2ytWfEdWz9PVvQ8YAmIQ5dDAB9LFsMVAv8oMO2zAGrC5WNIarRiAuKR9jYEd9pY08aa6uUzIHGRdkgKd8pY0yc1WjEBAqypDYoAG0QAZkQAZkQAZkQAZk4vANQenjsSzS3I/wcSbXU5jQBUkRtdf4Rar90v8kSv3+I3ffCCSpk8I/w+lgDkdI/v2rEp2CaiWm1AsDQLlDAD+dlFXLMeAaCSeLZdaSFE5VUQNot38cKuEeBgAsSuG0flVZBmEanbXfNQAsS0fgBYIn2fIu3/BBMHEyBmDXlFfA8IzeHb+Ems4WAChKykrVA9ZfsQTL57jXzRg4A5wC/A8N4ADiZAZwm2XjW75Qh2KOTfA0p4kygPw28OJcCVgn3nDnYo2EwEYRgGH0qAMyICMCMCMCMCMCMCMCMCMCMCfP3qwHDOQ4AAUekTk8FaBRihJnZdYbvtCGC7LvmkM63GjVDINPFrQgCq5ETXfmMzI90FXzPvfqt7x4rEu/ZaEcCUxFvgz2zO+BUn6UkoaEEAsptiMSX5e8FoRYCN7cVgb4Vq7U/H50Pq4JNP7Qiw8UFnJwcK+tXy+Wj6PLEvPgHSHv5UgwA1IQIwwyFAyLJin9RoxYgAzAQIkPwNmf26busC+OIx5TDqo5nDT+F/SS/9CYzwb+No49zNy2evkYv0LywGGAXUvp6eSneycqOic0w20k7CNgKE7jJunSGLACTCxF27ylmQc98T5MQUH49swd+I0HPXslLKnT0N+wnkrTKi9JZL/L9i1SorMmdeQ4TQQ7OFMxIMzGD45w8nUL1im7efENZLJpgPSw0pfz0cdt4U3230Td/Tvx2R6d2FrHhEWLkq5PELOMsRPHCPnAZGv1xJteL7jbJiaW3sB2nDvPC/osSYvjRQz4cJ6n7KO3rYQL7M+L6nVtfDVRAEQRAEQRAEQRAEIZ5/SAXmdfXaoQsAAAAASUVORK5CYII=&longCache=true)](https://api.spencerwoo.com/substats/?source=bilibili&queryKey=208259)
 
@@ -77,7 +92,7 @@ GET /?source=instagram&queryKey={QUERY}
 - **Source shorthand:** `instagram`
 - **Query key:** Instagram username - the username after `instagram.com/` in your Instagram user profile URL. For instance: a valid Instagram username is the `vertigo_woo98` part in the user profile URL `https://www.instagram.com/vertigo_woo98`.
 
-### Telegram <Badge text="new" />
+### Telegram
 
 :::tip 🪐 Note
 This API is capable of getting both **Telegram Channel subscribers** and **Telegram Group Chat members** if you provide the valid `chat_id` for each service.
@@ -157,7 +172,7 @@ GET /?source=medium&queryKey={QUERY}
 - **Source shorthand:** `medium`
 - **Query key:** Medium `username` - the username after `medium.com/` in your Medium user profile URL. For instance: a valid `username` is the `@SpencerWooo` part in the user profile URL `https://medium.com/@SpencerWooo`.
 
-### Reddit
+### Reddit <Badge text="new" />
 
 :::tip 🛹 Note
 This API fetches the user's **Reddit Karma: the scoreboard of Reddit.** Further reading: [What is Reddit karma, and how do people benefit from having more of it?](https://www.quora.com/What-is-Reddit-karma-and-how-do-people-benefit-from-having-more-of-it)
