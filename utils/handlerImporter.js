@@ -5,8 +5,9 @@ import { feedlyHandler } from './handlers/feedly'
 import { gitHubHandler } from './handlers/github'
 import { instagramHandler } from './handlers/instagram'
 import { mediumHandler } from './handlers/medium'
-import { newsblurHandler } from './handlers/newsblur'
 import { neteaseMusicHandler } from './handlers/neteaseMusic'
+import { newsblurHandler } from './handlers/newsblur'
+import { redditHandler } from './handlers/reddit'
 import { sspaiHandler } from './handlers/sspai'
 import { telegramHandler } from './handlers/telegram'
 import { twitterHandler } from './handlers/twitter'
@@ -25,6 +26,7 @@ export const handlerImporter = () => {
     instagram: instagramHandler,
     medium: mediumHandler,
     newsblur: newsblurHandler,
+    reddit: redditHandler,
     neteaseMusic: neteaseMusicHandler,
     sspai: sspaiHandler,
     telegram: telegramHandler,
