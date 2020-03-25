@@ -66,15 +66,13 @@ Which returns:
 {
   "status": 200,
   "data": {
-    "totalSubs": 17,
+    "totalSubs": 49,
     "subsInEachSource": {
-      "feedly": 14,
-      "inoreader": 0,
+      "feedly": 17,
+      "inoreader": 29,
       "newsblur": 3
     },
-    "failedSources": {
-      "inoreader": "Not implemented"
-    }
+    "failedSources": {}
   }
 }
 ```

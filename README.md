@@ -73,22 +73,20 @@ Which returns:
 {
   "status": 200,
   "data": {
-    "totalSubs": 17,
+    "totalSubs": 49,
     "subsInEachSource": {
-      "feedly": 14,
-      "inoreader": 0,
+      "feedly": 17,
+      "inoreader": 29,
       "newsblur": 3
     },
-    "failedSources": {
-      "inoreader": "Not implemented"
-    }
+    "failedSources": {}
   }
 }
 ```
 
 Enter the badge! _(NewsBlur is too slow to load, below is a static badge for demo purposes.)_
 
-[![](https://img.shields.io/badge/RSS-17-ffa500?logo=rss&style=for-the-badge)](https://api.spencerwoo.com/substats/?source=feedly|inoreader|newsblur&queryKey=https://blog.spencerwoo.com/posts/index.xml)
+[![](https://img.shields.io/badge/RSS%20Subscribers-49-ffa500?logo=rss&style=for-the-badge)](https://api.spencerwoo.com/substats/?source=feedly|inoreader|newsblur&queryKey=https://blog.spencerwoo.com/posts/index.xml)
 
 ### Multiple queries
 
