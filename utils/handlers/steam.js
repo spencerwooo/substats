@@ -1,6 +1,8 @@
 /**
  * Fetch owned games number from Steam
  *
+ * *Authentication: STEAM_API_KEY
+ *
  * @param {string} steamId Steam user steamId
  */
 const fetchSteamGamesStats = steamId => {
@@ -50,6 +52,8 @@ export const steamGamesHandler = async steamId => {
 
 /**
  * Fetch steam friends count
+ *
+ * *Authentication: STEAM_API_KEY
  *
  * @param {string} steamId Steam user steamId
  */
