@@ -10,6 +10,7 @@ import { neteaseMusicHandler } from './handlers/neteaseMusic'
 import { newsblurHandler } from './handlers/newsblur'
 import { redditHandler } from './handlers/reddit'
 import { sspaiHandler } from './handlers/sspai'
+import { steamGamesHandler, steamFriendsHandler } from './handlers/steam'
 import { telegramHandler } from './handlers/telegram'
 import { twitterHandler } from './handlers/twitter'
 import { weiboHandler } from './handlers/weibo'
@@ -31,6 +32,8 @@ export const handlerImporter = () => {
     reddit: redditHandler,
     neteaseMusic: neteaseMusicHandler,
     sspai: sspaiHandler,
+    steamGames: steamGamesHandler,
+    steamFriends: steamFriendsHandler,
     telegram: telegramHandler,
     twitter: twitterHandler,
     weibo: weiboHandler,
