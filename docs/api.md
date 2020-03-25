@@ -159,6 +159,36 @@ GET /?source=neteaseMusic&queryKey={QUERY}
 - **Source shorthand:** `neteaseMusic`
 - **Query key:** Netease Music `uid` - the `uid` after `/home?id=` in your Netease Music user profile URL. For instance: a valid `uid` is the `416608258` part in the user profile URL `https://music.163.com/#/user/home?id=416608258`.
 
+## Games
+
+### Steam <Badge text="new" />
+
+**The Substats' API** for Steam accepts requests for your total number of games in your Steam library: `steamGames`, and the number of your friends: `steamFriends`. **Both API's queryKey is your 16-digit unique steam ID.**
+
+:::tip 🌎 Note
+**Your steam ID is not your Steam user name!** You'll need to look up your steam ID here using either your Steam username or your profile URL first: [Steam ID Finder](https://steamidfinder.com/), and get the specific `steamID64` to pass on to Substats for further requests. For instance: `76561198336249957`.
+:::
+
+#### Owned Games on Steam
+
+[![Games - Firebear.LLC](https://img.shields.io/badge/dynamic/json?label=Steam&query=%24.data.totalSubs&url=https%3A%2F%2Fapi.spencerwoo.com%2Fsubstats%2F%3Fsource%3DsteamGames%26queryKey%3D76561198336249957&suffix=%20Games&logo=steam&labelColor=134375&color=0b1a37&longCache=true)](https://api.spencerwoo.com/substats/?source=steamGames&queryKey=76561198336249957)
+
+```http
+GET /?source=steamGames&queryKey={QUERY}
+```
+
+- **Source shorthand:** `steamGames`
+
+#### Friends on Steam
+
+[![Friends - Firebear.LLC](https://img.shields.io/badge/dynamic/json?label=Steam%20Friends&query=%24.data.totalSubs&url=https%3A%2F%2Fapi.spencerwoo.com%2Fsubstats%2F%3Fsource%3DsteamFriends%26queryKey%3D76561198336249957&logo=steam&color=0b1a37&labelColor=134375&longCache=true)](https://api.spencerwoo.com/substats/?source=steamFriends&queryKey=76561198336249957)
+
+```http
+GET /?source=steamFriends&queryKey={QUERY}
+```
+
+- **Source shorthand:** `steamFriends`
+
 ## Websites
 
 ### Medium
