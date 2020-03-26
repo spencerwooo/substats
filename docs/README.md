@@ -15,13 +15,16 @@ title: Home
 
 I initially wanted to combine the subscriber numbers of Feedly and Inoreader — two of the most popular RSS providers, to calculate how many people are subscribed to my blog's RSS. Then it occured to me: I could actually make this into a "Hub", where you can provide **a service name, a query key**, and out comes the total subscribers of all your services...Hence, I proudly introduce: **Substats**!
 
-**PROs:**
+### PROs
 
 - 🧊 Serverless deployment, minimum overhead (powered by Cloudflare)
 - 🚀 Ultra-fast reachablility for all services (even in mainland China!)
 - 🎈 Simple integration, easy-to-use API with nice badges provided by [Shields.io](https://shields.io/)
 
-See here for my blog post: [「Substats — 快速统计你在各个平台的关注者！」](https://blog.spencerwoo.com/2020/03/substats/).
+### Further reading
+
+- [少数派详解：《做一个好看的数据展示「小标签」，在个人网站实时展示你的粉丝数》](https://sspai.com/post/59593)
+- [博客简介：《Substats — 快速统计你在各个平台的关注者！》](https://blog.spencerwoo.com/2020/03/substats/)
 
 ## Supported services <Badge text="new" />
 
