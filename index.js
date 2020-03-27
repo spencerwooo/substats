@@ -132,11 +132,22 @@ async function fetchStats(sources, queryKey) {
  * @param {Request} request
  */
 async function handleRequest(request) {
+  // enable CORS
+  const headersJson = {
+    'Content-Type': 'application/json',
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept',
+  }
+  // default page returns html
+  const headersHtml = {
+    'Content-Type': 'text/html',
+  }
+
   const respInit = {
-    ok: { status: 200, headers: { 'content-type': 'application/json' } },
-    greet: { status: 200, headers: { 'content-type': 'text/html' } },
-    ban: { status: 403, headers: { 'content-type': 'application/json' } },
-    invalid: { status: 400, headers: { 'content-type': 'application/json' } },
+    ok: { status: 200, headers: headersJson },
+    greet: { status: 200, headers: headersHtml },
+    ban: { status: 403, headers: headersJson },
+    invalid: { status: 400, headers: headersJson },
   }
   let response = null
 
