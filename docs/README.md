@@ -51,7 +51,7 @@ I initially wanted to combine the subscriber numbers of Feedly and Inoreader —
 
 This project exists thanks to all the people who contribute.
 
-<a href="https://github.com/spencerwooo/dowww/graphs/contributors"><img src="https://opencollective.com/substats/contributors.svg" /></a>
+<a href="https://github.com/spencerwooo/Substats/graphs/contributors"><img src="https://opencollective.com/substats/contributors.svg" /></a>
 
 ## Sponsoring
 

@@ -159,7 +159,7 @@ This is a serverless function deployed on Cloudflare Workers. Please check: [Doc
 
 This project exists thanks to all the people who contribute.
 
-<a href="https://github.com/spencerwooo/dowww/graphs/contributors"><img src="https://opencollective.com/substats/contributors.svg" /></a>
+<a href="https://github.com/spencerwooo/Substats/graphs/contributors"><img src="https://opencollective.com/substats/contributors.svg" /></a>
 
 ## Sponsoring
 
