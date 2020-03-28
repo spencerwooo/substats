@@ -174,7 +174,7 @@ Thank you for considering donations and sponoring our project. We currently supp
 
 |                                         微信支付                                         |                                          支付宝支付                                          |
 | :--------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------: |
-| <img src="https://i.loli.net/2018/03/13/5aa7ae214b63f.jpg" alt="微信支付" width="160px"> | <img src="https://i.loli.net/2020/03/26/f2GT6StAchgqea4.png" alt="支付宝支付" width="160px"> |
+| <img src="https://i.loli.net/2018/03/13/5aa7ae214b63f.jpg" alt="微信支付" width="200px"> | <img src="https://i.loli.net/2020/03/26/f2GT6StAchgqea4.png" alt="支付宝支付" width="200px"> |
 
 您也可以利用「爱发电」来对我进行支持！
 
