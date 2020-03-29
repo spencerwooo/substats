@@ -96,7 +96,7 @@ You can create a mock account for your desired service, and authenticate with th
 
 I will upload and store this value onto Cloudflare Worker before merging the PR. **DO NOT SEND ME YOUR ACTUAL USER ACCOUNT - PASSWORD COMBINATION!**
 
-An example is the [authentication-required Telegram Bot API](https://github.com/spencerwooo/Substats/blob/master/utils/telegram.js#L1-L14) that I used when implementing the Telegram Channel/Chat group member API. For details on how to use this secret global variable, see: [Environment Variables - Secrets](https://developers.cloudflare.com/workers/reference/apis/environment-variables/).
+An example is the [authentication-required Telegram Bot API](https://github.com/spencerwooo/Substats/blob/master/utils/handlers/telegram.js#L1-L14) that I used when implementing the Telegram Channel/Chat group member API. For details on how to use this secret global variable, see: [Environment Variables - Secrets](https://developers.cloudflare.com/workers/reference/apis/environment-variables/).
 
 ## Publishing <Badge text="admin" />
 
