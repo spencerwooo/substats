@@ -1,4 +1,5 @@
 // import API handlers for different platforms
+import { afdianFansHandler, afdianIncomeHandler } from './handlers/afdian'
 import { bilibiliHandler } from './handlers/bilibili'
 import { coolapkHandler } from './handlers/coolapk'
 import { feedlyHandler } from './handlers/feedly'
@@ -21,6 +22,8 @@ import { zhihuHandler } from './handlers/zhihu'
  */
 export const handlerImporter = () => {
   const handlers = {
+    afdianFans: afdianFansHandler,
+    afdianIncome: afdianIncomeHandler,
     bilibili: bilibiliHandler,
     coolapk: coolapkHandler,
     feedly: feedlyHandler,
