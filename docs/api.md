@@ -191,6 +191,34 @@ GET /?source=steamFriends&queryKey={QUERY}
 
 ## Websites
 
+### 爱发电 <Badge text="new" />
+
+**The Substats' API** for 爱发电 accepts both requests for your fans in 爱发电: `afdianFans`, and the total income each month in 爱发电: `afdianIncome`. **Both API's queryKey is your 爱发电's `slug`.** For instance: a valid `slug` is the `spencerwoo` part in the user profile URL `https://afdian.net/@spencerwoo`.
+
+#### 发电人次
+
+[![爱发电发电人次 - SpencerWoo](https://img.shields.io/badge/dynamic/json?label=%E7%88%B1%E5%8F%91%E7%94%B5&query=%24.data.totalSubs&url=https%3A%2F%2Fapi.spencerwoo.com%2Fsubstats%2F%3Fsource%3DafdianFans%26queryKey%3Dspencerwoo&suffix=%20%E5%8F%91%E7%94%B5%E4%BA%BA%E6%AC%A1%20%2F%20%E6%9C%88&labelColor=946ce6&color=282c34&longCache=true)](https://api.spencerwoo.com/substats/?source=afdianFans&queryKey=spencerwoo)
+
+```http
+GET /?source=afdianFans&queryKey={QUERY}
+```
+
+- **Source shorthand:** `afdianFans`
+
+#### 每月收入
+
+:::tip ⚡ Note
+The 爱发电 Income API returns a `String`, not a `Number`, so we won't accept multiple chaining requests when requesting `afdianIncome`. Requests like: `/?source=afdianFans|afdianIncome&queryKey=xx` and `/?source=afdianFans&queryKey=xx&source=afdianIncome&queryKey=xxx` will be considered as invalid.
+:::
+
+[![爱发电每月收入 - SpencerWoo](https://img.shields.io/badge/dynamic/json?label=%E7%88%B1%E5%8F%91%E7%94%B5%E6%94%B6%E5%85%A5&query=%24.data.totalSubs&url=https%3A%2F%2Fapi.spencerwoo.com%2Fsubstats%2F%3Fsource%3DafdianIncome%26queryKey%3Dspencerwoo&prefix=%EF%BF%A5%20&suffix=%20%E6%AF%8F%E6%9C%88&labelColor=946ce6&color=282c34&longCache=true)](https://api.spencerwoo.com/substats/?source=afdianIncome&queryKey=spencerwoo)
+
+```http
+GET /?source=afdianIncome&queryKey={QUERY}
+```
+
+- **Source shorthand:** `afdianIncome`
+
 ### Medium
 
 [![Medium - SpencerWoo](https://img.shields.io/badge/dynamic/json?label=Medium&suffix=%20followers&query=%24.data.totalSubs&url=https%3A%2F%2Fapi.spencerwoo.com%2Fsubstats%2F%3Fsource%3Dmedium%26queryKey%3D%40SpencerWooo&logo=medium&color=12100E&labelColor=03a87c&longCache=true)](https://api.spencerwoo.com/substats/?source=medium&queryKey=@SpencerWooo)
