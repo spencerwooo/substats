@@ -13,9 +13,9 @@ import { sspaiHandler } from './handlers/sspai'
 import { steamGamesHandler, steamFriendsHandler } from './handlers/steam'
 import { telegramHandler } from './handlers/telegram'
 import { twitterHandler } from './handlers/twitter'
+import { unsplashHandler} from './handlers/unsplash'
 import { weiboHandler } from './handlers/weibo'
 import { zhihuHandler } from './handlers/zhihu'
-import { unsplashHandler} from './handlers/unsplash'
 
 /**
  * Export implemented handlers to index.js for simple reference
@@ -37,9 +37,9 @@ export const handlerImporter = () => {
     steamFriends: steamFriendsHandler,
     telegram: telegramHandler,
     twitter: twitterHandler,
+    unsplash: unsplashHandler,
     weibo: weiboHandler,
     zhihu: zhihuHandler,
-    unsplash: unsplashHandler,
   }
   return handlers
 }
