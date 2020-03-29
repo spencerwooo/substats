@@ -3,6 +3,9 @@ import qs from 'qs'
 // import all handlers from different platforms into a global object
 import { handlerImporter } from './utils/handlerImporter'
 
+//! register sources that return non-numbers here, if a source doesn't return a number, we will handle it separately
+const singleOnlySources = ['afdianIncome']
+
 addEventListener('fetch', event => {
   event.respondWith(handleRequest(event.request))
 })
@@ -19,6 +22,9 @@ function parseRequest(req) {
       valid: true,
       // if query is empty, send default greetings message
       greet: false,
+      // some sources don't return a number, for those we accept only single requests
+      singleOnly: false,
+      singleOnlySrc: '',
       // service providers
       source: [],
       // query keys (feed link for RSS; username or slug for others)
@@ -45,14 +51,41 @@ function parseRequest(req) {
       return params
     }
 
+    // if returned value is not a number, only single requests are supported
+    if (typeof query.source !== 'string' && query.source.length > 1) {
+      query.source.forEach(src => {
+        if (singleOnlySources.includes(src)) {
+          params.valid = false
+          params.singleOnly = true
+          params.singleOnlySrc = src
+          return params
+        }
+      })
+    }
+
     // parse source and queryString in query string
     if (typeof query.source === 'string' && typeof query.queryKey === 'string') {
       // single query key, maybe multiple sources
       params.source = query.source.split('|')
-      // populate query key list
-      params.source.forEach(() => {
+
+      if (params.source.length === 1) {
+        // single source
+        params.singleOnly = true
+        // populate query key list (we takes a list as input, even when there's only one query)
         params.queryKey.push(query.queryKey)
-      })
+      } else {
+        // multiple sources
+        params.source.forEach(src => {
+          // detect if a singleOnly source is requested inside multiple requests
+          if (singleOnlySources.includes(src)) {
+            params.valid = false
+            params.singleOnly = true
+            params.singleOnlySrc = src
+          }
+          // populate query key list
+          params.queryKey.push(query.queryKey)
+        })
+      }
     } else if (query.source.length > 1 || query.queryKey.length > 1) {
       // multiple query key, multiple sources
       if (query.source.length === query.queryKey.length) {
@@ -68,6 +101,7 @@ function parseRequest(req) {
     console.log(params)
     return params
   } catch (error) {
+    console.error(error)
     return null
   }
 }
@@ -75,10 +109,11 @@ function parseRequest(req) {
 /**
  * Fetch subscriber stats from list of service providers
  *
+ * @param {bool} singleOnly Whether or not we add up all subs for each source
  * @param {list} sources List of service providers to query
  * @param {list} queryKey Target query key list
  */
-async function fetchStats(sources, queryKey) {
+async function fetchStats(singleOnly, sources, queryKey) {
   // function's returning value
   const fetchStatsRes = {
     totalSubs: 0,
@@ -113,7 +148,12 @@ async function fetchStats(sources, queryKey) {
           fetchStatsRes.failedSources[res.value.source] = res.value.failedMsg
         } else {
           // successfully fetched subs
-          fetchStatsRes.totalSubs += res.value.subs
+          if (singleOnly) {
+            // if requested source is singleOnly source, we won't add up all sources
+            fetchStatsRes.totalSubs = res.value.subs
+          } else {
+            fetchStatsRes.totalSubs += res.value.subs
+          }
           fetchStatsRes.subsInEachSource[res.value.source] = res.value.subs
         }
       }
@@ -228,12 +268,19 @@ async function handleRequest(request) {
   }
 
   // Invalid request, send 400 bad request
-  if (!resp.valid) {
+  const invalidErr = `Substats: Invalid request. You should structure your query like so: /?source={YOUR_SERVICE_PROVIDER}&queryKey={YOUR_QUERY}`
+  const singleOnlyErr = `Substats: Invalid request. For source: '${resp.singleOnlySrc}' we only accept single requests.`
+  if (resp.valid === false) {
+    let err = ''
+    if (resp.singleOnly) {
+      err = singleOnlyErr
+    } else {
+      err = invalidErr
+    }
     const invalidResp = {
       status: respInit.invalid.status,
       data: {
-        err:
-          'Substats: Invalid request. You should structure your query like so: /?source={YOUR_SERVICE_PROVIDER}&queryKey={YOUR_QUERY}',
+        err: err,
         request: request.url,
       },
     }
@@ -241,7 +288,7 @@ async function handleRequest(request) {
   }
 
   // Fetch statistics
-  const result = await fetchStats(resp.source, resp.queryKey)
+  const result = await fetchStats(resp.singleOnly, resp.source, resp.queryKey)
 
   const finalResp = {
     status: respInit.ok.status,
