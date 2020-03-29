@@ -14,6 +14,7 @@ import { sspaiHandler } from './handlers/sspai'
 import { steamGamesHandler, steamFriendsHandler } from './handlers/steam'
 import { telegramHandler } from './handlers/telegram'
 import { twitterHandler } from './handlers/twitter'
+import { unsplashHandler} from './handlers/unsplash'
 import { weiboHandler } from './handlers/weibo'
 import { zhihuHandler } from './handlers/zhihu'
 
@@ -39,6 +40,7 @@ export const handlerImporter = () => {
     steamFriends: steamFriendsHandler,
     telegram: telegramHandler,
     twitter: twitterHandler,
+    unsplash: unsplashHandler,
     weibo: weiboHandler,
     zhihu: zhihuHandler,
   }
