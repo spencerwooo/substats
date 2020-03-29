@@ -35,4 +35,5 @@ export const unsplashHandler = async username => {
     } else {
         res.subs = stats.followers_count
     }
+    return res
 }
