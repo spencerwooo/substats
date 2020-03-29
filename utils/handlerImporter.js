@@ -15,6 +15,7 @@ import { telegramHandler } from './handlers/telegram'
 import { twitterHandler } from './handlers/twitter'
 import { weiboHandler } from './handlers/weibo'
 import { zhihuHandler } from './handlers/zhihu'
+import { unsplashHandler} from './handlers/unsplash'
 
 /**
  * Export implemented handlers to index.js for simple reference
@@ -38,6 +39,7 @@ export const handlerImporter = () => {
     twitter: twitterHandler,
     weibo: weiboHandler,
     zhihu: zhihuHandler,
+    unsplash: unsplashHandler,
   }
   return handlers
 }
