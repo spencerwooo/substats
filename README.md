@@ -132,6 +132,7 @@ And of course, our badges!
 
 > 📖 For a detailed documentation on the API request rules of each service, please see: [Docs | Substats API Details](https://substats.spencerwoo.com/api.html).
 
+<a href="https://substats.spencerwoo.com/api.html"><img src="./docs/assets/logo_afdian.png" alt="afdian" width="auto" height="64px"/></a>
 <a href="https://substats.spencerwoo.com/api.html"><img src="./docs/assets/logo_bilibili.png" alt="bilibili" width="auto" height="64px"/></a>
 <a href="https://substats.spencerwoo.com/api.html"><img src="./docs/assets/logo_coolapk.png" alt="coolapk" width="auto" height="64px"/></a>
 <a href="https://substats.spencerwoo.com/api.html"><img src="./docs/assets/logo_feedly.png" alt="feedly" width="auto" height="64px"/></a>

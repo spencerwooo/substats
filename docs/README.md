@@ -30,6 +30,7 @@ I initially wanted to combine the subscriber numbers of Feedly and Inoreader —
 
 > List of supported services is ever growing, feel free to contribute.
 
+<a href="/api"><img src="./assets/logo_afdian.png" alt="afdian" width="auto" height="64px"/></a>
 <a href="/api"><img src="./assets/logo_bilibili.png" alt="bilibili" width="auto" height="64px"/></a>
 <a href="/api"><img src="./assets/logo_coolapk.png" alt="coolapk" width="auto" height="64px"/></a>
 <a href="/api"><img src="./assets/logo_feedly.png" alt="feedly" width="auto" height="64px"/></a>
