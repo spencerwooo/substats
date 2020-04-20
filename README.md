@@ -161,7 +161,9 @@ This is a serverless function deployed on Cloudflare Workers. Please check: [Doc
 
 This project exists thanks to all the people who contribute.
 
-<a href="https://github.com/spencerwooo/Substats/graphs/contributors"><img src="https://opencollective.com/substats/contributors.svg" /></a>
+<!-- <a href="https://github.com/spencerwooo/Substats/graphs/contributors"><img src="https://opencollective.com/substats/contributors.svg" /></a> -->
+
+[![](https://sourcerer.io/fame/spencerwooo/spencerwooo/Substats/images/0)](https://sourcerer.io/fame/spencerwooo/spencerwooo/Substats/links/0)[![](https://sourcerer.io/fame/spencerwooo/spencerwooo/Substats/images/1)](https://sourcerer.io/fame/spencerwooo/spencerwooo/Substats/links/1)[![](https://sourcerer.io/fame/spencerwooo/spencerwooo/Substats/images/2)](https://sourcerer.io/fame/spencerwooo/spencerwooo/Substats/links/2)[![](https://sourcerer.io/fame/spencerwooo/spencerwooo/Substats/images/3)](https://sourcerer.io/fame/spencerwooo/spencerwooo/Substats/links/3)[![](https://sourcerer.io/fame/spencerwooo/spencerwooo/Substats/images/4)](https://sourcerer.io/fame/spencerwooo/spencerwooo/Substats/links/4)[![](https://sourcerer.io/fame/spencerwooo/spencerwooo/Substats/images/5)](https://sourcerer.io/fame/spencerwooo/spencerwooo/Substats/links/5)[![](https://sourcerer.io/fame/spencerwooo/spencerwooo/Substats/images/6)](https://sourcerer.io/fame/spencerwooo/spencerwooo/Substats/links/6)[![](https://sourcerer.io/fame/spencerwooo/spencerwooo/Substats/images/7)](https://sourcerer.io/fame/spencerwooo/spencerwooo/Substats/links/7)
 
 ## Sponsoring
 
