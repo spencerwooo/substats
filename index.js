@@ -235,8 +235,8 @@ async function handleRequest(request) {
         <a href="https://github.com/spencerwooo/Substats/actions?query=workflow%3ADeploy"><img
             src="https://github.com/spencerwooo/Substats/workflows/Deploy/badge.svg" alt="Deploy"></a>
         <a href="https://substats.spencerwoo.com/"><img
-            src="https://img.shields.io/netlify/34dba5ee-8e3f-4c0d-bc4e-1023f4a1c2ae?color=01ad9f&label=Docs&logo=netlify"
-            alt="Netlify"></a>
+            src="https://badgen.net/https/now.swoo.workers.dev/dpl_FiMBkC6zs1o9eb36Hzd1fgnstM1D?labelColor=black&label=Vercel&icon=zeit"
+            alt="Vercel"></a>
       </div>
       <div id="code-banner-container">
         <div id="code-banner">
