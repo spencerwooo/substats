@@ -4,8 +4,9 @@
  * @param {string} urlToken Zhihu user urlToken
  */
 const fetchZhihuStat = urlToken => {
-  // zhihu api module takes user urlToken as query parameter
-  const url = `https://www.zhihu.com/api/v4/members/${urlToken}/followers?limit=1`
+  // Zhihu api module takes user urlToken as query parameter (more querys use comma to separate)
+  // for instance: follower_count,following_count,following_topic_count,following_question_count...
+  const url = `https://www.zhihu.com/api/v4/members/${urlToken}?include=follower_count`
 
   const headers = { 'User-Agent': 'substat-bot' }
   return fetch(url, { headers })
@@ -33,7 +34,7 @@ export const zhihuHandler = async urlToken => {
     res.failedMsg = stats.error.message
   } else {
     // Zhihu user found
-    res.subs = stats.paging.totals
+    res.subs = stats.follower_count
   }
 
   return res
