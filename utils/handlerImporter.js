@@ -6,6 +6,7 @@ import { feedlyHandler } from './handlers/feedly'
 import { gitHubHandler } from './handlers/github'
 import { inoreaderHandler } from './handlers/inoreader'
 import { instagramHandler } from './handlers/instagram'
+import { jikeFollowerHandler, jikeHighlightHandler, jikeLikedHandler } from './handlers/jike'
 import { mediumHandler } from './handlers/medium'
 import { neteaseMusicHandler } from './handlers/neteaseMusic'
 import { newsblurHandler } from './handlers/newsblur'
@@ -31,6 +32,9 @@ export const handlerImporter = () => {
     github: gitHubHandler,
     inoreader: inoreaderHandler,
     instagram: instagramHandler,
+    jikeFollower: jikeFollowerHandler,
+    jikeHighlights: jikeHighlightHandler,
+    jikeLiked: jikeLikedHandler,
     medium: mediumHandler,
     newsblur: newsblurHandler,
     reddit: redditHandler,
