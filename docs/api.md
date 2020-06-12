@@ -58,7 +58,7 @@ GET /?source=newsblur&queryKey={QUERY}
 ### 即刻 / Jike APP <Badge text="new" />
 
 :::tip 🚅 Note
-**💛 Welcome back, Jike.** This API is capable of fetching your current number of followers, highlighted personal updates, and liked count inside Jike APP. All three API queryKeys are all your user `UUID` in Jike APP. For instance: a vaild Jike user `UUID` is the `4DDA0425-FB41-4188-89E4-952CA15E3C5E` part in your Jike user profile URL `https://m.okjike.com/users/4DDA0425-FB41-4188-89E4-952CA15E3C5E`.
+**💛 Welcome back, Jike.** This API is capable of fetching your current number of followers, highlighted personal updates, and liked count inside Jike APP. All three API queryKeys are all your user `UUID` in Jike APP. For instance: a valid Jike user `UUID` is the `4DDA0425-FB41-4188-89E4-952CA15E3C5E` part in your Jike user profile URL `https://m.okjike.com/users/4DDA0425-FB41-4188-89E4-952CA15E3C5E`.
 :::
 
 #### Followers
