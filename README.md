@@ -55,7 +55,7 @@ https://api.spencerwoo.com/substats/
 
 ### Single query
 
-You can make a single query to request your RSS subscribers on Feedly. (Inoreader support is coming!)
+You can make a single query to request your RSS subscribers on Feedly.
 
 ```http
 GET /?source=feedly&queryKey=https://blog.spencerwoo.com/posts/index.xml
