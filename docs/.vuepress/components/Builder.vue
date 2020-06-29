@@ -89,14 +89,11 @@ export default {
         text: item.text,
         value: item.value,
       }
-
-      const _badge = badge(item.value, this.queryKey)
-      this.badge = _badge
+      this.badge = badge(item.value, this.queryKey)
       this.toggle = !this.toggle
     },
     updateBadge: function() {
-      const _badge = badge(this.selectedItem.value, this.queryKey)
-      this.badge = _badge
+      this.badge = badge(this.selectedItem.value, this.queryKey)
     },
 
     // copy badge references to clipboard
@@ -109,13 +106,15 @@ export default {
 </script>
 
 <style lang="stylus">
+// VueToasted Styles
 .toasted-container .toasted
-  top 0px
+  top 0px !important
 
 .toasted.bubble
-  background-color #faad3f
-  font-weight 500
+  background-color #faad3f !important
+  font-weight 500 !important
 
+// Main style
 .builder-container
   max-width 600px
   margin 0 auto
