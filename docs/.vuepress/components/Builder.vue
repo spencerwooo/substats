@@ -5,10 +5,9 @@
         <h1>🍍 Badge Builder</h1>
         <p>
           Use this tool to customize, build and copy a <b>realtime SVG subscriber count badge</b> powered by
-          <a href="https://shields.io/">Shields.io</a> and <b>Substats!</b> You can then paste the badge (with the image
-          tag) directly inside markdown files like your GitHub README.
+          <a href="https://shields.io/">Shields.io</a> and <b>Substats!</b> 📇 Paste the generated badge directly inside
+          markdown files like your GitHub README to use.
         </p>
-        <p>Best experience if used on <b>🖥 Desktop Devices!</b></p>
 
         <dropdown-menu
           v-model="toggle"
@@ -17,7 +16,7 @@
           style="display: inline-block;"
         >
           <div class="key-tip">Source</div>
-          <div class="dropdown-input-container">
+          <div class="input-container">
             <button :class="toggle ? 'dropdown-toggle show' : 'dropdown-toggle'">{{ selectedItem.text }}</button>
             <div class="dropdown-icon" />
           </div>
@@ -27,19 +26,33 @@
         </dropdown-menu>
 
         <div class="key-tip">Query Key</div>
-        <input class="key-input" type="text" v-model="queryKey" @input="updateBadge"/>
+        <input class="key-input" type="text" v-model="queryKey" @input="updateBadge" />
 
         <div class="key-tip">Badge Preview</div>
         <img :src="badge.image" alt="Shields.io badge" />
 
         <div class="key-tip">API URL</div>
-        <input class="key-input" type="text" readonly="readonly" v-model="badge.api" />
+        <div class="input-container">
+          <input class="key-input" type="text" readonly="readonly" v-model="badge.api" />
+          <button class="copy-icon" @click="copyToClipboard(badge.api)" />
+        </div>
 
         <div class="key-tip">Image URL</div>
-        <input class="key-input" type="text" readonly="readonly" v-model="badge.image" />
+        <div class="input-container">
+          <input class="key-input" type="text" readonly="readonly" v-model="badge.image" />
+          <button class="copy-icon" @click="copyToClipboard(badge.image)" />
+        </div>
 
         <div class="key-tip">Markdown</div>
-        <input class="key-input" type="text" readonly="readonly" v-model="badge.markdown" />
+        <div class="input-container">
+          <input class="key-input" type="text" readonly="readonly" v-model="badge.markdown" />
+          <button class="copy-icon" @click="copyToClipboard(badge.markdown)" />
+        </div>
+
+        <p class="footer">
+          Special thanks to <a href="https://github.com/kidonng">@kidonng</a> who contributed in a
+          <a href="https://swiss.vercel.app/substats-badge-creator">prototype here</a>.
+        </p>
       </div>
     </template>
   </Layout>
@@ -48,7 +61,7 @@
 <script>
 import Layout from '@theme/layouts/Layout.vue'
 import DropdownMenu from '@innologica/vue-dropdown-menu'
-import { sources, badge } from './builder-util'
+import { sources, badge } from './builderUtil'
 
 export default {
   name: 'Builder',
@@ -74,23 +87,35 @@ export default {
     select: function(item) {
       this.selectedItem = {
         text: item.text,
-        value: item.value
+        value: item.value,
       }
 
       const _badge = badge(item.value, this.queryKey)
-      console.log(_badge)
       this.badge = _badge
       this.toggle = !this.toggle
     },
     updateBadge: function() {
       const _badge = badge(this.selectedItem.value, this.queryKey)
       this.badge = _badge
+    },
+
+    // copy badge references to clipboard
+    copyToClipboard: function (value) {
+      this.$clipboard(value)
+      this.$toasted.show('🎉 Copied to clipboard!')
     }
   },
 }
 </script>
 
 <style lang="stylus">
+.toasted-container .toasted
+  top 0px
+
+.toasted.bubble
+  background-color #faad3f
+  font-weight 500
+
 .builder-container
   max-width 600px
   margin 0 auto
@@ -110,7 +135,7 @@ export default {
 .dropdown
   width 100%
 
-.dropdown-input-container
+.input-container
   display flex
   align-items center
 
@@ -132,6 +157,22 @@ export default {
   border-right .3rem solid transparent
   border-bottom 0
   border-left .3rem solid transparent
+
+.copy-icon
+  background-color transparent
+  background-image url(copy.svg)
+  background-size 100% 100%
+  padding 0.6rem 0.6rem
+  margin 0 0 0 0.4rem
+  border 0
+  cursor pointer
+  transition all 0.2s ease
+
+  &:hover
+    opacity 0.6
+
+  &:focus
+    outline: none
 
 .dropdown-toggle
   position relative
@@ -173,6 +214,11 @@ export default {
   &:focus
     cursor auto
     border-color #faad3f
+
+.footer
+  margin-top 2.4rem
+  font-size 0.9rem
+  opacity 0.7
 
 .translate-fade-down-enter-active, .translate-fade-down-leave-active
   transition all 250ms
