@@ -248,7 +248,7 @@ export const sources = {
 }
 
 export const badge = (source, queryKey) => {
-  const { title, logo, logoColor, label, labelColor, prefix, suffix, color, link } = sources[source]
+  const { title, logo, logoColor, label, labelColor, prefix, suffix, color, link: _link } = sources[source]
 
   const apiBase = new URL('https://api.spencerwoo.com/substats/')
   apiBase.search = new URLSearchParams({
@@ -271,9 +271,10 @@ export const badge = (source, queryKey) => {
     longCache: 'true',
   }).toString()
   const image = imageBase.toString()
+  const link = _link(queryKey)
 
   // `split` to drop category
-  const markdown = `[![${title}](${image})](${link(queryKey)})`
+  const markdown = `[![${title}](${image})](${link})`
 
   return { api, image, link, markdown }
 }

@@ -29,7 +29,7 @@
         <input class="key-input" type="text" v-model="queryKey" @input="updateBadge" />
 
         <div class="key-tip">Badge Preview</div>
-        <img :src="badge.image" alt="Shields.io badge" />
+        <a :href="badge.link"><img :src="badge.image" alt="Shields.io badge" /></a>
 
         <div class="key-tip">API URL</div>
         <div class="input-container">
@@ -97,10 +97,10 @@ export default {
     },
 
     // copy badge references to clipboard
-    copyToClipboard: function (value) {
+    copyToClipboard: function(value) {
       this.$clipboard(value)
       this.$toasted.show('🎉 Copied to clipboard!')
-    }
+    },
   },
 }
 </script>
