@@ -11,7 +11,7 @@ module.exports = {
     logo: '/img/substats.svg',
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'Builder', link: 'https://swiss.vercel.app/substats-badge-creator' },
+      { text: 'Builder', link: '/builder/' },
       { text: 'Contribute', link: '/dev/' },
       { text: 'API', link: 'https://api.spencerwoo.com/substats' },
       { text: 'GitHub', link: 'https://github.com/spencerwooo/Substats' },

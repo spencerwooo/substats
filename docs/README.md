@@ -11,6 +11,10 @@ title: Home
 [![Deploy](https://github.com/spencerwooo/Substats/workflows/Deploy/badge.svg)](https://github.com/spencerwooo/Substats/actions?query=workflow%3ADeploy)
 [![Vercel](https://badgen.net/https/now.swoo.workers.dev/dpl_FiMBkC6zs1o9eb36Hzd1fgnstM1D?labelColor=black&label=Vercel&icon=zeit)](https://substats.spencerwoo.com/)
 
+:::tip 🍍 Badge Builder <Badge text="new" />
+The quickest and most reliable way to build a badge powered by Substats and [Shields.io](https://shields.io/) is to use the [**Badge builder!**](/builder/)
+:::
+
 ## Why I did this?
 
 I initially wanted to combine the subscriber numbers of Feedly and Inoreader — two of the most popular RSS providers, to calculate how many people are subscribed to my blog's RSS. Then it occured to me: I could actually make this into a "Hub", where you can provide **a service name, a query key**, and out comes the total subscribers of all your services...Hence, I proudly introduce: **Substats**!
