@@ -126,7 +126,7 @@ GET /?source=instagram&queryKey={QUERY}
 ```
 
 - **Source shorthand:** `instagram`
-- **Query key:** Instagram username - the username after `instagram.com/` in your Instagram user profile URL. For instance: a valid Instagram username is the `vertigo_woo98` part in the user profile URL `https://www.instagram.com/vertigo_woo98`.
+- **Query key:** Instagram username - the username after `instagram.com/` in your Instagram user profile URL. For instance: a valid Instagram username is the `spencer_wooo` part in the user profile URL `https://www.instagram.com/spencer_wooo`.
 
 ### Telegram
 
