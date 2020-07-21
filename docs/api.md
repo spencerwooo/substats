@@ -119,7 +119,7 @@ You can get your Coolapk's `uid` by **sharing your user profile page inside Cool
 
 ### Instagram
 
-[![Instagram - Vertigo Woo](https://img.shields.io/badge/dynamic/json?labelColor=d7417b&label=Instagram&query=%24.data.totalSubs&url=https%3A%2F%2Fapi.spencerwoo.com%2Fsubstats%2F%3Fsource%3Dinstagram%26queryKey%3Dvertigo_woo98&suffix=%20followers&logo=instagram&logoColor=white&color=282c34&longCache=true)](https://api.spencerwoo.com/substats/?source=instagram&queryKey=vertigo_woo98)
+[![Instagram - spencer_wooo](https://img.shields.io/badge/dynamic/json?labelColor=d7417b&label=Instagram&query=%24.data.totalSubs&url=https%3A%2F%2Fapi.spencerwoo.com%2Fsubstats%2F%3Fsource%3Dinstagram%26queryKey%3Dspencer_wooo&suffix=%20followers&logo=instagram&logoColor=white&color=282c34&longCache=true)](https://api.spencerwoo.com/substats/?source=instagram&queryKey=spencer_wooo)
 
 ```http
 GET /?source=instagram&queryKey={QUERY}
