@@ -156,7 +156,7 @@ And of course, our badges!
 
 ### Development
 
-This is a serverless function deployed on Cloudflare Workers. Please check: [Docs | How to contribute](https://substats.spencerwoo.com/dev.html) if you want to contribute.
+This is a serverless function deployed on Cloudflare Workers. Please check: [Docs | How to contribute](https://substats.spencerwoo.com/dev/) if you want to contribute.
 
 ### Contributors
 
