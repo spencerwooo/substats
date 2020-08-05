@@ -42,7 +42,7 @@ export const feedsPubHandler = async rss => {
       // rss feed unknown
       res.failed = true
       res.subs = 0
-      res.failedMsg = 'RSS feed not found on Feedly'
+      res.failedMsg = 'RSS feed not found on Feeds Pub'
     }
   }
 
