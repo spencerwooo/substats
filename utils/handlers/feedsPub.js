@@ -1,12 +1,14 @@
 /**
- * Fetch RSS stats from Feeds Pub 
+ * Fetch RSS stats from Feeds Pub
  *
  * @param {string} rss RSS feed url to query
  */
 const fetchFeedsPubStats = rss => {
   // encode Feeds Pub API requests
-  let req = rss.trim();
-  if (req[req.length - 1] === '/') req = req.slice(0, -1);
+  let req = rss.trim()
+  if (req[req.length - 1] === '/') {
+    req = req.slice(0, -1)
+  }
   req = encodeURIComponent(req)
 
   const url = `https://api.feeds.pub/graphql?query=query%20feed(%24id%3A%20String!)%7B%20feed(id%3A%20%24id)%20%7B%20followerCount%20%7D%20%7D&variables=%7B%22id%22%3A%20%22${req}%22%7D&operationName=feed`
