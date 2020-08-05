@@ -29,7 +29,7 @@
         <input class="key-input" type="text" v-model="queryKey" @input="updateBadge" />
 
         <div class="key-tip">Badge Preview</div>
-        <a :href="badge.link"><img :src="badge.image" alt="Shields.io badge" /></a>
+        <a :href="badge.link"><img :src="badge.image" alt="Shields.io badge"/></a>
 
         <div class="key-tip">API URL</div>
         <div class="input-container">
