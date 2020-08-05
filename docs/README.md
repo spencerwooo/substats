@@ -38,6 +38,7 @@ I initially wanted to combine the subscriber numbers of Feedly and Inoreader —
 <a href="/api"><img src="./assets/logo_bilibili.png" alt="bilibili" width="auto" height="64px"/></a>
 <a href="/api"><img src="./assets/logo_coolapk.png" alt="coolapk" width="auto" height="64px"/></a>
 <a href="/api"><img src="./assets/logo_feedly.png" alt="feedly" width="auto" height="64px"/></a>
+<a href="/api"><img src="./assets/logo_feedspub.png" alt="feedspub" width="auto" height="64px"/></a>
 <a href="/api"><img src="./assets/logo_github.png" alt="github" width="auto" height="64px"/></a>
 <a href="/api"><img src="./assets/logo_inoreader.png" alt="inoreader" width="auto" height="64px"/></a>
 <a href="/api"><img src="./assets/logo_ins.png" alt="instagram" width="auto" height="64px"/></a>
