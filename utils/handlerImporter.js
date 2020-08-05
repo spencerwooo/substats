@@ -3,6 +3,7 @@ import { afdianFansHandler, afdianIncomeHandler } from './handlers/afdian'
 import { bilibiliHandler } from './handlers/bilibili'
 import { coolapkHandler } from './handlers/coolapk'
 import { feedlyHandler } from './handlers/feedly'
+import { feedsPubHandler } from './handlers/feedsPub'
 import { gitHubHandler } from './handlers/github'
 import { inoreaderHandler } from './handlers/inoreader'
 import { instagramHandler } from './handlers/instagram'
@@ -29,6 +30,7 @@ export const handlerImporter = () => {
     bilibili: bilibiliHandler,
     coolapk: coolapkHandler,
     feedly: feedlyHandler,
+    feedsPub: feedsPubHandler,
     github: gitHubHandler,
     inoreader: inoreaderHandler,
     instagram: instagramHandler,
