@@ -25,7 +25,7 @@ export const feedsPubHandler = async rss => {
   const response = await fetchFeedsPubStats(rss)
   const stats = await response.json()
   const res = {
-    source: 'FeedsPub',
+    source: 'feedsPub',
     subs: 0,
     failed: false,
     failedMsg: '',
