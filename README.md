@@ -136,6 +136,7 @@ And of course, our badges!
 <a href="https://substats.spencerwoo.com/api.html"><img src="./docs/assets/logo_bilibili.png" alt="bilibili" width="auto" height="64px"/></a>
 <a href="https://substats.spencerwoo.com/api.html"><img src="./docs/assets/logo_coolapk.png" alt="coolapk" width="auto" height="64px"/></a>
 <a href="https://substats.spencerwoo.com/api.html"><img src="./docs/assets/logo_feedly.png" alt="feedly" width="auto" height="64px"/></a>
+<a href="https://substats.spencerwoo.com/api.html"><img src="./docs/assets/logo_feedspub.png" alt="Feeds Pub" width="auto" height="64px"/></a>
 <a href="https://substats.spencerwoo.com/api.html"><img src="./docs/assets/logo_github.png" alt="github" width="auto" height="64px"/></a>
 <a href="https://substats.spencerwoo.com/api.html"><img src="./docs/assets/logo_inoreader.png" alt="inoreader" width="auto" height="64px"/></a>
 <a href="https://substats.spencerwoo.com/api.html"><img src="./docs/assets/logo_ins.png" alt="instagram" width="auto" height="64px"/></a>
