@@ -43,14 +43,15 @@ The core API backend and the documentations share the same mono-repo. The struct
 │   └── ……
 │
 🚡 _API backend_
-├── index.js _(API starting point)_
-├── `utils` _(Utility scripts folder)_
-│   ├── handlerImporter.js _(Imports all API handlers from below)_
-│   🔑 _API handlers_
-│   └── `handlers` _(API integration handlers folder)_
-│       ├── feedly.js _(Feedly API integration)_
-│       ├── github.js _(GitHub API integration)_
-│       └── ……        _(You get the idea...)_
+├── `src`
+│   ├── index.js _(API starting point)_
+│   └── `utils` _(Utility scripts folder)_
+│        └── handlerImporter.js _(Imports all API handlers from below)_
+├──── 🔑 _API handlers_
+│        └── `handlers` _(API integration handlers folder)_
+│              ├── feedly.js _(Feedly API integration)_
+│              ├── github.js _(GitHub API integration)_
+│              └── ……        _(You get the idea...)_
 │
 🚀 _Deployment_
 └── wrangler.toml _(Cloudflare worker deployment config)_
@@ -82,7 +83,7 @@ yarn pretty
 
 If an API/Service requires authentication, you can store the required token/password/cookie etc., with Cloudflare Worker's secret, i.e., environment variables.
 
-You can create a mock account for your desired service, and authenticate with this account. **I strongly discourage you using your personal account for this task.** After you implement an auth-required service, you can make a PR and [email me](mailto:spencerwoo98@gmail.com) the token/password/cookie etc., along with the name of the secret you used. For instance:
+You can create a mock account for your desired service, and authenticate with this account. **I strongly discourage you using your personal account for this task.** After you implement an auth-required service, you can make a PR and [email me](mailto:spencer.woo@outlook.com) the token/password/cookie etc., along with the name of the secret you used. For instance:
 
 <!-- prettier-ignore-start -->
 ::: vue
