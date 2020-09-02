@@ -47,7 +47,7 @@ The core API backend and the documentations share the same mono-repo. The struct
 │   ├── index.js _(API starting point)_
 │   └── `utils` _(Utility scripts folder)_
 │        └── handlerImporter.js _(Imports all API handlers from below)_
-├──── 🔑 _API handlers_
+│        🔑 _API handlers_
 │        └── `handlers` _(API integration handlers folder)_
 │              ├── feedly.js _(Feedly API integration)_
 │              ├── github.js _(GitHub API integration)_
