@@ -51,7 +51,7 @@
 
         <p class="footer">
           Special thanks to <a href="https://github.com/kidonng">@kidonng</a> who contributed in a
-          <a href="https://swiss.vercel.app/substats-badge-creator">prototype here</a>.
+          <a href="https://swiss.xuann.wang/substats-badge-creator">prototype here</a>.
         </p>
       </div>
     </template>
