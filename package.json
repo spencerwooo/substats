@@ -6,13 +6,13 @@
   "main": "src/index.js",
   "scripts": {
     "lint": "eslint src/**/* *.{js,css,vue} --color --fix",
-    "pretty": "prettier src/**/*.js docs/**/*.{js,css,json,vue} *.{js,css,json,vue} --write",
+    "pretty": "prettier src/**/**/*.js docs/**/*.{js,css,json,vue} *.{js,css,json,vue} --write",
     "dev": "wrangler preview --watch",
     "publish": "wrangler publish --env production",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs"
   },
-  "author": "spencerwooo <spencerwoo98@foxmail.com>",
+  "author": "spencerwooo <spencer.wushangbo@gmail.com>",
   "license": "MIT",
   "devDependencies": {
     "eslint": "^6.8.0",
