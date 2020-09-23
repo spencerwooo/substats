@@ -80,7 +80,7 @@ export default {
       text: `${category} - ${title}`,
       value,
     }))
-    this.selectedItem = this.items[12]
+    this.selectedItem = this.items[13]
     this.badge = badge(this.selectedItem.value, this.queryKey)
   },
   methods: {
