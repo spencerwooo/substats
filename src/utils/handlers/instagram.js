@@ -43,8 +43,9 @@ export const instagramHandler = async username => {
       // API is rate limited by Instagram. Return a failure response.
       res.failed = true
       res.subs = 0
-      res.failedMsg = `Sorry, Substats has been limited by the Instagram API, please try
-        and host Substats on your own Cloudflare Workers account as a workaround.`
+      res.failedMsg =
+        'Sorry, Substats has been limited by the Instagram API, please try ' +
+        'and host Substats on your own Cloudflare Workers account as a workaround.'
     }
   }
 
