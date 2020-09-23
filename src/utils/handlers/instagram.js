@@ -31,11 +31,21 @@ export const instagramHandler = async username => {
     res.subs = 0
     res.failedMsg = `${response.status}: Instagram user not found`
   } else {
-    // Instagram user found
-    const stats = await response.json()
-    // The API is actually GraphQL instead of REST, but we only need the
-    // followers number, so a simple JSON parse should be sufficient
-    res.subs = stats.graphql.user.edge_followed_by.count
+    try {
+      // Instagram user found
+      const stats = await response.json()
+
+      // The API is actually GraphQL instead of REST, but we only need the
+      // followers number, so a simple JSON parse should be sufficient
+      res.subs = stats.graphql.user.edge_followed_by.count
+    } catch (e) {
+      // If Substats failed to parse the response as JSON, then it means the
+      // API is rate limited by Instagram. Return a failure response.
+      res.failed = true
+      res.subs = 0
+      res.failedMsg = `Sorry, Substats has been limited by the Instagram API, please try
+        and host Substats on your own Cloudflare Workers account as a workaround.`
+    }
   }
 
   return res
