@@ -53,6 +53,7 @@ I initially wanted to combine the subscriber numbers of Feedly and Inoreader —
 <a href="/api"><img src="./assets/logo_twitter.png" alt="twitter" width="auto" height="64px"/></a>
 <a href="/api"><img src="./assets/logo_unsplash.png" alt="unsplash" width="auto" height="64px"/></a>
 <a href="/api"><img src="./assets/logo_weibo.png" alt="weibo" width="auto" height="64px"/></a>
+<a href="/api"><img src="./assets/logo_wikipedia.png" alt="wikipedia (zh)" width="auto" height="64px"/></a>
 <a href="/api"><img src="./assets/logo_zhihu.png" alt="zhihu" width="auto" height="64px"/></a>
 
 ## Contributors
