@@ -251,6 +251,17 @@ GET /?source=unsplash&queryKey={QUERY}
 
 ## Websites
 
+### Wikipedia (zh) <Badge text="new" />
+
+[![Wikipedia - @scvoet](https://img.shields.io/badge/dynamic/json?color=282c34&labelColor=000000&label=Wikipedia%20(zh)&suffix=%20followers&query=%24.data.totalSubs&url=https%3A%2F%2Fapi.spencerwoo.com%2Fsubstats%2F%3Fsource%3DwikipediaZh%26queryKey%3Dscvoet&logo=wikipedia&longCache=true)]()
+
+```http
+GET /?source=wikipediaZh&queryKey={QUERY}
+```
+
+- **Source shorthand:** `wikipediaZh`
+- **Query key:** Wikipedia (zh) `username`.
+
 ### 爱发电
 
 **The Substats' API** for 爱发电 accepts both requests for your fans in 爱发电: `afdianFans`, and the total income each month in 爱发电: `afdianIncome`. **Both API's queryKey is your 爱发电's `slug`.** For instance: a valid `slug` is the `spencerwoo` part in the user profile URL `https://afdian.net/@spencerwoo`.
