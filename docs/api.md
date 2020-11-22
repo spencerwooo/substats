@@ -253,14 +253,16 @@ GET /?source=unsplash&queryKey={QUERY}
 
 ### Wikipedia (zh) <Badge text="new" />
 
-[![Wikipedia - @scvoet](https://img.shields.io/badge/dynamic/json?color=282c34&labelColor=000000&label=Wikipedia%20(zh)&suffix=%20followers&query=%24.data.totalSubs&url=https%3A%2F%2Fapi.spencerwoo.com%2Fsubstats%2F%3Fsource%3DwikipediaZh%26queryKey%3Dscvoet&logo=wikipedia&longCache=true)]()
+[![Wikipedia (zh) - Scvoet](https://img.shields.io/badge/dynamic/json?logo=wikipedia&color=282c34&labelColor=6a6a6a&label=%e7%bb%b4%e5%9f%ba%e7%99%be%e7%a7%91&query=%24.data.totalSubs&url=https%3a%2f%2fapi.spencerwoo.com%2fsubstats%2f%3fsource%3dwikipediaZh%26queryKey%3dscvoet%26longCache%3dtrue)](https://api.spencerwoo.com/substats/?source=wikipediaZh&queryKey=scvoet&longCache=true)
 
 ```http
 GET /?source=wikipediaZh&queryKey={QUERY}
 ```
 
 - **Source shorthand:** `wikipediaZh`
-- **Query key:** Wikipedia (zh) `username`.
+- **Query key:** Wikipedia (zh) `username` - the username after `zh.wikipedia.org/wiki/User:` in your Wikipedia-zh user page URL. For instance: a valid `username` is the `scvoet` part in the user page URL `https://zh.wikipedia.org/wiki/User:scvoet`.
+
+> Tip: `username` ignores initial case.
 
 ### 爱发电
 
