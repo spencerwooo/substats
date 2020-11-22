@@ -19,7 +19,7 @@ import { twitterHandler } from './handlers/twitter'
 import { unsplashHandler } from './handlers/unsplash'
 import { weiboHandler } from './handlers/weibo'
 import { zhihuHandler } from './handlers/zhihu'
-import { wikipediazhHandler } from './handlers/wikipedia-zh'
+import { wikipediaZhHandler } from './handlers/wikipediaZh'
 
 /**
  * Export implemented handlers to index.js for simple reference
@@ -50,7 +50,7 @@ export const handlerImporter = () => {
     unsplash: unsplashHandler,
     weibo: weiboHandler,
     zhihu: zhihuHandler,
-    wikipediazh: wikipediazhHandler,
+    wikipediaZh: wikipediaZhHandler,
   }
   return handlers
 }

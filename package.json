@@ -5,7 +5,7 @@
   "description": "Serverless Function to Count How Many People are Subscribed to You in Your Favorite Services",
   "main": "src/index.js",
   "scripts": {
-    "lint": "eslint src/**/* *.{js,css,vue} --color --fix",
+    "lint": "eslint src/**/* --color --fix",
     "pretty": "prettier src/**/**/*.js docs/**/*.{js,css,json,vue} *.{js,css,json,vue} --write",
     "dev": "wrangler preview --watch",
     "publish": "wrangler publish --env production",
