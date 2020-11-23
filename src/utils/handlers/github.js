@@ -6,9 +6,13 @@
 const fetchGitHubStats = login => {
   // GitHub api module takes user login as query parameter
   const url = `https://api.github.com/users/${login}`
-
   const headers = { 'User-Agent': 'substat-bot' }
-  return fetch(url, { headers })
+  return fetch(url, {
+    headers,
+    cf: {
+      cacheEverything: true,
+    },
+  })
 }
 
 /**

@@ -8,7 +8,12 @@ const fetchWeiboStat = userId => {
   const url = `https://m.weibo.cn/api/container/getIndex?containerid=100505${userId}`
 
   const headers = { 'User-Agent': 'substat-bot' }
-  return fetch(url, { headers })
+  return fetch(url, {
+    headers,
+    cf: {
+      cacheEverything: true,
+    },
+  })
 }
 
 /**

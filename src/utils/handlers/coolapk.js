@@ -32,7 +32,12 @@ const fetchCoolapkStat = uid => {
     'X-Dark-Mode': '0',
     'X-App-Token': token,
   }
-  return fetch(url, { headers })
+  return fetch(url, {
+    headers,
+    cf: {
+      cacheEverything: true,
+    },
+  })
 }
 
 /**

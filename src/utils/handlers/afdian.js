@@ -7,7 +7,12 @@ const fetchAfdianStat = slug => {
   // afdian api module takes user slug as query parameter
   const url = `https://afdian.net/api/user/get-profile-by-slug?url_slug=${slug}`
   const headers = { 'User-Agent': 'substat-bot' }
-  return fetch(url, { headers })
+  return fetch(url, {
+    headers,
+    cf: {
+      cacheEverything: true,
+    },
+  })
 }
 
 /**

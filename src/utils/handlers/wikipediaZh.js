@@ -8,7 +8,12 @@ const fetchWikipediaZhStats = name => {
   const url = `https://zh.wikipedia.org/w/api.php?action=query&list=users&ususers=${name}&usprop=editcount&format=json`
 
   const headers = { 'User-Agent': 'substat-bot' }
-  return fetch(url, { headers })
+  return fetch(url, {
+    headers,
+    cf: {
+      cacheEverything: true,
+    },
+  })
 }
 
 /**

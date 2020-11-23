@@ -13,7 +13,12 @@ const fetchNewsBlurStats = (rss, cookie) => {
   // NewsBlur api module takes an encoded `feed/{link}` URL as query parameter
   const url = `https://newsblur.com/rss_feeds/search_feed?address=${req}`
   const headers = { 'User-Agent': 'substat-bot', Cookie: cookie }
-  return fetch(url, { headers })
+  return fetch(url, {
+    headers,
+    cf: {
+      cacheEverything: true,
+    },
+  })
 }
 
 /**

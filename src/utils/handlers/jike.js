@@ -10,7 +10,13 @@ const fetchJikeData = async id => {
   const url = `https://m.okjike.com/users/${id}`
   const headers = { 'User-Agent': 'substat-bot' }
 
-  const resp = await fetch(url, { headers })
+  const resp = await fetch(url, {
+    headers,
+    cf: {
+      cacheEverything: true,
+    },
+  })
+
   if (resp.status !== 200) {
     return { error: 'failed', data: 'Jike API failed' }
   }

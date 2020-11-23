@@ -11,7 +11,12 @@ const fetchTelegramStat = chatId => {
   const url = `https://api.telegram.org/bot${TG_BOT_TOKEN}/getChatMembersCount?chat_id=@${chatId}`
 
   const headers = { 'User-Agent': 'substat-bot' }
-  return fetch(url, { headers })
+  return fetch(url, {
+    headers,
+    cf: {
+      cacheEverything: true,
+    },
+  })
 }
 
 /**

@@ -10,7 +10,12 @@ const fetchInoreaderStats = rss => {
   // inoreader api module takes an encoded `feed/{link}` URL as query parameter
   const url = `https://www.inoreader.com/autocomplete.php?origin=smart_search&term=${req}`
   const headers = { 'User-Agent': 'substat-bot' }
-  return fetch(url, { headers })
+  return fetch(url, {
+    headers,
+    cf: {
+      cacheEverything: true,
+    },
+  })
 }
 
 /**

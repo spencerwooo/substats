@@ -9,7 +9,12 @@ const fetchZhihuStat = urlToken => {
   const url = `https://www.zhihu.com/api/v4/members/${urlToken}?include=follower_count`
 
   const headers = { 'User-Agent': 'substat-bot' }
-  return fetch(url, { headers })
+  return fetch(url, {
+    headers,
+    cf: {
+      cacheEverything: true,
+    },
+  })
 }
 
 /**
