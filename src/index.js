@@ -7,7 +7,7 @@ import { handlerImporter } from './utils/handlerImporter'
 const singleOnlySources = ['afdianIncome']
 
 addEventListener('fetch', event => {
-  event.respondWith(handleRequest(event.request))
+  event.respondWith(handleRequest(event))
 })
 
 /**
@@ -169,9 +169,10 @@ async function fetchStats(singleOnly, sources, queryKey) {
 /**
  * Respond to query
  *
- * @param {Request} request
+ * @param {Event} event
  */
-async function handleRequest(request) {
+async function handleRequest(event) {
+  const request = event.request
   // enable CORS
   const headersJson = {
     'Content-Type': 'application/json',
@@ -189,7 +190,6 @@ async function handleRequest(request) {
     ban: { status: 403, headers: headersJson },
     invalid: { status: 400, headers: headersJson },
   }
-  let response = null
 
   // Ban all requests other than GET
   if (request.method !== 'GET') {
@@ -204,6 +204,26 @@ async function handleRequest(request) {
   }
 
   const resp = parseRequest(request.url)
+
+  // Use Worker Cache API to get/set request caches
+  const cache = caches.default
+  const cacheKey = new Request(new URL(request.url).toString(), request)
+  // Try to find cached response in the Cloudflare Edge cache
+  let response = await cache.match(cacheKey)
+  // Edge Cache found
+  if (response) {
+    console.log('Edge Cache hit!')
+    // Repack response to make headers mutable
+    response = new Response(response.body, response)
+    // Set Cloudflare Egde cache hit
+    response.headers.set('CF-Cache-Status', 'HIT')
+    // Browser Cache-Control TTL, set to 0 to disable Browser cache
+    response.headers.set('Cache-Control', 'max-age=0')
+    // Emit cached response immediately
+    return response
+  } else {
+    console.log('Edge Cache miss.')
+  }
 
   // Empty request, default to landing page
   if (resp.greet) {
@@ -264,13 +284,19 @@ async function handleRequest(request) {
     <script src="https://cdn.jsdelivr.net/gh/spencerwooo/Substats@${COMMIT_HASH}/styles/default.min.js"></script>
     </html>
     `
-    return new Response(landing, respInit.greet)
+    response = new Response(landing, respInit.greet)
+    // Cloudflare Egde Cache-Control TTL, 4-hours for Landing page
+    response.headers.set('Cache-Control', 'public, max-age=14400')
+    event.waitUntil(cache.put(cacheKey, response.clone()))
+    // Set Cloudflare Egde cache miss
+    response.headers.set('CF-Cache-Status', 'MISS')
+    return response
   }
 
   // Invalid request, send 400 bad request
-  const invalidErr = `Substats: Invalid request. You should structure your query like so: /?source={YOUR_SERVICE_PROVIDER}&queryKey={YOUR_QUERY}`
-  const singleOnlyErr = `Substats: Invalid request. For source: '${resp.singleOnlySrc}' we only accept single requests.`
   if (resp.valid === false) {
+    const invalidErr = `Substats: Invalid request. You should structure your query like so: /?source={YOUR_SERVICE_PROVIDER}&queryKey={YOUR_QUERY}`
+    const singleOnlyErr = `Substats: Invalid request. For source: '${resp.singleOnlySrc}' we only accept single requests.`
     let err = ''
     if (resp.singleOnly) {
       err = singleOnlyErr
@@ -289,12 +315,18 @@ async function handleRequest(request) {
 
   // Fetch statistics
   const result = await fetchStats(resp.singleOnly, resp.source, resp.queryKey)
-
   const finalResp = {
     status: respInit.ok.status,
     data: result,
   }
-
   response = new Response(JSON.stringify(finalResp), respInit.ok)
+  // Cloudflare Egde Cache-Control TTL, 5-minutes for statistics response
+  response.headers.set('Cache-Control', 'public, max-age=300')
+  // Store the fetched statistics as cacheKey
+  event.waitUntil(cache.put(cacheKey, response.clone()))
+  // Set Cloudflare Egde cache miss
+  response.headers.set('CF-Cache-Status', 'MISS')
+  // Browser Cache-Control TTL, set to 0 to disable Browser Cache
+  response.headers.set('Cache-Control', 'max-age=0')
   return response
 }
