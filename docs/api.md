@@ -253,7 +253,7 @@ GET /?source=unsplash&queryKey={QUERY}
 
 ### Wikipedia (zh) <Badge text="new" />
 
-[![Wikipedia (zh) - Scvoet](https://img.shields.io/badge/dynamic/json?logo=wikipedia&color=282c34&labelColor=6a6a6a&label=%e7%bb%b4%e5%9f%ba%e7%99%be%e7%a7%91&query=%24.data.totalSubs&url=https%3a%2f%2fapi.spencerwoo.com%2fsubstats%2f%3fsource%3dwikipediaZh%26queryKey%3dscvoet%26longCache%3dtrue)](https://api.spencerwoo.com/substats/?source=wikipediaZh&queryKey=scvoet&longCache=true)
+[![Wikipedia (zh) - Scvoet](https://img.shields.io/badge/dynamic/json?logo=wikipedia&color=282c34&labelColor=000000&label=%e7%bb%b4%e5%9f%ba%e7%99%be%e7%a7%91&query=%24.data.totalSubs&url=https%3a%2f%2fapi.spencerwoo.com%2fsubstats%2f%3fsource%3dwikipediaZh%26queryKey%3dscvoet%26longCache%3dtrue)](https://api.spencerwoo.com/substats/?source=wikipediaZh&queryKey=scvoet&longCache=true)
 
 ```http
 GET /?source=wikipediaZh&queryKey={QUERY}
