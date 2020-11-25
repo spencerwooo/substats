@@ -7,7 +7,12 @@ const fetchBilibiliStat = uid => {
   // Bilibili api module takes user uid as query parameter
   const url = `https://api.bilibili.com/x/relation/stat?vmid=${uid}&isonp=jsonp`
   const headers = { 'User-Agent': 'substat-bot' }
-  return fetch(url, { headers })
+  return fetch(url, {
+    headers,
+    cf: {
+      cacheEverything: true,
+    },
+  })
 }
 
 /**

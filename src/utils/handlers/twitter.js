@@ -9,7 +9,12 @@ const fetchTwitterStats = name => {
   const url = `https://cdn.syndication.twimg.com/widgets/followbutton/info.json?screen_names=${name}`
 
   const headers = { 'User-Agent': 'substat-bot' }
-  return fetch(url, { headers })
+  return fetch(url, {
+    headers,
+    cf: {
+      cacheEverything: true,
+    },
+  })
 }
 
 /**

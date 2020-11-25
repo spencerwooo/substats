@@ -8,7 +8,12 @@ const fetchRedditStats = username => {
   const url = `https://www.reddit.com/user/${username}/about.json`
 
   const headers = { 'User-Agent': 'substat-bot' }
-  return fetch(url, { headers })
+  return fetch(url, {
+    headers,
+    cf: {
+      cacheEverything: true,
+    },
+  })
 }
 
 /**

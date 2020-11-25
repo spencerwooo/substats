@@ -11,7 +11,12 @@ const fetchSteamGamesStats = steamId => {
   const url = `https://api.steampowered.com/IPlayerService/GetOwnedGames/v1/?key=${STEAM_API_KEY}&steamid=${steamId}`
 
   const headers = { 'User-Agent': 'substat-bot' }
-  return fetch(url, { headers })
+  return fetch(url, {
+    headers,
+    cf: {
+      cacheEverything: true,
+    },
+  })
 }
 
 /**

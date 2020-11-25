@@ -13,7 +13,12 @@ const fetchFeedsPubStats = rss => {
 
   const url = `https://api.feeds.pub/graphql?query=query%20feed(%24id%3A%20String!)%7B%20feed(id%3A%20%24id)%20%7B%20followerCount%20%7D%20%7D&variables=%7B%22id%22%3A%20%22${req}%22%7D&operationName=feed`
   const headers = { 'User-Agent': 'substat-bot' }
-  return fetch(url, { headers })
+  return fetch(url, {
+    headers,
+    cf: {
+      cacheEverything: true,
+    },
+  })
 }
 
 /**

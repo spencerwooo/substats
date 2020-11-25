@@ -7,7 +7,12 @@ const fetchNeteaseMusic = uid => {
   // Netease Music api module takes user uid as query parameter
   const url = `https://music.163.com/api/v1/user/detail/${uid}`
   const headers = { 'User-Agent': 'substat-bot' }
-  return fetch(url, { headers })
+  return fetch(url, {
+    headers,
+    cf: {
+      cacheEverything: true,
+    },
+  })
 }
 
 /**

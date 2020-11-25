@@ -10,7 +10,12 @@ const fetchFeedlyStats = rss => {
   // feedly api module takes an encoded `feed/{link}` URL as query parameter
   const url = `https://feedly.com/v3/recommendations/feeds/${req}`
   const headers = { 'User-Agent': 'substat-bot' }
-  return fetch(url, { headers })
+  return fetch(url, {
+    headers,
+    cf: {
+      cacheEverything: true,
+    },
+  })
 }
 
 /**

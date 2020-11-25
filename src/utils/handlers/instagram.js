@@ -8,7 +8,12 @@ const fetchInstagramStats = username => {
   const url = `https://www.instagram.com/${username}/?__a=1`
 
   const headers = { 'User-Agent': 'substat-bot' }
-  return fetch(url, { headers })
+  return fetch(url, {
+    headers,
+    cf: {
+      cacheEverything: true,
+    },
+  })
 }
 
 /**

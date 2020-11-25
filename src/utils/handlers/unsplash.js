@@ -10,7 +10,12 @@ const fetchUnsplashStats = username => {
   const url = `https://api.unsplash.com/users/${username}?client_id=${UNSPLASH_ACCESS_TOKEN}`
 
   const headers = { 'User-Agent': 'substat-bot' }
-  return fetch(url, { headers })
+  return fetch(url, {
+    headers,
+    cf: {
+      cacheEverything: true,
+    },
+  })
 }
 
 /**
