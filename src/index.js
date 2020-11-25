@@ -215,7 +215,7 @@ async function handleRequest(event) {
     console.log('Edge Cache hit!')
     // Repack response to make headers mutable
     response = new Response(response.body, response)
-    // Set Cloudflare Egde cache hit
+    // Set Cloudflare Edge cache hit
     response.headers.set('CF-Cache-Status', 'HIT')
     // Browser Cache-Control TTL, set to 0 to disable Browser cache
     response.headers.set('Cache-Control', 'max-age=0')
@@ -285,10 +285,10 @@ async function handleRequest(event) {
     </html>
     `
     response = new Response(landing, respInit.greet)
-    // Cloudflare Egde Cache-Control TTL, 4-hours for Landing page
+    // Cloudflare Edge Cache-Control TTL, 4-hours for Landing page
     response.headers.set('Cache-Control', 'public, max-age=14400')
     event.waitUntil(cache.put(cacheKey, response.clone()))
-    // Set Cloudflare Egde cache miss
+    // Set Cloudflare Edge cache miss
     response.headers.set('CF-Cache-Status', 'MISS')
     return response
   }
@@ -320,11 +320,11 @@ async function handleRequest(event) {
     data: result,
   }
   response = new Response(JSON.stringify(finalResp), respInit.ok)
-  // Cloudflare Egde Cache-Control TTL, 5-minutes for statistics response
+  // Cloudflare Edge Cache-Control TTL, 5-minutes for statistics response
   response.headers.set('Cache-Control', 'public, max-age=300')
   // Store the fetched statistics as cacheKey
   event.waitUntil(cache.put(cacheKey, response.clone()))
-  // Set Cloudflare Egde cache miss
+  // Set Cloudflare Edge cache miss
   response.headers.set('CF-Cache-Status', 'MISS')
   // Browser Cache-Control TTL, set to 0 to disable Browser Cache
   response.headers.set('Cache-Control', 'max-age=0')
