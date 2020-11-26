@@ -9,6 +9,8 @@
 
 [🚩 API endpoint](https://api.spencerwoo.com/substats) · [🚦 Status monitor](https://stats.uptimerobot.com/92yjVTmk63/784533782) · [📖 Documentation](https://substats.spencerwoo.com)
 
+**🚀 NEW**: Substats now takes advantage of Cloudflare Workers' caching mechanism, thereby making itself faster than ever. You should see huge performance gains in terms of load time and responsiveness. Huge shout out to @chawyehsu who made this possible!
+
 <h2>Table of contents</h2>
 
 - [Why I did this?](#why-i-did-this)
