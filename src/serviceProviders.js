@@ -1,4 +1,4 @@
-// import API handlers for different platforms
+// import API services for different platforms
 import { afdianFansHandler, afdianIncomeHandler } from './services/afdian'
 import { bilibiliHandler } from './services/bilibili'
 import { coolapkHandler } from './services/coolapk'
@@ -22,7 +22,7 @@ import { zhihuHandler } from './services/zhihu'
 import { wikipediaZhHandler } from './services/wikipediaZh'
 
 /**
- * Export implemented handlers to index.js for simple reference
+ * Export implemented services to index.js for simple reference
  */
 export const services = () => {
   const services = {

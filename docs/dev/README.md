@@ -37,13 +37,12 @@ The core API backend and the documentations share the same mono-repo. The struct
 🚡 _API backend_
 ├── `src`
 │   ├── index.js _(API starting point)_
-│   └── `utils` _(Utility scripts folder)_
-│        └── handlerImporter.js _(Imports all API handlers from below)_
-│        🔑 _API handlers_
-│        └── `handlers` _(API integration handlers folder)_
-│              ├── feedly.js _(Feedly API integration)_
-│              ├── github.js _(GitHub API integration)_
-│              └── ……        _(You get the idea...)_
+│   └── serviceProviders.js _(Imports all service APIs from below)_
+│   🔑 _API Services_
+│   └── `services` _(API integrations for different services)_
+│         ├── feedly.js _(Feedly API integration)_
+│         ├── github.js _(GitHub API integration)_
+│         └── ……        _(You get the idea...)_
 │
 🚀 _Deployment_
 └── wrangler.toml _(Cloudflare worker deployment config)_
