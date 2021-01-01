@@ -8,26 +8,18 @@ sidebar: auto
 
 ## Setting up the project
 
-:::tip 🚥 Note
-You'll need global access to CLI tools installed by `yarn`, so you should add `yarn`'s global binary installation path to your `$PATH`.
+We strongly recommend you install npm with a Node version manager like [n](https://github.com/tj/n) or [nvm](https://github.com/nvm-sh/nvm), which will allow wrangler to install configuration data in a global node_modules directory in your user's home directory, without requiring that you run as root.
+
+Once you've installed Node.js with a Node version manager, run the following command to install `wrangler` globally:
 
 ```bash
-yarn global bin
-```
-
-You can run the command directly to find the `/bin`'s path.
-:::
-
-Install `wrangler` globally:
-
-```bash
-yarn global add @cloudflare/wrangler
+npm i @cloudflare/wrangler -g
 ```
 
 Install dependencies:
 
 ```bash
-yarn
+npm install
 ```
 
 ## Familiarizing the structure
@@ -64,19 +56,19 @@ The core API backend and the documentations share the same mono-repo. The struct
 Preview with [cloudflareworkers.com](https://cloudflareworkers.com):
 
 ```bash
-yarn dev
+npm run dev
 ```
 
 Lint and automatically fix all fixable JavaScript files with `eslint`:
 
 ```bash
-yarn lint
+npm run lint
 ```
 
 Prettify all JavaScript files with `prettier`:
 
 ```bash
-yarn pretty
+npm run pretty
 ```
 
 ## Storing secrets and authenticating
@@ -104,7 +96,7 @@ An example is the [authentication-required Telegram Bot API](https://github.com/
 Publish to Cloudflare Workers:
 
 ```bash
-yarn publish
+npm run publish
 ```
 
 ## Documentations
@@ -114,11 +106,11 @@ To contribute on documentations (i.e., [this website](https://substats.spencerwo
 ### Live preview docs
 
 ```bash
-yarn docs:dev
+npm run docs:dev
 ```
 
 ### Building the docs
 
 ```bash
-yarn docs:build
+npm run docs:build
 ```
