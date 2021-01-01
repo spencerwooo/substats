@@ -1,7 +1,7 @@
 import qs from 'qs'
 
 // import all handlers from different platforms into a global object
-import { handlerImporter } from './utils/handlerImporter'
+import { services } from './serviceProviders'
 
 //! register sources that return non-numbers here, if a source doesn't return a number, we will handle it separately
 const singleOnlySources = ['afdianIncome']
@@ -122,7 +122,7 @@ async function fetchStats(singleOnly, sources, queryKey) {
   }
 
   // reference handlers
-  const handlers = handlerImporter()
+  const handlers = services()
 
   // construct big concurrent promise array
   const resPromise = []
