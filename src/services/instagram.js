@@ -107,13 +107,10 @@ export const instagramHandler = async username => {
 
   try {
     var result = await processResponse(username, true)
-    console.log(result)
     res.subs = result.count
   } catch (e1) {
-    console.log(2)
     // Execute again to update expired cookie
     try {
-      console.log(3)
       result = await processResponse(username, false)
       res.subs = result.count
     } catch (e2) {
