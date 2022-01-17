@@ -1,8 +1,12 @@
-name = "substats"
-type = "webpack"
-account_id = "b87997a496f985b46b927b3f24c61de1"
-workers_dev = true
-
-[env.production]
-route = "api.spencerwoo.com/substats*"
+name = "substats-ts"
+type = "javascript"
 zone_id = "b04152d2c33ff4653cec1a579be6d42a"
+account_id = "b87997a496f985b46b927b3f24c61de1"
+route = ""
+workers_dev = true
+compatibility_date = "2022-01-17"
+
+[build]
+command = "npm install && npm run build"
+[build.upload]
+format = "service-worker"
