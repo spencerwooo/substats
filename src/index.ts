@@ -1,25 +1,40 @@
 import { Router } from 'itty-router'
-// import { handleRequest } from './handler'
+// import { withParams } from 'itty-router-extras'
+
+import { createError, createResponse } from './response'
+import { SubstatsRequest } from './types'
 
 const router = Router()
-const headers = {
-  'Content-Type': 'application/json;charset=UTF-8',
+const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
-  'Access-Control-Allow-Headers':
-    'Origin, X-Requested-With, Content-Type, Accept',
+  'Access-Control-Allow-Headers': '*',
+  'Access-Control-Allow-Methods': 'GET, OPTIONS',
 }
 
-router.get(
-  '/',
-  (req: { query: { source: string | string[]; key: string | string[] } }) => {
-    const { source, key } = req.query
-    const resp = { source: source, key: key }
-    return new Response(JSON.stringify(resp), { headers })
-  },
-)
-router.all('*', () => new Response('Not Found.', { status: 404 }))
+router.options('*', () => new Response(null, { headers: corsHeaders }))
+
+// A simpler route in the format of /:source/:key, returning only single sources
+router.get('/:source/:key', (req: SubstatsRequest) => {
+  const { source, key } = req.params
+  const resp = { source: source, key: key }
+
+  return createResponse(resp, corsHeaders)
+})
+
+// A full 1.0 version route with multiple sources and keys
+router.get('/', (req: SubstatsRequest) => {
+  const source = req.query.source
+  const key = req.query.key || req.query.queryKey
+  // 'queryKey' is an alias for 'key' and is evaluated here for backwards compatibility
+  const queryKey = req.query.queryKey
+
+  const resp = { source: source, key: key }
+  return createResponse(resp, corsHeaders)
+})
+
+// Fallback 404 route
+router.all('*', () => createError('Not Found'))
 
 addEventListener('fetch', (event) => {
-  // event.respondWith(handleRequest(event.request))
   event.respondWith(router.handle(event.request))
 })
