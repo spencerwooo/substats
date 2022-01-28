@@ -14,10 +14,6 @@ export function createResponse(
   })
 }
 
-export function createError(
-  message: string,
-  headers?: Record<string, string>,
-  status?: number,
-): Response {
-  return createResponse({ message }, headers, status || 404)
+export function createError(message: string, status?: number): Response {
+  return createResponse({ message }, {}, status || 404)
 }
