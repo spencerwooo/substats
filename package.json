@@ -2,13 +2,14 @@
   "name": "substats",
   "version": "2.0.0",
   "description": "Serverless Function to Count How Many People are Subscribed to You in Your Favorite Services",
-  "main": "dist/worker.js",
+  "type": "module",
+  "main": "./dist/index.mjs",
   "scripts": {
-    "dev": "wrangler dev",
-    "build": "webpack",
-    "format": "prettier --write  '*.{json,js}' 'src/**/*.{js,ts}' 'test/**/*.{js,ts}'",
+    "build": "node build.js",
+    "dev": "miniflare --live-reload --debug",
+    "format": "prettier --write '*.{json,js}' 'src/**/*.{js,ts}' 'test/**/*.{js,ts}'",
     "lint": "eslint --max-warnings=0 src && prettier --check '*.{json,js}' 'src/**/*.{js,ts}' 'test/**/*.{js,ts}'",
-    "test": "jest --config jestconfig.json --verbose"
+    "test": "pnpm build && jest --config jest.config.js --verbose"
   },
   "author": "spencerwooo <spencer.wushangbo@gmail.com>",
   "license": "MIT",
@@ -20,26 +21,24 @@
     ]
   },
   "devDependencies": {
-    "@cloudflare/workers-types": "^3.0.0",
+    "@cloudflare/workers-types": "^3.4.0",
     "@types/itty-router-extras": "^0.4.0",
-    "@types/jest": "^26.0.23",
-    "@types/service-worker-mock": "^2.0.1",
-    "@typescript-eslint/eslint-plugin": "^4.16.1",
-    "@typescript-eslint/parser": "^4.16.1",
-    "eslint": "^7.21.0",
-    "eslint-config-prettier": "^8.1.0",
+    "@types/jest": "^27.4.0",
+    "@typescript-eslint/eslint-plugin": "^4.33.0",
+    "@typescript-eslint/parser": "^4.33.0",
+    "esbuild": "^0.14.23",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
     "eslint-config-typescript": "^3.0.0",
-    "jest": "^27.0.1",
-    "prettier": "^2.3.0",
-    "service-worker-mock": "^2.0.5",
-    "ts-jest": "^27.0.1",
-    "ts-loader": "^9.2.2",
-    "typescript": "^4.3.2",
-    "webpack": "^5.38.1",
-    "webpack-cli": "^4.7.0"
+    "jest": "^27.5.1",
+    "jest-environment-miniflare": "^2.3.0",
+    "miniflare": "^2.3.0",
+    "prettier": "^2.5.1",
+    "ts-jest": "^27.1.3",
+    "typescript": "^4.5.5"
   },
   "dependencies": {
-    "itty-router": "^2.4.8",
+    "itty-router": "^2.4.10",
     "itty-router-extras": "^0.4.2"
   }
 }

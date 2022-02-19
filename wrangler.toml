@@ -1,12 +1,14 @@
 name = "substats-ts"
 type = "javascript"
-zone_id = "b04152d2c33ff4653cec1a579be6d42a"
+zone_id = "37799ee61788957c4ff51597f94a92c2"
 account_id = "b87997a496f985b46b927b3f24c61de1"
-route = ""
+route = "api.swo.moe/stats*"
 workers_dev = true
 compatibility_date = "2022-01-17"
 
 [build]
-command = "npm install && npm run build"
+command = "pnpm install && pnpm run build"
+
 [build.upload]
-format = "service-worker"
+format = "modules"
+main = "index.mjs"
