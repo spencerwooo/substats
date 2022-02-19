@@ -40,6 +40,7 @@
     "typescript": "^4.5.5"
   },
   "dependencies": {
+    "cheerio": "^1.0.0-rc.10",
     "crypto-js": "^4.1.1",
     "itty-router": "^2.4.10",
     "itty-router-extras": "^0.4.2",

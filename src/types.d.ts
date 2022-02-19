@@ -17,4 +17,26 @@ export declare type ProviderFunctions = (
   key: string,
 ) => Promise<SubstatsResponse>
 
-export type SupportedProviders = 'afdian' | 'bilibili' | 'coolapk' | 'sspai'
+export type SupportedProviders =
+  | 'common'
+  | 'afdian'
+  | 'bilibili'
+  | 'coolapk'
+  | 'feedly'
+  | 'feedspub'
+  | 'github'
+  | 'inoreader'
+  | 'instagram'
+  | 'jike'
+  | 'medium'
+  | 'neteasemusic'
+  | 'newsblur'
+  | 'reddit'
+  | 'sspai'
+  | 'steam'
+  | 'telegram'
+  | 'twitter'
+  | 'unsplash'
+  | 'weibo'
+  | 'wikipediazh'
+  | 'zhihu'
