@@ -9,7 +9,6 @@ type FeedlyResponse =
 export default async function feedlyProvider(
   key: string,
 ): Promise<SubstatsResponse> {
-  // TODO: this is not working yet
   return commonProviderHandler<FeedlyResponse>({
     providerName: 'feedly',
     fetchUrl: `https://feedly.com/v3/recommendations/feeds/feed%2F${key}?count=0`,
