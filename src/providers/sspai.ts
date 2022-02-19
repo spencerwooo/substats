@@ -10,8 +10,8 @@ export default async function sspaiProvider(
   key: string,
 ): Promise<SubstatsResponse> {
   return commonProviderHandler<SSPaiResponse>({
-    name: 'sspai',
-    url: `https://sspai.com/api/v1/user/slug/info/get?slug=${key}`,
+    providerName: 'sspai',
+    fetchUrl: `https://sspai.com/api/v1/user/slug/info/get?slug=${key}`,
     countObjPath: 'data.followed_count',
     errorMessageObjPath: 'msg',
     isResponseValid: d => d.error === 0 && d.data !== null,
