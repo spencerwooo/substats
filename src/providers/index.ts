@@ -6,7 +6,9 @@ import type {
 
 import objectPath from 'object-path'
 
+import afdianProvider from './afdian'
 import bilibiliProvider from './bilibili'
+import coolapkProvider from './coolapk'
 import sspaiProvider from './sspai'
 
 type FailedSubstatsResponse = Extract<SubstatsResponse, { failed: true }>
@@ -19,6 +21,8 @@ type FailedSubstatsResponse = Extract<SubstatsResponse, { failed: true }>
  * @param {object} CommonProviderHandler
  * @property {SupportedProviders} providerName - The name of the provider
  * @property {string} fetchUrl - The URL to fetch JSON data from
+ * @property {Record<string, string>} optionalHeaders - Optional headers to
+ *  add when requesting the fetchUrl (mostly used for authentication)
  * @property {string} countObjPath - The path to the count value in the JSON
  * @property {string} errorMessageObjPath - The path to the error message
  * @property {(data: unknown) => boolean} isResponseValid - Checks if the
@@ -28,32 +32,40 @@ type FailedSubstatsResponse = Extract<SubstatsResponse, { failed: true }>
 export async function commonProviderHandler<T>({
   providerName,
   fetchUrl,
+  optionalHeaders,
   countObjPath,
   errorMessageObjPath,
   isResponseValid,
 }: {
   providerName: SupportedProviders
   fetchUrl: string
+  optionalHeaders?: Record<string, string>
   countObjPath: string
   errorMessageObjPath: string
   isResponseValid: (d: T) => boolean
 }): Promise<SubstatsResponse> {
   try {
-    const resp = await fetch(fetchUrl, { cf: { cacheEverything: true } })
+    const resp = await fetch(fetchUrl, {
+      headers: optionalHeaders ?? {
+        'User-Agent': 'Mozilla/5.0 (compatible; Substatsbot/2.0)',
+      },
+      cf: { cacheEverything: true },
+    })
     const data = await resp.json<T>()
     console.log(data)
 
     // If responded data is not null or undefined, and is valid by checking the
     // data against the callback isResponseValid()
     if (isResponseValid(data)) {
+      const count = objectPath.get(
+        data as unknown as Record<string, unknown>,
+        countObjPath,
+        0,
+      )
       return {
         source: providerName,
         failed: false,
-        count: objectPath.get<number>(
-          data as unknown as Record<string, unknown>,
-          countObjPath,
-          0,
-        ),
+        count: typeof count === 'number' ? count : 0,
       }
     }
 
@@ -99,7 +111,9 @@ export default function getProviders(): Record<
   ProviderFunctions
 > {
   return {
+    afdian: afdianProvider,
     bilibili: bilibiliProvider,
+    coolapk: coolapkProvider,
     sspai: sspaiProvider,
   }
 }
