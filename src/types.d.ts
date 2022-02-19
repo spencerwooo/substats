@@ -3,8 +3,8 @@ export type SubstatsRequest = {
   params: { source: string; key: string }
 }
 export type SubstatsResponse =
-  | { source: string; failed: boolean; count: number }
-  | { source: string; failed: boolean; message: string }
+  | { source: string; failed: false; count: number }
+  | { source: string; failed: true; message: string }
 export type JSONResponse =
   | null
   | string
@@ -16,3 +16,5 @@ export type JSONResponse =
 export declare type ProviderFunctions = (
   key: string,
 ) => Promise<SubstatsResponse>
+
+export type SupportedProviders = 'sspai' | 'bilibili'
