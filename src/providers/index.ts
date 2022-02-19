@@ -6,10 +6,28 @@ import type {
 
 import objectPath from 'object-path'
 
+import generalProvider from './common'
 import afdianProvider from './afdian'
 import bilibiliProvider from './bilibili'
 import coolapkProvider from './coolapk'
+import feedlyProvider from './feedly'
+import feedsPubProvider from './feedsPub'
+import githubProvider from './github'
+import inoreaderProvider from './inoreader'
+import jikeProvider from './jike'
+import mediumProvider from './medium'
+import neteaseMusicProvider from './neteaseMusic'
+import newsblurProvider from './newsblur'
+import redditProvider from './reddit'
 import sspaiProvider from './sspai'
+import steamProvider from './steam'
+import telegramProvider from './telegram'
+import twitterProvider from './twitter'
+import unsplashProvider from './unsplash'
+import weiboProvider from './weibo'
+import wikipediaZhProvider from './wikipedia'
+import zhihuProvider from './zhihu'
+import instagramProvider from './instagram'
 
 type FailedSubstatsResponse = Extract<SubstatsResponse, { failed: true }>
 
@@ -25,8 +43,11 @@ type FailedSubstatsResponse = Extract<SubstatsResponse, { failed: true }>
  *  add when requesting the fetchUrl (mostly used for authentication)
  * @property {string} countObjPath - The path to the count value in the JSON
  * @property {string} errorMessageObjPath - The path to the error message
- * @property {(data: unknown) => boolean} isResponseValid - Checks if the
+ * @property {(data: T) => boolean} isResponseValid - Checks if the
  * response is valid against a specific requirement (differs per provider)
+ * @property {(res: Response) => Promise<T>} parseResponse - Parses the
+ * response, where if not provided, falls back to res.json<T>() and returns a
+ * JSON response
  * @returns {Promise<SubstatsResponse>} The data as a SubstatsResponse
  */
 export async function commonProviderHandler<T>({
@@ -36,6 +57,7 @@ export async function commonProviderHandler<T>({
   countObjPath,
   errorMessageObjPath,
   isResponseValid,
+  parseResponse,
 }: {
   providerName: SupportedProviders
   fetchUrl: string
@@ -43,6 +65,7 @@ export async function commonProviderHandler<T>({
   countObjPath: string
   errorMessageObjPath: string
   isResponseValid: (d: T) => boolean
+  parseResponse?: (res: Response) => Promise<T>
 }): Promise<SubstatsResponse> {
   try {
     const resp = await fetch(fetchUrl, {
@@ -51,14 +74,13 @@ export async function commonProviderHandler<T>({
       },
       cf: { cacheEverything: true },
     })
-    const data = await resp.json<T>()
-    console.log(data)
+    const d = parseResponse ? await parseResponse(resp) : await resp.json<T>()
 
     // If responded data is not null or undefined, and is valid by checking the
     // data against the callback isResponseValid()
-    if (isResponseValid(data)) {
+    if (isResponseValid(d)) {
       const count = objectPath.get(
-        data as unknown as Record<string, unknown>,
+        d as unknown as Record<string, unknown>,
         countObjPath,
         0,
       )
@@ -71,7 +93,7 @@ export async function commonProviderHandler<T>({
 
     throw new Error(
       objectPath.get<string>(
-        data as unknown as Record<string, unknown>,
+        d as unknown as Record<string, unknown>,
         errorMessageObjPath,
         `An error occured with the ${providerName} API`,
       ),
@@ -90,7 +112,7 @@ export async function commonProviderHandler<T>({
  */
 export function providerErrorHandler(
   error: unknown,
-  provider: string,
+  provider: SupportedProviders,
 ): FailedSubstatsResponse {
   return {
     source: provider,
@@ -111,9 +133,27 @@ export default function getProviders(): Record<
   ProviderFunctions
 > {
   return {
+    common: generalProvider,
     afdian: afdianProvider,
     bilibili: bilibiliProvider,
     coolapk: coolapkProvider,
+    feedly: feedlyProvider,
+    feedspub: feedsPubProvider,
+    github: githubProvider,
+    inoreader: inoreaderProvider,
+    instagram: instagramProvider,
+    jike: jikeProvider,
+    medium: mediumProvider,
+    neteasemusic: neteaseMusicProvider,
+    newsblur: newsblurProvider,
+    reddit: redditProvider,
     sspai: sspaiProvider,
+    steam: steamProvider,
+    telegram: telegramProvider,
+    twitter: twitterProvider,
+    unsplash: unsplashProvider,
+    weibo: weiboProvider,
+    wikipediazh: wikipediaZhProvider,
+    zhihu: zhihuProvider,
   }
 }
