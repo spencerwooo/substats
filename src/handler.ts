@@ -1,4 +1,4 @@
-import type { SubstatsRequest } from './types'
+import type { SubstatsRequest, SupportedProviders } from './types'
 
 import { Router } from 'itty-router'
 // import { withParams } from 'itty-router-extras'
@@ -18,6 +18,11 @@ const corsHeaders = {
 
 router.options('*', () => new Response(null, { headers: corsHeaders }))
 
+router.get('/', async () => {
+  const resp = Object.keys(providers)
+  return createResponse(resp, corsHeaders)
+})
+
 // A simpler route in the format of /:source/:key, returning only single sources
 router.get('/:source/:key', async (req: SubstatsRequest) => {
   const { source, key } = req.params
@@ -28,23 +33,22 @@ router.get('/:source/:key', async (req: SubstatsRequest) => {
   }
   // If 'source' is not one of the available providers, return 501 error
   if (!(source in providers)) {
-    return createError(`'${source} is not supported yet`, 501)
+    return createError(`'${source}' is not supported yet`, 501)
   }
 
-  const resp = await providers[source](key)
-
+  const resp = await providers[source as SupportedProviders](key)
   return createResponse(resp, corsHeaders)
 })
 
-// TODO: A full 1.0 version route with multiple sources and keys (itty-router is
-// locking this as it does not handle multiple query params of the same name)
-router.get('/', (req: SubstatsRequest) => {
-  const source = req.query.source
-  const key = req.query.key
+// // TODO: A full 1.0 version route with multiple sources and keys (itty-router is
+// // blocking this as it does not handle multiple query params of the same name)
+// router.get('/', (req: SubstatsRequest) => {
+//   const source = req.query.source
+//   const key = req.query.key
 
-  const resp = { source: source, key: key }
-  return createResponse(resp, corsHeaders)
-})
+//   const resp = { source: source, key: key }
+//   return createResponse(resp, corsHeaders)
+// })
 
 // Fallback 404 route
 router.all('*', () => createError('Not Found'))
