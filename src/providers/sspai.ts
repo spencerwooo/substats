@@ -1,5 +1,7 @@
 import type { SubstatsResponse } from '@/types'
+import { providerErrorHandler } from '.'
 
+// https://sspai.com/api/v1/user/slug/info/get?slug=spencerwoo
 type SSPaiResponse =
   | { error: 0; data: { followed_count: number } }
   | { error: Omit<number, 0>; msg: string; data: null }
@@ -24,19 +26,9 @@ export default async function sspaiProvider(
       }
     }
 
-    // If data.error is not 0, then we have an error with the API
-    throw new Error(
-      'msg' in data ? data.msg : 'An error occured with the sspai API',
-    )
+    // If data.error is not 0, then we have encountered an error with the API
+    throw new Error(data?.msg ?? 'An error occured with the sspai API')
   } catch (error) {
-    return {
-      source: 'sspai',
-      failed: true,
-      message:
-        // Failing and throwing the error gracefully
-        error instanceof Error
-          ? error.message
-          : 'An error occured with the sspai API',
-    }
+    return providerErrorHandler(error, 'sspai')
   }
 }
