@@ -17,4 +17,4 @@ export declare type ProviderFunctions = (
   key: string,
 ) => Promise<SubstatsResponse>
 
-export type SupportedProviders = 'sspai' | 'bilibili'
+export type SupportedProviders = 'afdian' | 'bilibili' | 'coolapk' | 'sspai'

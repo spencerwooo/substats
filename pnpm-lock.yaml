@@ -2,11 +2,13 @@ lockfileVersion: 5.3
 
 specifiers:
   '@cloudflare/workers-types': ^3.4.0
+  '@types/crypto-js': ^4.1.1
   '@types/itty-router-extras': ^0.4.0
   '@types/jest': ^27.4.0
   '@types/object-path': ^0.11.1
   '@typescript-eslint/eslint-plugin': ^4.33.0
   '@typescript-eslint/parser': ^4.33.0
+  crypto-js: ^4.1.1
   esbuild: ^0.14.23
   eslint: ^7.32.0
   eslint-config-prettier: ^8.3.0
@@ -22,12 +24,14 @@ specifiers:
   typescript: ^4.5.5
 
 dependencies:
+  crypto-js: 4.1.1
   itty-router: 2.4.10
   itty-router-extras: 0.4.2
   object-path: 0.11.8
 
 devDependencies:
   '@cloudflare/workers-types': 3.4.0
+  '@types/crypto-js': 4.1.1
   '@types/itty-router-extras': 0.4.0
   '@types/jest': 27.4.0
   '@types/object-path': 0.11.1
@@ -856,6 +860,10 @@ packages:
       '@babel/types': 7.17.0
     dev: true
 
+  /@types/crypto-js/4.1.1:
+    resolution: {integrity: sha512-BG7fQKZ689HIoc5h+6D2Dgq1fABRa0RbBWKBd9SP/MVRVXROflpm5fhwyATX5duFmbStzyzyycPB8qUYKDH3NA==}
+    dev: true
+
   /@types/graceful-fs/4.1.5:
     resolution: {integrity: sha512-anKkLmZZ+xm4p8JWBf4hElkM4XR+EZeA2M9BAkkTldmcyDY4mbdIJnRghDJH3Ov5ooY7/UAoENtmdMSkaAd7Cw==}
     dependencies:
@@ -1410,6 +1418,10 @@ packages:
       shebang-command: 2.0.0
       which: 2.0.2
     dev: true
+
+  /crypto-js/4.1.1:
+    resolution: {integrity: sha512-o2JlM7ydqd3Qk9CA0L4NL6mTzU2sdx96a+oOfPu8Mkl/PK51vSyoi8/rQ8NknZtk44vq15lmhAj9CIAGwgeWKw==}
+    dev: false
 
   /cssom/0.3.8:
     resolution: {integrity: sha512-b0tGHbfegbhPJpxpiBPU2sCkigAqtM9O121le6bbOlgyV+NyGyCmVfJ6QW9eRjz8CpNfWEOYBIMIGRYkLwsIYg==}
