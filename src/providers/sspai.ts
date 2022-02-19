@@ -1,4 +1,4 @@
-import type { SubstatsResponse } from '../types'
+import type { SubstatsResponse } from '@/types'
 
 type SSPaiResponse =
   | { error: 0; data: { followed_count: number } }

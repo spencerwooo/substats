@@ -1,4 +1,4 @@
-import type { ProviderFunctions } from '../types'
+import type { ProviderFunctions } from '@/types'
 
 import sspaiProvider from './sspai'
 

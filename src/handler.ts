@@ -8,7 +8,8 @@ import { createError, createResponse } from './response'
 
 const providers = getProviders()
 
-const router = Router()
+// Prefix all requests with /stats as we deploy on api.swo.moe/stats*
+const router = Router({ base: '/stats' })
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Headers': '*',
@@ -25,7 +26,7 @@ router.get('/:source/:key', async (req: SubstatsRequest) => {
   if (!source || !key) {
     return createError('Invalid request', 400)
   }
-  // If 'source' is not one of the available providers, return an unimplemented error
+  // If 'source' is not one of the available providers, return 501 error
   if (!(source in providers)) {
     return createError(`'${source} is not supported yet`, 501)
   }
@@ -35,7 +36,8 @@ router.get('/:source/:key', async (req: SubstatsRequest) => {
   return createResponse(resp, corsHeaders)
 })
 
-// A full 1.0 version route with multiple sources and keys
+// TODO: A full 1.0 version route with multiple sources and keys (itty-router is
+// locking this as it does not handle multiple query params of the same name)
 router.get('/', (req: SubstatsRequest) => {
   const source = req.query.source
   const key = req.query.key
