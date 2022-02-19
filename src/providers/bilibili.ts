@@ -21,8 +21,8 @@ export default async function bilibiliProvider(
   key: string,
 ): Promise<SubstatsResponse> {
   return commonProviderHandler<BilibiliResponse>({
-    name: 'bilibili',
-    url: `https://api.bilibili.com/x/relation/stat?vmid=${key}&isonp=jsonp`,
+    providerName: 'bilibili',
+    fetchUrl: `https://api.bilibili.com/x/relation/stat?vmid=${key}&isonp=jsonp`,
     countObjPath: 'data.follower',
     errorMessageObjPath: 'message',
     isResponseValid: d => d.code === 0 && 'data' in d,
