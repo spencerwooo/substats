@@ -10,6 +10,7 @@ export default async function steamProvider(
 ): Promise<SubstatsResponse> {
   return commonProviderHandler<SteamResponse>({
     providerName: 'steam',
+    queryKey: key,
     fetchUrl: `https://placeholder.com/v1?user=${key}`,
     countObjPath: 'followers',
     errorMessageObjPath: 'message',

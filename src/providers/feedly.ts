@@ -11,6 +11,7 @@ export default async function feedlyProvider(
 ): Promise<SubstatsResponse> {
   return commonProviderHandler<FeedlyResponse>({
     providerName: 'feedly',
+    queryKey: key,
     fetchUrl: `https://feedly.com/v3/recommendations/feeds/feed%2F${key}?count=0`,
     countObjPath: 'source.subscribers',
     errorMessageObjPath: 'no error message fallback to default',

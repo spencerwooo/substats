@@ -7,7 +7,7 @@ import { commonProviderHandler } from '.'
 // https://m.okjike.com/users/2204A477-38C8-4D9D-9705-9C9B990BE042
 type JikeResponse =
   | { error: 0; followers: number }
-  | { error: Omit<number, 0>; message: string }
+  | { error: 1; message: string }
 
 async function parseResponse(resp: Response): Promise<JikeResponse> {
   const html = await resp.text()
@@ -26,11 +26,12 @@ export default async function jikeProvider(
 ): Promise<SubstatsResponse> {
   return commonProviderHandler<JikeResponse>({
     providerName: 'jike',
+    queryKey: key,
     fetchUrl: `https://m.okjike.com/users/${key}`,
     optionalHeaders: { Referer: `https://m.okjike.com/users/${key}` },
     countObjPath: 'followers',
     errorMessageObjPath: 'message',
-    isResponseValid: d => d.error === 0 && 'count' in d,
+    isResponseValid: d => d.error === 0 && 'followers' in d,
     parseResponse: parseResponse,
   })
 }

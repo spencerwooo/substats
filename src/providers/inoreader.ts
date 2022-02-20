@@ -10,5 +10,6 @@ export default async function inoreaderProvider(
   return providerErrorHandler(
     new Error(`sorry ${key}, this route is not working yet`),
     'inoreader',
+    key,
   )
 }

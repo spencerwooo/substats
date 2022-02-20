@@ -12,6 +12,7 @@ export default async function newsblurProvider(
   return providerErrorHandler(
     new Error(`sorry ${key}, this route is not working yet`),
     'newsblur',
+    key,
   )
   // return commonProviderHandler<NewsblurResponse>({
   //   providerName: 'newsblur',

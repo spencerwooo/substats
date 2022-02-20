@@ -11,6 +11,7 @@ export default async function redditProvider(
 ): Promise<SubstatsResponse> {
   return commonProviderHandler<RedditResponse>({
     providerName: 'reddit',
+    queryKey: key,
     fetchUrl: `https://www.reddit.com/user/${key}/about.json`,
     countObjPath: 'data.total_karma',
     errorMessageObjPath: 'message',

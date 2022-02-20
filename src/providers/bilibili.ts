@@ -22,6 +22,7 @@ export default async function bilibiliProvider(
 ): Promise<SubstatsResponse> {
   return commonProviderHandler<BilibiliResponse>({
     providerName: 'bilibili',
+    queryKey: key,
     fetchUrl: `https://api.bilibili.com/x/relation/stat?vmid=${key}&isonp=jsonp`,
     countObjPath: 'data.follower',
     errorMessageObjPath: 'message',

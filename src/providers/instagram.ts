@@ -10,5 +10,6 @@ export default async function instagramProvider(
   return providerErrorHandler(
     new Error(`sorry ${key}, this route is not working yet`),
     'instagram',
+    key,
   )
 }

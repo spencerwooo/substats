@@ -3,8 +3,8 @@ export type SubstatsRequest = {
   params: { source: string; key: string }
 }
 export type SubstatsResponse =
-  | { source: string; failed: false; count: number }
-  | { source: string; failed: true; message: string }
+  | { source: string; key: string; failed: false; count: number }
+  | { source: string; key: string; failed: true; message: string }
 export type JSONResponse =
   | null
   | string

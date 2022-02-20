@@ -12,6 +12,7 @@ export default async function neteaseMusicProvider(
 ): Promise<SubstatsResponse> {
   return commonProviderHandler<NeteaseMusicResponse>({
     providerName: 'neteasemusic',
+    queryKey: key,
     fetchUrl: `https://music.163.com/api/v1/user/detail/${key}`,
     countObjPath: 'profile.followeds',
     errorMessageObjPath: 'message',

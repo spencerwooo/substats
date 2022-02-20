@@ -10,6 +10,7 @@ export default async function telegramProvider(
 ): Promise<SubstatsResponse> {
   return commonProviderHandler<TelegramResponse>({
     providerName: 'telegram',
+    queryKey: key,
     fetchUrl: `https://placeholder.com/v1?user=${key}`,
     countObjPath: 'followers',
     errorMessageObjPath: 'message',

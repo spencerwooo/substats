@@ -55,6 +55,7 @@ export default async function coolapkProvider(
   }
   return commonProviderHandler<CoolapkResponse>({
     providerName: 'coolapk',
+    queryKey: key,
     fetchUrl: `https://api.coolapk.com/v6/user/profile?uid=${key}`,
     optionalHeaders: headers,
     countObjPath: 'data.fans',

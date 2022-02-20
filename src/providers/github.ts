@@ -8,6 +8,7 @@ export default async function githubProvider(
 ): Promise<SubstatsResponse> {
   return commonProviderHandler<GithubResponse>({
     providerName: 'github',
+    queryKey: key,
     fetchUrl: `https://api.github.com/users/${key}`,
     countObjPath: 'followers',
     errorMessageObjPath: 'message',
