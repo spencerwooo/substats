@@ -22,7 +22,7 @@ type MediumRawResponse =
   | { success: false; error: string }
 type MediumResponse =
   | { error: 0; followers: number }
-  | { error: Omit<number, 0>; message: string }
+  | { error: 1; message: string }
 
 // Medium has some weird characters in front of their JSON response
 const JSON_HIJACKING_PREFIX = '])}while(1);</x>'
@@ -49,6 +49,7 @@ export default async function mediumProvider(
 ): Promise<SubstatsResponse> {
   return commonProviderHandler<MediumResponse>({
     providerName: 'medium',
+    queryKey: key,
     fetchUrl: `https://medium.com/@${key}?format=json`,
     countObjPath: 'followers',
     errorMessageObjPath: 'message',

@@ -52,6 +52,7 @@ type FailedSubstatsResponse = Extract<SubstatsResponse, { failed: true }>
  */
 export async function commonProviderHandler<T>({
   providerName,
+  queryKey,
   fetchUrl,
   optionalHeaders,
   countObjPath,
@@ -60,6 +61,7 @@ export async function commonProviderHandler<T>({
   parseResponse,
 }: {
   providerName: SupportedProviders
+  queryKey: string
   fetchUrl: string
   optionalHeaders?: Record<string, string>
   countObjPath: string
@@ -86,6 +88,7 @@ export async function commonProviderHandler<T>({
       )
       return {
         source: providerName,
+        key: queryKey,
         failed: false,
         count: typeof count === 'number' ? count : 0,
       }
@@ -99,7 +102,7 @@ export async function commonProviderHandler<T>({
       ),
     )
   } catch (error) {
-    return providerErrorHandler(error, providerName)
+    return providerErrorHandler(error, providerName, queryKey)
   }
 }
 
@@ -113,9 +116,11 @@ export async function commonProviderHandler<T>({
 export function providerErrorHandler(
   error: unknown,
   provider: SupportedProviders,
+  key: string,
 ): FailedSubstatsResponse {
   return {
     source: provider,
+    key: key,
     failed: true,
     message:
       // Failing and throwing the error gracefully

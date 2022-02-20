@@ -24,6 +24,7 @@ export default async function afdianProvider(
 ): Promise<SubstatsResponse> {
   return commonProviderHandler<AfdianResponse>({
     providerName: 'afdian',
+    queryKey: key,
     fetchUrl: `https://afdian.net/api/user/get-profile-by-slug?url_slug=${key}`,
     countObjPath: 'data.user.creator.monthly_fans',
     errorMessageObjPath: 'em',

@@ -13,6 +13,7 @@ export default async function feedsPubProvider(
   const feed = key.endsWith('/') ? key.slice(0, -1) : key
   return commonProviderHandler<FeedsPubResponse>({
     providerName: 'feedspub',
+    queryKey: key,
     fetchUrl: `https://api.feeds.pub/graphql?query=query%20feed(%24id%3A%20String!)%7B%20feed(id%3A%20%24id)%20%7B%20followerCount%20%7D%20%7D&variables=%7B%22id%22%3A%20%22${feed}%22%7D&operationName=feed`,
     countObjPath: 'data.feed.followerCount',
     errorMessageObjPath: 'errors.0.message',

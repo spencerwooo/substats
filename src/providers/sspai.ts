@@ -11,6 +11,7 @@ export default async function sspaiProvider(
 ): Promise<SubstatsResponse> {
   return commonProviderHandler<SSPaiResponse>({
     providerName: 'sspai',
+    queryKey: key,
     fetchUrl: `https://sspai.com/api/v1/user/slug/info/get?slug=${key}`,
     countObjPath: 'data.followed_count',
     errorMessageObjPath: 'msg',
