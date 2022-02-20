@@ -3,31 +3,19 @@
     "outDir": "./dist",
     "module": "esnext",
     "target": "esnext",
-    "lib": [
-      "esnext"
-    ],
+    "lib": ["esnext"],
     "alwaysStrict": true,
     "strict": true,
     "preserveConstEnums": true,
     "moduleResolution": "node",
     "sourceMap": true,
     "esModuleInterop": true,
-    "types": [
-      "@cloudflare/workers-types",
-    ],
+    "types": ["@cloudflare/workers-types"],
     "baseUrl": "./",
     "paths": {
-      "@/*": [
-        "src/*"
-      ],
+      "@/*": ["src/*"]
     }
   },
-  "include": [
-    "src"
-  ],
-  "exclude": [
-    "node_modules",
-    "dist",
-    "test"
-  ]
+  "include": ["src"],
+  "exclude": ["node_modules", "dist", "test"]
 }

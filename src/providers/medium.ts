@@ -1,7 +1,7 @@
 import type { SubstatsResponse } from '@/types'
 import { commonProviderHandler } from '.'
 
-// https://medium.com/@spencerwooo?format=json
+// https://medium.com/@SpencerWooo?format=json
 type MediumRawResponse =
   | {
       success: true
@@ -52,7 +52,7 @@ export default async function mediumProvider(
     fetchUrl: `https://medium.com/@${key}?format=json`,
     countObjPath: 'followers',
     errorMessageObjPath: 'message',
-    isResponseValid: d => d.error === 0 && 'count' in d,
+    isResponseValid: d => d.error === 0 && 'followers' in d,
     parseResponse: parseResponse,
   })
 }
