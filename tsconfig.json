@@ -17,6 +17,6 @@
       "@/*": ["src/*"]
     }
   },
-  "include": ["src/**/*"],
+  "include": ["src/**/*", "bindings.d.ts"],
   "exclude": ["node_modules", "dist", "test"]
 }

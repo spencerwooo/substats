@@ -1,4 +1,4 @@
-import type { SubstatsRequest, SupportedProviders } from './types'
+import type { Env, SubstatsRequest, SupportedProviders } from './types'
 
 import { Router } from 'itty-router'
 // import { withParams } from 'itty-router-extras'
@@ -24,7 +24,7 @@ router.get('/', async () => {
 })
 
 // A simpler route in the format of /:source/:key, returning only single sources
-router.get('/:source/:key', async (req: SubstatsRequest) => {
+router.get('/:source/:key', async (req: SubstatsRequest, env: Env) => {
   const { source, key } = req.params
 
   // If one of the required params is missing, return an 400 error
@@ -36,7 +36,7 @@ router.get('/:source/:key', async (req: SubstatsRequest) => {
     return createError(`'${source}' is not supported yet`, 501)
   }
 
-  const resp = await providers[source as SupportedProviders](key)
+  const resp = await providers[source as SupportedProviders](key, env)
   return createResponse(resp, corsHeaders)
 })
 
@@ -53,6 +53,6 @@ router.get('/:source/:key', async (req: SubstatsRequest) => {
 // Fallback 404 route
 router.all('*', () => createError('Not Found'))
 
-export function handleRequest(request: Request): Promise<Response> {
-  return router.handle(request)
+export function handleRequest(request: Request, env?: Env): Promise<Response> {
+  return router.handle(request, env)
 }
