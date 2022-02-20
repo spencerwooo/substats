@@ -8,8 +8,7 @@ import { createError, createResponse } from './response'
 
 const providers = getProviders()
 
-// Prefix all requests with /stats as we deploy on api.swo.moe/stats*
-const router = Router({ base: '/stats' })
+const router = Router()
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Headers': '*',
@@ -18,13 +17,14 @@ const corsHeaders = {
 
 router.options('*', () => new Response(null, { headers: corsHeaders }))
 
-router.get('/', async () => {
+// Prefix all requests with /stats as we deploy on api.swo.moe/stats*
+router.get('/stats', async () => {
   const resp = Object.keys(providers)
   return createResponse(resp, corsHeaders)
 })
 
 // A simpler route in the format of /:source/:key, returning only single sources
-router.get('/:source/:key', async (req: SubstatsRequest, env: Env) => {
+router.get('/stats/:source/:key', async (req: SubstatsRequest, env: Env) => {
   const { source, key } = req.params
 
   // If one of the required params is missing, return an 400 error
