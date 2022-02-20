@@ -9,17 +9,19 @@ type SteamGamesRawResponseOnSuccess = {
 type SteamFriendsRawResponseOnSuccess = {
   friendslist: { friends: Array<Record<string, number | string>> }
 }
-type SteamGamesResponse =
-  | { error: 0; games: number }
-  | { error: 1; message: string }
-type SteamFriendsResponse =
-  | { error: 0; friends: number }
-  | { error: 1; message: string }
+type SteamErrorResponse = { error: 1; message: string }
+type SteamGamesResponse = { error: 0; games: number } | SteamErrorResponse
+type SteamFriendsResponse = { error: 0; friends: number } | SteamErrorResponse
 
-// TODO: change this 'any' to the correct type
-async function handleInvalidResponse(response: Response): Promise<any> {
-  // The steam API returns HTML on error, and normal JSON on success, we need to
-  // handle both cases based on Content-Type
+/**
+ * The steam API returns HTML instead of JSON on error, which is parsed by this
+ * function, and returned as an error response message.
+ * @param response The response from the steam API
+ * @returns The error HTML response as a message string
+ */
+async function handleInvalidResponse(
+  response: Response,
+): Promise<SteamErrorResponse> {
   if (response.headers.get('Content-Type')?.includes('text/html')) {
     const text = await response.text()
     return { error: 1, message: text }
