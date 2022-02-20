@@ -12,9 +12,7 @@ async function parseResponse(response: Response): Promise<TwitterResponse> {
   if (data.length === 0) {
     return { error: 1, message: 'Twitter user not found' }
   }
-
-  const followers = data[0].followers_count
-  return { error: 0, followers }
+  return { error: 0, followers: data[0].followers_count }
 }
 
 export default async function twitterProvider(
@@ -26,7 +24,7 @@ export default async function twitterProvider(
     fetchUrl: `https://cdn.syndication.twimg.com/widgets/followbutton/info.json?screen_names=${key}`,
     countObjPath: 'followers',
     errorMessageObjPath: 'message',
-    isResponseValid: d => d.error !== 0 && 'followers' in d,
+    isResponseValid: d => d.error === 0 && 'followers' in d,
     parseResponse: parseResponse,
   })
 }
