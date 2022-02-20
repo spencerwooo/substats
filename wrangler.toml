@@ -12,3 +12,6 @@ command = "pnpm install && pnpm run build"
 [build.upload]
 format = "modules"
 main = "index.mjs"
+
+[miniflare]
+env_path = ".env"

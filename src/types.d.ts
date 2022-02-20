@@ -1,3 +1,5 @@
+import { Bindings } from 'bindings'
+
 export type SubstatsRequest = {
   query: { source: string | string[]; key: string | string[] }
   params: { source: string; key: string }
@@ -15,6 +17,7 @@ export type JSONResponse =
 
 export declare type ProviderFunctions = (
   key: string,
+  env?: Record<keyof Bindings.Env, string>,
 ) => Promise<SubstatsResponse>
 
 export type SupportedProviders =
@@ -33,10 +36,13 @@ export type SupportedProviders =
   | 'newsblur'
   | 'reddit'
   | 'sspai'
-  | 'steam'
+  | 'steamgames'
+  | 'steamfriends'
   | 'telegram'
   | 'twitter'
   | 'unsplash'
   | 'weibo'
   | 'wikipediazh'
   | 'zhihu'
+
+export type Env = Record<keyof Bindings.Env, string>

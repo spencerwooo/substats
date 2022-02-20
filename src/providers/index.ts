@@ -20,7 +20,7 @@ import neteaseMusicProvider from './neteaseMusic'
 import newsblurProvider from './newsblur'
 import redditProvider from './reddit'
 import sspaiProvider from './sspai'
-import steamProvider from './steam'
+import { steamFriendsProvider, steamGamesProvider } from './steam'
 import telegramProvider from './telegram'
 import twitterProvider from './twitter'
 import unsplashProvider from './unsplash'
@@ -153,7 +153,8 @@ export default function getProviders(): Record<
     newsblur: newsblurProvider,
     reddit: redditProvider,
     sspai: sspaiProvider,
-    steam: steamProvider,
+    steamgames: steamGamesProvider,
+    steamfriends: steamFriendsProvider,
     telegram: telegramProvider,
     twitter: twitterProvider,
     unsplash: unsplashProvider,
