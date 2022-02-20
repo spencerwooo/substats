@@ -1,19 +1,21 @@
-import type { SubstatsResponse } from '@/types'
+import type { Env, SubstatsResponse } from '@/types'
 import { commonProviderHandler } from '.'
 
+// https://unsplash.com/@adamhoang
 type UnsplashResponse =
-  | { error: 0; data: { followed_count: number } }
-  | { error: 1; msg: string; data: null }
+  | { id: string; download: number; followers_count: number }
+  | { errors: Array<string> }
 
 export default async function unsplashProvider(
   key: string,
+  env?: Env,
 ): Promise<SubstatsResponse> {
   return commonProviderHandler<UnsplashResponse>({
     providerName: 'unsplash',
     queryKey: key,
-    fetchUrl: `https://placeholder.com/v1?user=${key}`,
-    countObjPath: 'followers',
-    errorMessageObjPath: 'message',
-    isResponseValid: d => d.error === 0 && d.data !== null,
+    fetchUrl: `https://api.unsplash.com/users/${key}?client_id=${env?.UNSPLASH_ACCESS_TOKEN}`,
+    countObjPath: 'followers_count',
+    errorMessageObjPath: 'errors.0',
+    isResponseValid: d => 'followers_count' in d,
   })
 }
