@@ -1,17 +1,16 @@
-import type { SubstatsResponse } from '@/types'
+import type { Env, SubstatsResponse } from '@/types'
 import { providerErrorHandler } from '.'
 
 // https%3A%2F%2Fnnw.ranchero.com%2Ffeed.xml
-type InoreaderRawResponseOnSuccess = {
-  xjxobj: Array<Record<string, string>>
-}
+type InoreaderRawResponseOnSuccess = { xjxobj: Array<Record<string, string>> }
 
 export default async function inoreaderProvider(
   key: string,
+  env?: Env,
 ): Promise<SubstatsResponse> {
   // This route uses Inoreader's search API, which is a POST request with the
   // query as the body.
-  const requestBody = new FormData()
+  const requestBody = new URLSearchParams()
   requestBody.append('xjxfun', 'build_searcher_content')
   requestBody.append('xjxr', '1645356116453')
   requestBody.append(
@@ -20,12 +19,13 @@ export default async function inoreaderProvider(
   )
 
   try {
-    const resp = await fetch('https://www.inoreader.com', {
-      method: 'POST',
+    const resp = await fetch('https://www.inoreader.com/', {
       headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
+        'content-type': 'application/x-www-form-urlencoded',
+        cookie: env?.INOREADER_COOKIE ?? '',
       },
       body: requestBody,
+      method: 'POST',
       cf: { cacheEverything: true },
     })
 
@@ -45,7 +45,6 @@ export default async function inoreaderProvider(
     const predicate = (x: Record<string, string>) =>
       'id' in x && x?.id === 'search_content' && 'data' in x
     const followerHTML = data.xjxobj.find(predicate)?.data
-    console.log(followerHTML)
 
     if (!followerHTML) {
       throw new Error('Feed not found on Inoreader')
