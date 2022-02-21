@@ -1,9 +1,14 @@
 export type SubstatsRequest = {
-  query: { source: string | string[]; key: string | string[] }
+  query: {
+    source: string | string[]
+    key: string | string[]
+    endpoint: string
+    datapath: string
+  }
   params: { source: string; key: string }
 }
 export type SubstatsResponse =
-  | { source: string; key: string; failed: false; count: number }
+  | { source: string; key: string; failed: false; count: number | string }
   | { source: string; key: string; failed: true; message: string }
 export type JSONResponse =
   | null
@@ -16,6 +21,8 @@ export type JSONResponse =
 export declare type ProviderFunctions = (
   key: string,
   env: Env,
+  endpoint?: string,
+  datapath?: string,
 ) => Promise<SubstatsResponse>
 
 export type SupportedProviders =
