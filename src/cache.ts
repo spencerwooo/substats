@@ -10,9 +10,7 @@ export default async function cacheProvider(
   let response = await cache.match(cacheKey)
   // If not, we return null to indicate that we need to pass on the request to
   // the router so that we get a fresh response
-  if (!response) {
-    return { cacheKey, response: null }
-  }
+  if (!response) return { cacheKey, response: null }
 
   // Upon cache hit, we return the cached response immediately
   console.log('Edge cache hit!')
@@ -21,5 +19,6 @@ export default async function cacheProvider(
   response.headers.set('CF-Cache-Status', 'HIT')
   // Browser Cache-Control TTL, set to 0 to disable Browser cache
   response.headers.set('Cache-Control', 'max-age=0')
+
   return { cacheKey, response }
 }

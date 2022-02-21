@@ -1,20 +1,22 @@
 import cacheProvider from './cache'
 import { handleRequest } from './handler'
+
 export default {
   async fetch(
     request: Request,
     env: Env,
     context: FetchEvent,
   ): Promise<Response> {
+    // Global cache reference
     const cache = caches.default
-    const { cacheKey, response: cachedResponse } = await cacheProvider(
-      cache,
-      request,
-    )
-    if (cachedResponse) {
-      return cachedResponse
-    }
 
+    // Generate cache key based on request url
+    const { cacheKey, response } = await cacheProvider(cache, request)
+
+    // If we have a cached response, return it immediately
+    if (response) return response
+
+    // On cache miss, we pass the request to the router
     const freshResponse = await handleRequest(request, env)
 
     // Cloudflare Edge Cache-Control TTL, 5-minutes for statistics response

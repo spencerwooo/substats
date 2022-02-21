@@ -1,7 +1,6 @@
 import type { SubstatsRequest, SupportedProviders } from './types'
 
 import { Router } from 'itty-router'
-// import { withParams } from 'itty-router-extras'
 
 import getProviders from './providers'
 import { createError, createResponse } from './response'
@@ -17,15 +16,27 @@ const corsHeaders = {
 
 router.options('*', () => new Response(null, { headers: corsHeaders }))
 
-// Prefix all requests with /stats as we deploy on api.swo.moe/stats*
+// Prefix all requests with /stats as production points to api.swo.moe/stats*
 router.get('/stats', async () => {
   const resp = Object.keys(providers)
   return createResponse(resp, corsHeaders)
 })
 
 // A simpler route in the format of /:source/:key, returning only single sources
-router.get('/stats/:source/:key', async (req: SubstatsRequest, env: Env) => {
+router.get('/stats/:source/:key?', async (req: SubstatsRequest, env: Env) => {
   const { source, key } = req.params
+
+  // If 'source' is 'common', look for endpoint and dataPath in the request
+  // query. If found, direct to the generalProviderHandler
+  if (source === 'common') {
+    const { endpoint, datapath } = req.query
+    if (!endpoint || !datapath) {
+      return createError('Invalid request', 400)
+    }
+
+    const resp = await providers.common(key, env, endpoint, datapath)
+    return createResponse(resp, corsHeaders)
+  }
 
   // If one of the required params is missing, return an 400 error
   if (!source || !key) {
