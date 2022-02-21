@@ -31,7 +31,6 @@ export type SupportedProviders =
   | 'jike'
   | 'medium'
   | 'neteasemusic'
-  | 'newsblur'
   | 'reddit'
   | 'sspai'
   | 'steamgames'

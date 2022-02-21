@@ -17,7 +17,6 @@ import inoreaderProvider from './inoreader'
 import jikeProvider from './jike'
 import mediumProvider from './medium'
 import neteaseMusicProvider from './neteaseMusic'
-import newsblurProvider from './newsblur'
 import redditProvider from './reddit'
 import sspaiProvider from './sspai'
 import { steamFriendsProvider, steamGamesProvider } from './steam'
@@ -150,7 +149,6 @@ export default function getProviders(): Record<
     jike: jikeProvider,
     medium: mediumProvider,
     neteasemusic: neteaseMusicProvider,
-    newsblur: newsblurProvider,
     reddit: redditProvider,
     sspai: sspaiProvider,
     steamgames: steamGamesProvider,
