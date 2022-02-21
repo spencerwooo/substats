@@ -5,11 +5,16 @@ workers_dev = true
 account_id = "b87997a496f985b46b927b3f24c61de1"
 zone_id = "37799ee61788957c4ff51597f94a92c2"
 
-route = "api.swo.moe/stats*"
 compatibility_date = "2022-01-17"
 
 kv_namespaces = [
   { binding = "KV_COOKIES", id = "b77202d54ce145698ba4ed076f84e5e9" },
+]
+
+[env.production]
+route = "api.swo.moe/stats*"
+kv_namespaces = [
+  { binding = "KV_COOKIES", id = "26e244725345488e89d06fbdedeed3da" }
 ]
 
 [build]
