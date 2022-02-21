@@ -32,5 +32,4 @@ jobs:
         uses: cloudflare/wrangler-action@1.2.0
         with:
           apiToken: ${{ secrets.CF_API_TOKEN }}
-          environment: 'staging'
           wranglerVersion: '1.19.8'
