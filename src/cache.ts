@@ -1,4 +1,5 @@
 export default async function cacheProvider(
+  cache: Cache,
   request: Request,
 ): Promise<{ cacheKey: Request; response: Response | null }> {
   // Generate cache key based on request url
@@ -6,7 +7,6 @@ export default async function cacheProvider(
   const cacheKey = new Request(cacheUrl.toString(), request)
 
   // Check if we have a cached response for this request
-  const cache = caches.default
   let response = await cache.match(cacheKey)
   // If not, we return null to indicate that we need to pass on the request to
   // the router so that we get a fresh response
