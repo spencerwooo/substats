@@ -6,12 +6,15 @@ export default {
     env: Env,
     context: FetchEvent,
   ): Promise<Response> {
-    const { cacheKey, response: cachedResponse } = await cacheProvider(request)
+    const cache = caches.default
+    const { cacheKey, response: cachedResponse } = await cacheProvider(
+      cache,
+      request,
+    )
     if (cachedResponse) {
       return cachedResponse
     }
 
-    const cache = caches.default
     const freshResponse = await handleRequest(request, env)
 
     // Cloudflare Edge Cache-Control TTL, 5-minutes for statistics response
