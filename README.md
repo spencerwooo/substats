@@ -1,7 +1,7 @@
 <div align="center">
   <img src="./assets/header.png" alt="substats" />
   <h3><a href="https://api.swo.moe/stats">substats</a></h3>
-  <p><a href="#get-started">Get started</a> · <a href="whats-new">What's new?</a> · <a href="sponsoring">Sponsoring</a></p>
+  <p><a href="#get-started">Get started</a> · <a href="#whats-new">What's new?</a> · <a href="#sponsoring">Sponsoring</a></p>
   <p>( ｀д′) <em>how many followers do i have? how many!</em></p>
 
   <img src="https://img.shields.io/badge/Cloudflare-F69652?style=flat&logo=cloudflare&logoColor=white" alt="Cloudflare Workers" />
