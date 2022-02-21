@@ -1,4 +1,4 @@
-import type { Env, SubstatsRequest, SupportedProviders } from './types'
+import type { SubstatsRequest, SupportedProviders } from './types'
 
 import { Router } from 'itty-router'
 // import { withParams } from 'itty-router-extras'
@@ -53,6 +53,6 @@ router.get('/stats/:source/:key', async (req: SubstatsRequest, env: Env) => {
 // Fallback 404 route
 router.all('*', () => createError('Not Found'))
 
-export function handleRequest(request: Request, env?: Env): Promise<Response> {
+export function handleRequest(request: Request, env: Env): Promise<Response> {
   return router.handle(request, env)
 }

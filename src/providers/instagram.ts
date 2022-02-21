@@ -1,4 +1,4 @@
-import type { Env, SubstatsResponse } from '@/types'
+import type { SubstatsResponse } from '@/types'
 import { commonProviderHandler } from '.'
 
 // https://www.instagram.com/9gag/?__a=1
@@ -29,13 +29,13 @@ async function parseResponse(response: Response): Promise<InstagramResponse> {
 }
 export default async function instagramProvider(
   key: string,
-  env?: Env,
+  env: Env,
 ): Promise<SubstatsResponse> {
   return commonProviderHandler<InstagramResponse>({
     providerName: 'instagram',
     queryKey: key,
     fetchUrl: `https://www.instagram.com/${key}/?__a=1`,
-    optionalHeaders: { Cookie: env?.INSTAGRAM_COOKIE ?? '' },
+    optionalHeaders: { Cookie: env.INSTAGRAM_COOKIE ?? '' },
     countObjPath: 'followers',
     errorMessageObjPath: 'message',
     isResponseValid: d => d.error === 0 && 'followers' in d,
