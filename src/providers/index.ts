@@ -6,7 +6,7 @@ import type {
 
 import objectPath from 'object-path'
 
-import generalProvider from './common'
+import commonEndpointProvider from './common'
 import afdianProvider from './afdian'
 import bilibiliProvider from './bilibili'
 import coolapkProvider from './coolapk'
@@ -89,7 +89,7 @@ export async function commonProviderHandler<T>({
         source: providerName,
         key: queryKey,
         failed: false,
-        count: typeof count === 'number' ? count : 0,
+        count: count,
       }
     }
 
@@ -137,7 +137,7 @@ export default function getProviders(): Record<
   ProviderFunctions
 > {
   return {
-    common: generalProvider,
+    common: commonEndpointProvider,
     afdian: afdianProvider,
     bilibili: bilibiliProvider,
     coolapk: coolapkProvider,
