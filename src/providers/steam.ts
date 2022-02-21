@@ -1,4 +1,4 @@
-import type { Env, SubstatsResponse } from '@/types'
+import type { SubstatsResponse } from '@/types'
 import { commonProviderHandler } from '.'
 
 // https://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=0689766DB370FBA076B0CFC78917BB06&steamid=76561198336249957&format=json
@@ -51,12 +51,12 @@ async function parseSteamFriendsResponse(
 
 export async function steamGamesProvider(
   key: string,
-  env?: Env,
+  env: Env,
 ): Promise<SubstatsResponse> {
   return commonProviderHandler<SteamGamesResponse>({
     providerName: 'steamgames',
     queryKey: key,
-    fetchUrl: `https://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=${env?.STEAM_API_KEY}&steamid=${key}&format=json`,
+    fetchUrl: `https://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=${env.STEAM_API_KEY}&steamid=${key}&format=json`,
     countObjPath: 'games',
     errorMessageObjPath: 'message',
     isResponseValid: d => d.error === 0 && 'games' in d,
@@ -66,12 +66,12 @@ export async function steamGamesProvider(
 
 export async function steamFriendsProvider(
   key: string,
-  env?: Env,
+  env: Env,
 ): Promise<SubstatsResponse> {
   return commonProviderHandler<SteamFriendsResponse>({
     providerName: 'steamfriends',
     queryKey: key,
-    fetchUrl: `https://api.steampowered.com/ISteamUser/GetFriendList/v0001/?key=${env?.STEAM_API_KEY}&steamid=${key}&format=json`,
+    fetchUrl: `https://api.steampowered.com/ISteamUser/GetFriendList/v0001/?key=${env.STEAM_API_KEY}&steamid=${key}&format=json`,
     countObjPath: 'friends',
     errorMessageObjPath: 'message',
     isResponseValid: d => d.error === 0 && 'friends' in d,
