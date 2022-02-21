@@ -17,9 +17,6 @@ kv_namespaces = [
   { binding = "KV_COOKIES", id = "26e244725345488e89d06fbdedeed3da" }
 ]
 
-[build]
-command = "pnpm install && pnpm run build"
-
 [build.upload]
 format = "modules"
 main = "index.mjs"
