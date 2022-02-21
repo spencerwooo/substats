@@ -9,7 +9,7 @@
     "dev": "miniflare --live-reload --debug",
     "format": "prettier --write '*.{json,js}' 'src/**/*.{js,ts}' 'test/**/*.{js,ts}'",
     "lint": "eslint --max-warnings=0 src && prettier --check '*.{json,js}' 'src/**/*.{js,ts}' 'test/**/*.{js,ts}'",
-    "test": "pnpm build && jest --config jest.config.js --verbose",
+    "test": "node build.js && node --experimental-vm-modules node_modules/jest/bin/jest.js",
     "types:check": "tsc && tsc -p test/tsconfig.json"
   },
   "author": "spencerwooo <spencer.wushangbo@gmail.com>",

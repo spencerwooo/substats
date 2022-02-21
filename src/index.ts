@@ -1,2 +1,3 @@
 import { handleRequest } from './handler'
-export default { fetch: handleRequest }
+const worker: ExportedHandler<Env> = { fetch: handleRequest }
+export default worker
