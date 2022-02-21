@@ -2,7 +2,7 @@
   <img src="./assets/header.png" alt="substats" />
   <h3><a href="https://api.swo.moe/stats">substats</a></h3>
   <p><a href="#get-started">Get started</a> · <a href="whats-new">What's new?</a> · <a href="sponsoring">Sponsoring</a></p>
-  <p>•᷄ࡇ•᷅ <em>how many followers do i have? how many!</em></p>
+  <p>( ｀д′) <em>how many followers do i have? how many!</em></p>
 
   <img src="https://img.shields.io/badge/Cloudflare-F69652?style=flat&logo=cloudflare&logoColor=white" alt="Cloudflare Workers" />
   <img src="https://img.shields.io/badge/Version-2.0*-F69652?style=flat&labelColor=2B3137" alt="Version 2.0/substats" />
@@ -18,10 +18,14 @@ _*Version 2.0 is still in `beta`, not all features are ported from 1.0. Check be
 
 ### Basic
 
+```
+https://api.swo.moe
+```
+
 You request:
 
 ```http
-GET https://api.swo.moe/stats/:source/:key
+GET /stats/:source/:key
 ```
 
 I respond:
@@ -50,18 +54,18 @@ GET /stats/common?endpoint=<url>&datapath=<path>
 Such as:
 
 ```http
-GET https://api.swo.moe/stats/common/?endpoint=https://api.genshin.dev/domains/cecilia-garden&datapath=rewards.0.details.2.mora
+GET /stats/common/?endpoint=https://api.genshin.dev/domains/cecilia-garden&datapath=rewards.0.details.2.mora
 ```
 
 In this case, the `endpoint` is an API url:
 
-```http
-GET https://api.genshin.dev/domains/cecilia-garden
+```
+https://api.genshin.dev/domains/cecilia-garden
 ```
 
 The response this URL returns looks like:
 
-```json
+```jsonc
 {
   "name": "Cecilia Garden",
   "type": "Forgery",
@@ -106,26 +110,26 @@ Response from the `endpoint` provided by you is parsed with [object-path](https:
 - wikipediazh
 - zhihu
 
-<img src="assets/sources/logo_afdian.png" height="64px" alt="logo_afdian" />
-<img src="assets/sources/logo_bilibili.png" height="64px" alt="logo_bilibili" />
-<img src="assets/sources/logo_coolapk.png" height="64px" alt="logo_coolapk" />
-<img src="assets/sources/logo_feedly.png" height="64px" alt="logo_feedly" />
-<img src="assets/sources/logo_feedspub.png" height="64px" alt="logo_feedspub" />
-<img src="assets/sources/logo_github.png" height="64px" alt="logo_github" />
-<img src="assets/sources/logo_inoreader.png" height="64px" alt="logo_inoreader" />
-<img src="assets/sources/logo_ins.png" height="64px" alt="logo_ins" />
-<img src="assets/sources/logo_jike.png" height="64px" alt="logo_jike" />
-<img src="assets/sources/logo_medium.png" height="64px" alt="logo_medium" />
-<img src="assets/sources/logo_neteasemusic.png" height="64px" alt="logo_neteasemusic" />
-<img src="assets/sources/logo_reddit.png" height="64px" alt="logo_reddit" />
-<img src="assets/sources/logo_sspai.png" height="64px" alt="logo_sspai" />
-<img src="assets/sources/logo_steam.png" height="64px" alt="logo_steam" />
-<img src="assets/sources/logo_tg.png" height="64px" alt="logo_tg" />
-<img src="assets/sources/logo_twitter.png" height="64px" alt="logo_twitter" />
-<img src="assets/sources/logo_unsplash.png" height="64px" alt="logo_unsplash" />
-<img src="assets/sources/logo_weibo.png" height="64px" alt="logo_weibo" />
-<img src="assets/sources/logo_wikipedia.png" height="64px" alt="logo_wikipedia" />
-<img src="assets/sources/logo_zhihu.png" height="64px" alt="logo_zhihu" />
+<a href="https://api.swo.moe/stats/afdian/afdian"><img src="assets/sources/logo_afdian.png" width="auto" height="64px" alt="logo_afdian" /></a>
+<a href="https://api.swo.moe/stats/bilibili/401742377"><img src="assets/sources/logo_bilibili.png" width="auto" height="64px" alt="logo_bilibili" /></a>
+<a href="https://api.swo.moe/stats/coolapk/466253"><img src="assets/sources/logo_coolapk.png" width="auto" height="64px" alt="logo_coolapk" /></a>
+<a href="https://api.swo.moe/stats/feedly/https%3A%2F%2Fnnw.ranchero.com%2Ffeed.xml"><img src="assets/sources/logo_feedly.png" width="auto" height="64px" alt="logo_feedly" /></a>
+<a href="https://api.swo.moe/stats/feedspub/https%3A%2F%2Fnnw.ranchero.com%2Ffeed.xml"><img src="assets/sources/logo_feedspub.png" width="auto" height="64px" alt="logo_feedspub" /></a>
+<a href="https://api.swo.moe/stats/github/spencerwooo"><img src="assets/sources/logo_github.png" width="auto" height="64px" alt="logo_github" /></a>
+<a href="https://api.swo.moe/stats/inoreader/https%3A%2F%2Fnnw.ranchero.com%2Ffeed.xml"><img src="assets/sources/logo_inoreader.png" width="auto" height="64px" alt="logo_inoreader" /></a>
+<a href="https://api.swo.moe/stats/instagram/9gag"><img src="assets/sources/logo_ins.png" width="auto" height="64px" alt="logo_ins" /></a>
+<a href="https://api.swo.moe/stats/jike/2204A477-38C8-4D9D-9705-9C9B990BE042"><img src="assets/sources/logo_jike.png" width="auto" height="64px" alt="logo_jike" /></a>
+<a href="https://api.swo.moe/stats/medium/SpencerWooo"><img src="assets/sources/logo_medium.png" width="auto" height="64px" alt="logo_medium" /></a>
+<a href="https://api.swo.moe/stats/neteasemusic/416608258"><img src="assets/sources/logo_neteasemusic.png" width="auto" height="64px" alt="logo_neteasemusic" /></a>
+<a href="https://api.swo.moe/stats/reddit/jushoro"><img src="assets/sources/logo_reddit.png" width="auto" height="64px" alt="logo_reddit" /></a>
+<a href="https://api.swo.moe/stats/sspai/spencerwoo"><img src="assets/sources/logo_sspai.png" width="auto" height="64px" alt="logo_sspai" /></a>
+<a href="https://api.swo.moe/stats/steam/401742377"><img src="assets/sources/logo_steam.png" width="auto" height="64px" alt="logo_steam" /></a>
+<a href="https://api.swo.moe/stats/telegram/realSpencerWoo"><img src="assets/sources/logo_tg.png" width="auto" height="64px" alt="logo_tg" /></a>
+<a href="https://api.swo.moe/stats/twitter/GenshinImpact"><img src="assets/sources/logo_twitter.png" width="auto" height="64px" alt="logo_twitter" /></a>
+<a href="https://api.swo.moe/stats/unsplash/adamhoang"><img src="assets/sources/logo_unsplash.png" width="auto" height="64px" alt="logo_unsplash" /></a>
+<a href="https://api.swo.moe/stats/weibo/5648729445"><img src="assets/sources/logo_weibo.png" width="auto" height="64px" alt="logo_weibo" /></a>
+<a href="https://api.swo.moe/stats/wikipediazh/ChenSimon"><img src="assets/sources/logo_wikipedia.png" width="auto" height="64px" alt="logo_wikipedia" /></a>
+<a href="https://api.swo.moe/stats/zhihu/bi-xiao-tian-99"><img src="assets/sources/logo_zhihu.png" width="auto" height="64px" alt="logo_zhihu" /></a>
 
 ## What's new?
 
