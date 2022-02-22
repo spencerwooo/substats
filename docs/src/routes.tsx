@@ -1,15 +1,15 @@
-import type { PathRouteProps } from "react-router-dom"
+import type { PathRouteProps } from 'react-router-dom'
 
-import Construction from "lib/pages/construction"
-import Home from "lib/pages/home"
+import Construction from 'lib/pages/construction'
+import Home from 'lib/pages/home'
 
 export const routes: Array<PathRouteProps> = [
   {
-    path: "/",
+    path: '/',
     element: <Home />,
   },
   {
-    path: "/construction",
+    path: '/construction',
     element: <Construction />,
   },
 ]

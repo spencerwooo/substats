@@ -112,26 +112,26 @@ Response from the `endpoint` provided by you is parsed with [object-path](https:
 - wikipediazh
 - zhihu
 
-<a href="https://api.swo.moe/stats/afdian/afdian"><img src="assets/sources/logo_afdian.png" width="auto" height="64px" alt="logo_afdian" /></a>
-<a href="https://api.swo.moe/stats/bilibili/401742377"><img src="assets/sources/logo_bilibili.png" width="auto" height="64px" alt="logo_bilibili" /></a>
-<a href="https://api.swo.moe/stats/coolapk/466253"><img src="assets/sources/logo_coolapk.png" width="auto" height="64px" alt="logo_coolapk" /></a>
-<a href="https://api.swo.moe/stats/feedly/https%3A%2F%2Fnnw.ranchero.com%2Ffeed.xml"><img src="assets/sources/logo_feedly.png" width="auto" height="64px" alt="logo_feedly" /></a>
-<a href="https://api.swo.moe/stats/feedspub/https%3A%2F%2Fnnw.ranchero.com%2Ffeed.xml"><img src="assets/sources/logo_feedspub.png" width="auto" height="64px" alt="logo_feedspub" /></a>
-<a href="https://api.swo.moe/stats/github/spencerwooo"><img src="assets/sources/logo_github.png" width="auto" height="64px" alt="logo_github" /></a>
-<a href="https://api.swo.moe/stats/inoreader/https%3A%2F%2Fnnw.ranchero.com%2Ffeed.xml"><img src="assets/sources/logo_inoreader.png" width="auto" height="64px" alt="logo_inoreader" /></a>
-<a href="https://api.swo.moe/stats/instagram/9gag"><img src="assets/sources/logo_ins.png" width="auto" height="64px" alt="logo_ins" /></a>
-<a href="https://api.swo.moe/stats/jike/2204A477-38C8-4D9D-9705-9C9B990BE042"><img src="assets/sources/logo_jike.png" width="auto" height="64px" alt="logo_jike" /></a>
-<a href="https://api.swo.moe/stats/medium/SpencerWooo"><img src="assets/sources/logo_medium.png" width="auto" height="64px" alt="logo_medium" /></a>
-<a href="https://api.swo.moe/stats/neteasemusic/416608258"><img src="assets/sources/logo_neteasemusic.png" width="auto" height="64px" alt="logo_neteasemusic" /></a>
-<a href="https://api.swo.moe/stats/reddit/jushoro"><img src="assets/sources/logo_reddit.png" width="auto" height="64px" alt="logo_reddit" /></a>
-<a href="https://api.swo.moe/stats/sspai/spencerwoo"><img src="assets/sources/logo_sspai.png" width="auto" height="64px" alt="logo_sspai" /></a>
-<a href="https://api.swo.moe/stats/steam/401742377"><img src="assets/sources/logo_steam.png" width="auto" height="64px" alt="logo_steam" /></a>
-<a href="https://api.swo.moe/stats/telegram/realSpencerWoo"><img src="assets/sources/logo_tg.png" width="auto" height="64px" alt="logo_tg" /></a>
-<a href="https://api.swo.moe/stats/twitter/GenshinImpact"><img src="assets/sources/logo_twitter.png" width="auto" height="64px" alt="logo_twitter" /></a>
-<a href="https://api.swo.moe/stats/unsplash/adamhoang"><img src="assets/sources/logo_unsplash.png" width="auto" height="64px" alt="logo_unsplash" /></a>
-<a href="https://api.swo.moe/stats/weibo/5648729445"><img src="assets/sources/logo_weibo.png" width="auto" height="64px" alt="logo_weibo" /></a>
-<a href="https://api.swo.moe/stats/wikipediazh/ChenSimon"><img src="assets/sources/logo_wikipedia.png" width="auto" height="64px" alt="logo_wikipedia" /></a>
-<a href="https://api.swo.moe/stats/zhihu/bi-xiao-tian-99"><img src="assets/sources/logo_zhihu.png" width="auto" height="64px" alt="logo_zhihu" /></a>
+<a href="https://api.swo.moe/stats/afdian/afdian"><img src="docs/public/assets/sources/logo_afdian.png" width="auto" height="64px" alt="logo_afdian" /></a>
+<a href="https://api.swo.moe/stats/bilibili/401742377"><img src="docs/public/assets/sources/logo_bilibili.png" width="auto" height="64px" alt="logo_bilibili" /></a>
+<a href="https://api.swo.moe/stats/coolapk/466253"><img src="docs/public/assets/sources/logo_coolapk.png" width="auto" height="64px" alt="logo_coolapk" /></a>
+<a href="https://api.swo.moe/stats/feedly/https%3A%2F%2Fnnw.ranchero.com%2Ffeed.xml"><img src="docs/public/assets/sources/logo_feedly.png" width="auto" height="64px" alt="logo_feedly" /></a>
+<a href="https://api.swo.moe/stats/feedspub/https%3A%2F%2Fnnw.ranchero.com%2Ffeed.xml"><img src="docs/public/assets/sources/logo_feedspub.png" width="auto" height="64px" alt="logo_feedspub" /></a>
+<a href="https://api.swo.moe/stats/github/spencerwooo"><img src="docs/public/assets/sources/logo_github.png" width="auto" height="64px" alt="logo_github" /></a>
+<a href="https://api.swo.moe/stats/inoreader/https%3A%2F%2Fnnw.ranchero.com%2Ffeed.xml"><img src="docs/public/assets/sources/logo_inoreader.png" width="auto" height="64px" alt="logo_inoreader" /></a>
+<a href="https://api.swo.moe/stats/instagram/9gag"><img src="docs/public/assets/sources/logo_ins.png" width="auto" height="64px" alt="logo_ins" /></a>
+<a href="https://api.swo.moe/stats/jike/2204A477-38C8-4D9D-9705-9C9B990BE042"><img src="docs/public/assets/sources/logo_jike.png" width="auto" height="64px" alt="logo_jike" /></a>
+<a href="https://api.swo.moe/stats/medium/SpencerWooo"><img src="docs/public/assets/sources/logo_medium.png" width="auto" height="64px" alt="logo_medium" /></a>
+<a href="https://api.swo.moe/stats/neteasemusic/416608258"><img src="docs/public/assets/sources/logo_neteasemusic.png" width="auto" height="64px" alt="logo_neteasemusic" /></a>
+<a href="https://api.swo.moe/stats/reddit/jushoro"><img src="docs/public/assets/sources/logo_reddit.png" width="auto" height="64px" alt="logo_reddit" /></a>
+<a href="https://api.swo.moe/stats/sspai/spencerwoo"><img src="docs/public/assets/sources/logo_sspai.png" width="auto" height="64px" alt="logo_sspai" /></a>
+<a href="https://api.swo.moe/stats/steam/401742377"><img src="docs/public/assets/sources/logo_steam.png" width="auto" height="64px" alt="logo_steam" /></a>
+<a href="https://api.swo.moe/stats/telegram/realSpencerWoo"><img src="docs/public/assets/sources/logo_tg.png" width="auto" height="64px" alt="logo_tg" /></a>
+<a href="https://api.swo.moe/stats/twitter/GenshinImpact"><img src="docs/public/assets/sources/logo_twitter.png" width="auto" height="64px" alt="logo_twitter" /></a>
+<a href="https://api.swo.moe/stats/unsplash/adamhoang"><img src="docs/public/assets/sources/logo_unsplash.png" width="auto" height="64px" alt="logo_unsplash" /></a>
+<a href="https://api.swo.moe/stats/weibo/5648729445"><img src="docs/public/assets/sources/logo_weibo.png" width="auto" height="64px" alt="logo_weibo" /></a>
+<a href="https://api.swo.moe/stats/wikipediazh/ChenSimon"><img src="docs/public/assets/sources/logo_wikipedia.png" width="auto" height="64px" alt="logo_wikipedia" /></a>
+<a href="https://api.swo.moe/stats/zhihu/bi-xiao-tian-99"><img src="docs/public/assets/sources/logo_zhihu.png" width="auto" height="64px" alt="logo_zhihu" /></a>
 
 ## What's new?
 
@@ -146,6 +146,30 @@ Yes, `substats` is now version `v2.0-beta`! Most of the updates are under-the-ho
 - [ ] New documentation and query builder (wip).
 
 If you are looking for the multiple source and query functions in 2.0 - it's still under refactor, as `itty-router` does not parse multiple query parameters, blocking this feature here. You can still use the 1.0 route while we wait. [README and documentation for v1.0 (deprecated)](https://github.com/spencerwooo/substats/blob/1becc576f09b09cfa1389312d081f02a25ed0735/README.md).
+
+## Contributing
+
+This is a monorepo managed by `pnpm`. Directory `./worker` holds the Cloudflare Worker module, and `./docs` is a React site for documentation (powered by [Vite](https://vitejs.dev/) and [Chakra UI](https://chakra-ui.com/)).
+
+To install all package dependencies:
+
+```bash
+pnpm install
+```
+
+To run the worker locally with hot reload (powered by Miniflare):
+
+```bash
+pnpm run dev --filter ./worker
+```
+
+Bindings (i.e., [variables and secrets](https://miniflare.dev/core/variables-secrets)) should be defined in `./worker/.env`. A list of currently used secrets are defined in `./worker/bindings.d.ts`.
+
+To preview the documentation website locally with hot reload:
+
+```bash
+pnpm run dev --filter ./docs
+```
 
 ## Sponsoring
 
