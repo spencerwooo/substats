@@ -26,7 +26,7 @@ const Home = () => {
 
   return (
     <Flex gap={4} direction="column">
-      <Box maxWidth={[80, 100]} marginX="auto">
+      <Box maxWidth={100} marginX="auto">
         <Image width={100} src="/assets/icons/256.png" />
       </Box>
       <Center>
