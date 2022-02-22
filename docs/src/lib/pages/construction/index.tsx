@@ -1,12 +1,12 @@
-import { Grid } from "@chakra-ui/react"
+import { Flex } from '@chakra-ui/react'
 
-import UnderConstruction from "./components/UnderConstruction"
+import UnderConstruction from './components/UnderConstruction'
 
 const Construction = () => {
   return (
-    <Grid gap={4}>
+    <Flex alignItems="center" justifyContent="center" height="60vh">
       <UnderConstruction />
-    </Grid>
+    </Flex>
   )
 }
 
