@@ -24,7 +24,7 @@ const SourceGrid = ({ source }: { source: typeof availableSources[number] }) => 
           justifyContent="start"
           alignItems="center"
         >
-          <Box flex={1}>
+          <Box flex={1} overflow="hidden">
             <Code mb={2}>{source.source}</Code>
             <Text color="gray.500" fontSize="sm" isTruncated>
               {source.description}
@@ -54,7 +54,7 @@ const Sources = ({ searchInput }: { searchInput: string }) => {
 
   return (
     <>
-      <Grid templateColumns="repeat(2, minmax(0, 1fr))" gap={4} mt={4}>
+      <Grid templateColumns={{ base: 'repeat(1, minmax(0, 1fr))', sm: 'repeat(2, minmax(0, 1fr))' }} gap={4} mt={4}>
         {searchInput === ''
           ? randomSources.map(source => <SourceGrid key={source.source} source={source} />)
           : searchedSources.map(source => <SourceGrid key={source.item.source} source={source.item} />)}
