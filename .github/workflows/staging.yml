@@ -5,6 +5,10 @@ on:
     branches:
       - main
 
+defaults:
+  run:
+    working-directory: worker
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
