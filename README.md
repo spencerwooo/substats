@@ -73,6 +73,8 @@ The response this URL returns looks like:
   "rewards": [
     {
       "details": [
+        { /* ... */ },
+        { /* ... */ },
         {
           "mora": 1125,
         },
@@ -82,7 +84,7 @@ The response this URL returns looks like:
 }
 ```
 
-Hence, we provide the `datapath` as `rewards.0.detals.2.mora`. (I specifically chose this data as it contains an array to demonstrate how to reference the value `mora` inside the array by index.)
+Hence, we provide the `datapath` as `rewards.0.details.2.mora`. (I specifically chose this data as it contains an array to demonstrate how to reference the value `mora` inside the array by index.)
 
 Response from the `endpoint` provided by you is parsed with [object-path](https://github.com/mariocasciaro/object-path), and the method for constructing a reference `datapath` to your value in the response is the same.
 

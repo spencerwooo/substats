@@ -1,4 +1,7 @@
 interface Env {
+  // Unencrypted variables
+  ENVIRONMENT: 'production' | 'dev'
+
   // Environment variables and worker secrets
   STEAM_API_KEY: string
   TG_BOT_TOKEN: string

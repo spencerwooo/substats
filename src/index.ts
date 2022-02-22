@@ -9,17 +9,19 @@ export default {
   ): Promise<Response> {
     // Global cache reference
     const cache = caches.default
-
-    // Generate cache key based on request url
+    // Get cacheKey and matched response (if any) from the cache provider
     const { cacheKey, response } = await cacheProvider(cache, request)
 
-    // If we have a cached response, return it immediately
-    if (response) return response
+    // Only serve cache under production
+    if (env.ENVIRONMENT === 'production') {
+      // If we have a cached response, return it immediately
+      if (response) return response
+    }
 
     // On cache miss, we pass the request to the router
     const freshResponse = await handleRequest(request, env)
 
-    // Cloudflare Edge Cache-Control TTL, 5-minutes for statistics response
+    // Cloudflare Edge Cache-Control TTL, 5 minutes for statistics response
     freshResponse.headers.set('Cache-Control', 'public, max-age=300')
     // Store the fetched statistics as cacheKey (context.waitUntil so we can
     // return the response without blocking on writing to cache)
