@@ -1,14 +1,18 @@
-name: Deploy
+name: Deploy to production
 
 on:
   push:
     branches:
       - main
 
+defaults:
+  run:
+    working-directory: worker
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    name: Deploy to Cloudflare Workers (Staging)
+    name: Deploy to Cloudflare Workers (Production)
     steps:
       - uses: actions/checkout@master
 
