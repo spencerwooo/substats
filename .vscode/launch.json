@@ -1,13 +1,15 @@
 {
   "configurations": [
     {
-      "name": "Miniflare (npm)",
+      "name": "Miniflare (pnpm)",
       "type": "node",
       "request": "launch",
       "runtimeExecutable": "pnpm",
       "runtimeArgs": [
         "run",
-        "dev"
+        "dev",
+        "--filter",
+        "./worker"
       ],
       "skipFiles": [
         "<node_internals>/**"
