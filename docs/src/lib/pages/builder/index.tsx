@@ -2,8 +2,6 @@ import {
   Alert,
   AlertIcon,
   Box,
-  Button,
-  Center,
   Code,
   Divider,
   Flex,
@@ -15,21 +13,19 @@ import {
   Input,
   InputGroup,
   Link,
-  Modal,
-  ModalBody,
-  ModalContent,
-  ModalFooter,
-  ModalHeader,
-  ModalOverlay,
   Text,
   useClipboard,
   useColorModeValue,
+  useDisclosure,
 } from '@chakra-ui/react'
 import { useState } from 'react'
-import { RiArrowLeftLine, RiCheckLine, RiClipboardLine, RiErrorWarningLine } from 'react-icons/ri'
-import { Link as RouterLink, useNavigate, useParams } from 'react-router-dom'
+import { RiCheckLine, RiClipboardLine, RiEditLine } from 'react-icons/ri'
+import { useParams } from 'react-router-dom'
+import useLocalStorage from 'use-local-storage'
 
 import { availableSources } from '../availableSources'
+import ModalEditBadge from './components/ModalEditBadge'
+import ModalSourceUnavailable from './components/ModalSourceUnavailable'
 
 // API prefix for all routes
 const API = 'https://api.swo.moe/stats'
@@ -54,58 +50,46 @@ const BuilderItem = ({ value, description }: { value: string; description: strin
   )
 }
 
+export const apiUrlBuilder = ({ source, key }: { source: string; key: string }) => {
+  return `${API}/${source}/${encodeURIComponent(key)}`
+}
+
 const Builder = () => {
   const { source } = useParams()
-  const navigate = useNavigate()
   const details = availableSources.find(s => s.source === source)
 
   // Modal states for when the 'source' is not found
-  // const { isOpen, onOpen, onClose } = useDisclosure()
-  const modalOpen = details === undefined
+  const unavailableSourceModalOpen = details === undefined
+  // Modal states for handling the badge customisation
+  const { isOpen, onOpen, onClose } = useDisclosure()
 
   // Invert GitHub and Medium icon colors on dark mode as these icons are too dark
   const blackIconFilter = ['github', 'medium'].includes(source ?? '') ? useColorModeValue('', 'invert(1)') : ''
 
-  const [keyInput, setKeyInput] = useState<string>('')
+  // Handle input states, this is where the user defines their key for this source
+  const [keyInput, setKeyInput] = useLocalStorage(`${source}.key`, '')
   const onKeyInputChange = (e: React.ChangeEvent<HTMLInputElement>) => setKeyInput(e.target.value)
 
   // Generate URLs based on source and key
-  const apiUrl = `${API}/${source}/${encodeURIComponent(keyInput || '...')}`
+  const apiUrl = apiUrlBuilder({ source: source || '', key: keyInput || '...' })
 
-  const badgeUrl = new URL('https://img.shields.io/badge/dynamic/json')
-  badgeUrl.searchParams.append('url', apiUrl)
-  badgeUrl.searchParams.append('query', 'count')
-  badgeUrl.searchParams.append('color', details?.badge.color || '')
-  badgeUrl.searchParams.append('label', details?.badge.label || '')
-  badgeUrl.searchParams.append('labelColor', details?.badge.labelColor || '')
-  badgeUrl.searchParams.append('logo', details?.badge.logo || '')
-  badgeUrl.searchParams.append('logoColor', details?.badge.logoColor || '')
-  badgeUrl.searchParams.append('suffix', ' ' + details?.badge.suffix || '')
-  badgeUrl.searchParams.append('cacheSeconds', '3600')
+  // Generate badge based on preconfigured styles and user input, this is passed from the child modal component
+  const [badgeUrl, setBadgeUrl] = useState('')
+  const buildBadgeUrl = (url: string) => setBadgeUrl(url)
 
   return (
     <Flex gap={4} direction="column">
-      <Modal isOpen={modalOpen} onClose={() => false} isCentered>
-        <ModalOverlay />
-        <ModalContent>
-          <ModalHeader display="inline-flex" alignItems="center">
-            <RiErrorWarningLine /> <Text ml="1">Uh-oh!</Text>
-          </ModalHeader>
-          <ModalBody>
-            Seems that <Code>{source}</Code> is not available yet. But maybe, you are looking for{' '}
-            <Link as={RouterLink} to="/construction" color="purple.500">
-              the <Code colorScheme="purple">/common</Code> route
-            </Link>
-            ?
-          </ModalBody>
-
-          <ModalFooter>
-            <Button colorScheme="orange" onClick={() => navigate('/')} leftIcon={<RiArrowLeftLine />}>
-              Back home
-            </Button>
-          </ModalFooter>
-        </ModalContent>
-      </Modal>
+      <ModalSourceUnavailable isOpen={unavailableSourceModalOpen} source={source ?? ''} />
+      {details && (
+        <ModalEditBadge
+          isOpen={isOpen}
+          onClose={onClose}
+          apiUrl={apiUrl}
+          key={keyInput}
+          details={details}
+          buildBadgeUrl={buildBadgeUrl}
+        />
+      )}
 
       <Box maxWidth={50} marginX="auto">
         <Image width={50} src={details?.icon || '/assets/icons/256.png'} filter={blackIconFilter} />
@@ -146,13 +130,16 @@ const Builder = () => {
         <Text fontSize="xs" textTransform="uppercase" fontWeight="medium" letterSpacing="widest" mb={2}>
           Badge preview
         </Text>
-        <Link href={details?.badge.link(keyInput)} display="inline-block" isExternal>
-          <Image src={badgeUrl.toString()} alt="badge" height={5} />
-        </Link>
+        <Flex alignItems="center">
+          <Link href={details?.badge.link(keyInput)} display="inline-block" isExternal>
+            <Image src={badgeUrl} alt="badge" height={5} />{' '}
+          </Link>
+          <IconButton onClick={onOpen} ml={2} aria-label="edit shields.io badge" size="sm" icon={<RiEditLine />} />
+        </Flex>
       </Box>
 
       <BuilderItem value={apiUrl} description="API URL" />
-      <BuilderItem value={badgeUrl.toString()} description="Badge URL" />
+      <BuilderItem value={badgeUrl} description="Badge URL" />
       <BuilderItem
         value={`[![${details?.badge.label}](${badgeUrl})](${details?.badge.link(keyInput)})`}
         description="Markdown"

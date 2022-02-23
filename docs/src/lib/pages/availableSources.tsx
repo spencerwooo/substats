@@ -66,7 +66,7 @@ export const availableSources = [
       label: 'Feedly',
       labelColor: '2bb24c',
       logo: 'feedly',
-      logocolor: 'ffffff',
+      logoColor: 'ffffff',
       suffix: 'subs',
       color: '282c34',
       link: (k: string) => k,
