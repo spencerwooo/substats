@@ -149,27 +149,7 @@ If you are looking for the multiple source and query functions in 2.0 - it's sti
 
 ## Contributing
 
-This is a monorepo managed by `pnpm`. Directory `./worker` holds the Cloudflare Worker module, and `./docs` is a React site for documentation (powered by [Vite](https://vitejs.dev/) and [Chakra UI](https://chakra-ui.com/)).
-
-To install all package dependencies:
-
-```bash
-pnpm install
-```
-
-To run the worker locally with hot reload (powered by Miniflare):
-
-```bash
-pnpm run dev --filter ./worker
-```
-
-Bindings (i.e., [variables and secrets](https://miniflare.dev/core/variables-secrets)) should be defined in `./worker/.env`. A list of currently used secrets are defined in `./worker/bindings.d.ts`.
-
-To preview the documentation website locally with hot reload:
-
-```bash
-pnpm run dev --filter ./docs
-```
+This is a monorepo managed by `pnpm`. Directory `./worker` holds the Cloudflare Worker module, and `./docs` is a React site for documentation (powered by [Vite](https://vitejs.dev/) and [Chakra UI](https://chakra-ui.com/)). Check the README.md for both packages for details.
 
 ## Sponsoring
 
