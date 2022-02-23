@@ -1,5 +1,6 @@
 import {
   Box,
+  Button,
   Center,
   Code,
   Divider,
@@ -12,13 +13,19 @@ import {
   Input,
   InputGroup,
   Link,
+  Modal,
+  ModalBody,
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
+  ModalOverlay,
   Text,
   useClipboard,
   useColorModeValue,
 } from '@chakra-ui/react'
 import { useState } from 'react'
-import { RiCheckLine, RiClipboardLine } from 'react-icons/ri'
-import { useParams } from 'react-router-dom'
+import { RiArrowLeftLine, RiCheckLine, RiClipboardLine, RiErrorWarningLine } from 'react-icons/ri'
+import { Link as RouterLink, useNavigate, useParams } from 'react-router-dom'
 
 import { availableSources } from '../home/components/availableSources'
 
@@ -47,19 +54,45 @@ const BuilderItem = ({ value, description }: { value: string; description: strin
 
 const Builder = () => {
   const { source } = useParams()
+  const navigate = useNavigate()
   const details = availableSources.find(s => s.source === source)
 
-  const blackIconFilter = ['github', 'medium'].includes(source ?? '')
-    ? useColorModeValue('grayscale(0.5)', 'grayscale(0.5) invert(1)')
-    : 'grayscale(0.5)'
+  // Modal states for when the 'source' is not found
+  // const { isOpen, onOpen, onClose } = useDisclosure()
+  const modalOpen = details === undefined
+
+  // Invert GitHub and Medium icon colors on dark mode as these icons are too dark
+  const blackIconFilter = ['github', 'medium'].includes(source ?? '') ? useColorModeValue('', 'invert(1)') : ''
 
   const [keyInput, setKeyInput] = useState<string>('')
   const onKeyInputChange = (e: React.ChangeEvent<HTMLInputElement>) => setKeyInput(e.target.value)
 
   return (
     <Flex gap={4} direction="column">
+      <Modal isOpen={modalOpen} onClose={() => false} isCentered>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader display="inline-flex" alignItems="center">
+            <RiErrorWarningLine /> <Text ml="1">Uh-oh!</Text>
+          </ModalHeader>
+          <ModalBody>
+            Seems that <Code>{source}</Code> is not available yet. But maybe, you are looking for{' '}
+            <Link as={RouterLink} to="/construction" color="purple.500">
+              the <Code colorScheme="purple">/common</Code> route
+            </Link>
+            ?
+          </ModalBody>
+
+          <ModalFooter>
+            <Button colorScheme="orange" onClick={() => navigate('/')} leftIcon={<RiArrowLeftLine />}>
+              Back home
+            </Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
+
       <Box maxWidth={50} marginX="auto">
-        <Image width={50} src={`/${details?.icon}`} filter={blackIconFilter} />
+        <Image width={50} src={details?.icon || '/assets/icons/256.png'} filter={blackIconFilter} />
       </Box>
       <Center mt={4} gap={1}>
         <Code>{API}</Code>
