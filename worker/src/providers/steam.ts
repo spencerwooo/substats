@@ -1,11 +1,11 @@
 import type { SubstatsResponse } from '@/types'
 import { commonProviderHandler } from '.'
 
-// https://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=0689766DB370FBA076B0CFC78917BB06&steamid=76561198336249957&format=json
+// https://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=<redacted>&steamid=76561198336249957&format=json
 type SteamGamesRawResponseOnSuccess = {
   response: { game_count: number; games: Array<Record<string, number>> }
 }
-// https://api.steampowered.com/ISteamUser/GetFriendList/v0001/?key=0689766DB370FBA076B0CFC78917BB06&steamid=76561198336249957&format=json
+// https://api.steampowered.com/ISteamUser/GetFriendList/v0001/?key=<redacted>&steamid=76561198336249957&format=json
 type SteamFriendsRawResponseOnSuccess = {
   friendslist: { friends: Array<Record<string, number | string>> }
 }

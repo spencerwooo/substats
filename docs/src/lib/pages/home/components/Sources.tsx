@@ -4,7 +4,7 @@ import { Box, Button, Center, Code, Grid, GridItem, Image, Link, Text, useColorM
 import { Link as RouterLink } from 'react-router-dom'
 import { GiCardRandom } from 'react-icons/gi'
 
-import { availableSources } from './availableSources'
+import { availableSources } from '../../availableSources'
 
 // GridItem component for each of the available sources
 const SourceGrid = ({ source }: { source: typeof availableSources[number] }) => {
