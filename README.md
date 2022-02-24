@@ -143,7 +143,7 @@ Yes, `substats` is now version `v2.0-beta`! Most of the updates are under-the-ho
 - [x] Support for Newsblur has been deprecated ~~(seems nobody uses it)~~.
 - [x] KV storages are now supported, some routes including `instagram` and `inoreader` depends on this for storing cookies (wip).
 - [x] Caching is ported to module workers in 2.0 and supported as always.
-- [ ] New documentation and query builder (wip).
+- [x] New documentation and query builder.
 
 If you are looking for the multiple source and query functions in 2.0 - it's still under refactor, as `itty-router` does not parse multiple query parameters, blocking this feature here. You can still use the 1.0 route while we wait. [README and documentation for v1.0 (deprecated)](https://github.com/spencerwooo/substats/blob/1becc576f09b09cfa1389312d081f02a25ed0735/README.md).
 

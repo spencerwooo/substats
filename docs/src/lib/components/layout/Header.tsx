@@ -11,8 +11,10 @@ import {
   MenuButton,
   MenuItem,
   MenuList,
+  MenuGroup,
+  MenuDivider,
 } from '@chakra-ui/react'
-import { FiGithub, FiMenu } from 'react-icons/fi'
+import { FiChevronDown, FiGithub, FiMenu } from 'react-icons/fi'
 import { RiRssLine } from 'react-icons/ri'
 import { Link as RouterLink } from 'react-router-dom'
 
@@ -35,11 +37,19 @@ const Header = () => {
           Home
         </Button>
       </Link>
-      <Link to="/construction" as={RouterLink} display={{ base: 'none', sm: 'block' }}>
-        <Button variant="link" p="2" fontSize="sm" fontWeight="medium">
+      <Menu>
+        <MenuButton size="sm" as={Button} rightIcon={<FiChevronDown />} display={{ base: 'none', sm: 'block' }}>
           Docs
-        </Button>
-      </Link>
+        </MenuButton>
+        <MenuList>
+          <Link to="/docs/getting-started" as={RouterLink}>
+            <MenuItem>Getting started</MenuItem>
+          </Link>
+          <Link to="/docs/whats-new" as={RouterLink}>
+            <MenuItem>What's new?</MenuItem>
+          </Link>
+        </MenuList>
+      </Menu>
 
       {/* on mobile */}
       <Menu>
@@ -51,16 +61,21 @@ const Header = () => {
           display={{ base: 'inline-flex', sm: 'none' }}
         />
         <MenuList>
-          <MenuItem>
+          <MenuGroup title="URL Builder">
             <Link to="/" as={RouterLink}>
-              Home
+              <MenuItem>Home</MenuItem>
             </Link>
-          </MenuItem>
-          <MenuItem>
-            <Link to="/advanced" as={RouterLink}>
-              Docs
+          </MenuGroup>
+
+          <MenuDivider />
+          <MenuGroup title="Docs">
+            <Link to="/docs/getting-started" as={RouterLink}>
+              <MenuItem>Getting started</MenuItem>
             </Link>
-          </MenuItem>
+            <Link to="/docs/whats-new" as={RouterLink}>
+              <MenuItem>What's new?</MenuItem>
+            </Link>
+          </MenuGroup>
         </MenuList>
       </Menu>
 
