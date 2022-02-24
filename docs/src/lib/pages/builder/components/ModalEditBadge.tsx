@@ -21,7 +21,7 @@ import {
   Stack,
   Text,
 } from '@chakra-ui/react'
-import { availableSources } from 'lib/pages/availableSources'
+import { availableSources } from 'sources'
 import React from 'react'
 import { HexColorInput, HexColorPicker } from 'react-colorful'
 import { RiHashtag } from 'react-icons/ri'

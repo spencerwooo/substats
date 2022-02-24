@@ -23,7 +23,7 @@ import { RiCheckLine, RiClipboardLine, RiEditLine } from 'react-icons/ri'
 import { useParams } from 'react-router-dom'
 import useLocalStorage from 'use-local-storage'
 
-import { availableSources } from '../availableSources'
+import { availableSources, whiteLogoSources } from '@/sources'
 import ModalEditBadge from './components/ModalEditBadge'
 import ModalSourceUnavailable from './components/ModalSourceUnavailable'
 
@@ -64,7 +64,7 @@ const Builder = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
 
   // Invert GitHub and Medium icon colors on dark mode as these icons are too dark
-  const blackIconFilter = ['github', 'medium'].includes(source ?? '') ? useColorModeValue('', 'invert(1)') : ''
+  const blackIconFilter = whiteLogoSources.includes(source ?? '') ? useColorModeValue('', 'invert(1)') : ''
 
   // Handle input states, this is where the user defines their key for this source
   const [keyInput, setKeyInput] = useLocalStorage(`${source}.key`, '')

@@ -1,14 +1,14 @@
-import { useState } from 'react'
-import Fuse from 'fuse.js'
 import { Box, Button, Center, Code, Grid, GridItem, Image, Link, Text, useColorModeValue } from '@chakra-ui/react'
-import { Link as RouterLink } from 'react-router-dom'
+import Fuse from 'fuse.js'
+import { useState } from 'react'
 import { GiCardRandom } from 'react-icons/gi'
+import { Link as RouterLink } from 'react-router-dom'
 
-import { availableSources } from '../../availableSources'
+import { availableSources, whiteLogoSources } from '@/sources'
 
 // GridItem component for each of the available sources
 const SourceGrid = ({ source }: { source: typeof availableSources[number] }) => {
-  const blackIconFilter = ['github', 'medium'].includes(source.source)
+  const blackIconFilter = whiteLogoSources.includes(source.source)
     ? useColorModeValue('grayscale(0.5)', 'grayscale(0.5) invert(1)')
     : 'grayscale(0.5)'
 
