@@ -8,7 +8,6 @@
     ],
     "types": [
       "vite/client",
-      "mdx"
     ],
     "allowJs": false,
     "skipLibCheck": false,
