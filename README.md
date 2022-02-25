@@ -43,7 +43,23 @@ Yep, it's that simple now. ;)
 
 _*Note that `key` needs to be url encoded, remember this if you are requesting the `feedly`, `inoreader`, or `feedspub` routes._
 
-### Advanced - New!
+### Building badges 🎫
+
+Of course! And as a matter of fact, substats works quite well with [`shields.io`](https://shields.io)'s `/dynamic` route. All these badges below are dynamically generated with substat's data:
+
+[![GitHub](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fapi.swo.moe%2Fstats%2Fgithub%2Fspencerwooo&query=count&color=181717&label=GitHub&labelColor=282c34&logo=github&suffix=+follows&cacheSeconds=3600)](https://github.com/spencerwooo)
+[![Telegram](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fapi.swo.moe%2Fstats%2Ftelegram%2FrealSpencerWoo&query=count&color=2CA5E0&label=Telegram&labelColor=282c34&logo=telegram&suffix=+members&cacheSeconds=3600)](https://t.me/realSpencerWoo)
+[![微博](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fapi.swo.moe%2Fstats%2Fweibo%2F6265807914&query=count&color=040000&label=%E5%BE%AE%E5%8D%9A&labelColor=e71f19&logo=sina-weibo&suffix=+%E5%85%B3%E6%B3%A8&cacheSeconds=3600)](https://weibo.com/6265807914)
+[![少数派](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fapi.swo.moe%2Fstats%2Fsspai%2Fspencerwoo&query=count&color=d71a1b&label=%E5%B0%91%E6%95%B0%E6%B4%BE&labelColor=282c34&suffix=+%E5%85%B3%E6%B3%A8&cacheSeconds=3600)](https://sspai.com/u/spencerwoo)
+[![爱发电](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fapi.swo.moe%2Fstats%2Fafdian%2Fspencerwoo&query=count&color=282c34&label=%E7%88%B1%E5%8F%91%E7%94%B5&labelColor=946ce6&suffix=+%E5%8F%91%E7%94%B5%E4%BA%BA%E6%AC%A1+%2F+%E6%9C%88&cacheSeconds=3600)](https://afdian.net/@spencerwoo)
+[![即刻](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fapi.swo.moe%2Fstats%2Fjike%2F4DDA0425-FB41-4188-89E4-952CA15E3C5E&query=count&color=fbae00&label=%E5%8D%B3%E5%88%BB&labelColor=282c34&suffix=+%E5%85%B3%E6%B3%A8&cacheSeconds=3600)](https://m.okjike.com/users/4DDA0425-FB41-4188-89E4-952CA15E3C5E)
+[![Steam](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fapi.swo.moe%2Fstats%2Fsteamgames%2F76561198336249957&query=count&color=0b1a37&label=Steam&labelColor=134375&logo=steam&suffix=+games&cacheSeconds=3600)](https://steamcommunity.com/profiles/76561198336249957)
+
+You can easily create your own badge with our badge builder at [substats.swo.moe](https://substats.swo.moe/).
+
+![Badge builder screenshot](assets/badge-builder-screenshot.png)
+
+### Advanced 🍀
 
 What if the source you are trying to use is not supported yet, but it's just a simple `GET` request? In this case, you can use the route:
 
