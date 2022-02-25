@@ -21,11 +21,11 @@ import {
   Stack,
   Text,
 } from '@chakra-ui/react'
-import { availableSources } from 'sources'
 import React from 'react'
-import { HexColorInput, HexColorPicker } from 'react-colorful'
+import { HexColorPicker } from 'react-colorful'
 import { RiHashtag } from 'react-icons/ri'
 import useLocalStorage from 'use-local-storage'
+import { availableSources } from '@/sources'
 
 type Badge = Omit<typeof availableSources[number]['badge'], 'link'>
 

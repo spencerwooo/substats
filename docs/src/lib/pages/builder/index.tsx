@@ -121,7 +121,7 @@ const Builder = () => {
         <InputGroup>
           <Input value={keyInput} placeholder="username, uid, key, ..." onChange={onKeyInputChange} />
         </InputGroup>
-        <FormHelperText>Enter your username, uid, or other stuff for {source}.</FormHelperText>
+        <FormHelperText>{details?.helper || `Enter your username or uid for ${source}.`}</FormHelperText>
       </FormControl>
 
       <Divider my={4} />
