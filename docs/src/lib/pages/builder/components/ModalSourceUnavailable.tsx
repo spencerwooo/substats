@@ -31,7 +31,7 @@ const ModalSourceUnavailable = ({ isOpen, source }: { isOpen: boolean; source: s
         </ModalHeader>
         <ModalBody>
           Seems that <Code>{source}</Code> is not available yet. But maybe you are looking for:{' '}
-          <Link as={RouterLink} to="/construction" color="purple.400">
+          <Link as={RouterLink} to="/common" color="purple.400">
             the <Code colorScheme="purple">/common</Code> route
           </Link>
           ?

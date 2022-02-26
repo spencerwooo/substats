@@ -51,7 +51,7 @@ const Home = () => {
         <Badge colorScheme="purple" mr={2}>
           new
         </Badge>
-        <Link to="/construction" as={RouterLink}>
+        <Link to="/common" as={RouterLink}>
           <Text mr={2}>
             Looking for: The <Code>/common</Code> route?
           </Text>

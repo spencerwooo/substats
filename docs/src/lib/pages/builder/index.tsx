@@ -28,9 +28,9 @@ import ModalEditBadge from './components/ModalEditBadge'
 import ModalSourceUnavailable from './components/ModalSourceUnavailable'
 
 // API prefix for all routes
-const API = 'https://api.swo.moe/stats'
+export const API = 'https://api.swo.moe/stats'
 
-const BuilderItem = ({ value, description }: { value: string; description: string }) => {
+export const BuilderItem = ({ value, description }: { value: string; description: string }) => {
   const { hasCopied, onCopy } = useClipboard(value)
   return (
     <FormControl>
