@@ -27,6 +27,8 @@ import weiboProvider from './weibo'
 import wikipediaZhProvider from './wikipedia'
 import zhihuProvider from './zhihu'
 import instagramProvider from './instagram'
+import juejinProvider from './juejin'
+import yuqueProvider from './yuque'
 
 type FailedSubstatsResponse = Extract<SubstatsResponse, { failed: true }>
 
@@ -159,5 +161,7 @@ export default function getProviders(): Record<
     weibo: weiboProvider,
     wikipediazh: wikipediaZhProvider,
     zhihu: zhihuProvider,
+    juejin: juejinProvider,
+    yuque: yuqueProvider,
   }
 }

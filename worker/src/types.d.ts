@@ -48,3 +48,5 @@ export type SupportedProviders =
   | 'weibo'
   | 'wikipediazh'
   | 'zhihu'
+  | 'juejin'
+  | 'yuque'
