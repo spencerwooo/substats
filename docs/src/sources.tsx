@@ -387,7 +387,7 @@ export const availableSources = [
   },
   {
     source: 'yuque',
-    icon: '/assets/sources/logo_juejin.png',
+    icon: '/assets/sources/logo_yuque.png',
     description: '语雀 - articles、文章',
     warning: '',
     helper: <HelperText source="语雀" uid="lyndon" url="https://www.yuque.com/lyndon" />,
