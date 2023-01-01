@@ -15,6 +15,7 @@ import feedsPubProvider from './feedsPub'
 import githubProvider from './github'
 import inoreaderProvider from './inoreader'
 import jikeProvider from './jike'
+import mastodonProvider from './mastodon'
 import mediumProvider from './medium'
 import neteaseMusicProvider from './neteaseMusic'
 import redditProvider from './reddit'
@@ -147,6 +148,7 @@ export default function getProviders(): Record<
     inoreader: inoreaderProvider,
     instagram: instagramProvider,
     jike: jikeProvider,
+    mastodon: mastodonProvider,
     medium: mediumProvider,
     neteasemusic: neteaseMusicProvider,
     reddit: redditProvider,

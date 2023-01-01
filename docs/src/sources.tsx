@@ -188,6 +188,34 @@ export const availableSources = [
     },
   },
   {
+    source: 'mastodon',
+    icon: '/assets/sources/logo_mastodon.png',
+    description: 'Mastodon - social、长毛象',
+    warning: '',
+    helper: (
+      <Text>
+        Enter the concatanation of your username and hostname using <Code fontSize="xs">@</Code>,
+        such as <Code fontSize="xs">oldpanda@mastodon.social</Code> derived from your user profile URL:{' '}
+        <Link href='https://mastodon.social/@oldpanda' isExternal>
+          https://mastodon.social/@oldpanda
+        </Link>
+      </Text>
+    ),
+    badge: {
+      label: 'Mastodon',
+      labelColor: '',
+      logo: 'mastodon',
+      suffix: 'follows',
+      color: '6364ff',
+      link: (k: string) => {
+        let parts = k.split("@");
+        let domain = parts.pop();
+        let user = parts.join("@");
+        return `https://${domain}/@${user}`;
+      },
+    },
+  },
+  {
     source: 'medium',
     icon: '/assets/sources/logo_medium.png',
     description: 'Medium - social、文章',
