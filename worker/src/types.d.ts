@@ -36,6 +36,7 @@ export type SupportedProviders =
   | 'inoreader'
   | 'instagram'
   | 'jike'
+  | 'mastodon'
   | 'medium'
   | 'neteasemusic'
   | 'reddit'

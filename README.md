@@ -121,6 +121,7 @@ Try our `/common` route API URL builder here: [substats.swo.moe/common](https://
 - inoreader
 - instagram
 - jike
+- mastodon
 - medium
 - neteasemusic
 - reddit
@@ -143,6 +144,7 @@ Try our `/common` route API URL builder here: [substats.swo.moe/common](https://
 <a href="https://api.swo.moe/stats/inoreader/https%3A%2F%2Fnnw.ranchero.com%2Ffeed.xml"><img src="docs/public/assets/sources/logo_inoreader.png" width="auto" height="64px" alt="logo_inoreader" /></a>
 <a href="https://api.swo.moe/stats/instagram/9gag"><img src="docs/public/assets/sources/logo_ins.png" width="auto" height="64px" alt="logo_ins" /></a>
 <a href="https://api.swo.moe/stats/jike/2204A477-38C8-4D9D-9705-9C9B990BE042"><img src="docs/public/assets/sources/logo_jike.png" width="auto" height="64px" alt="logo_jike" /></a>
+<a href="https://api.swo.moe/stats/mastodon/oldpanda@mastodon.social"><img src="docs/public/assets/sources/logo_mastodon.png" width="auto" height="64px" alt="logo_mastodon" /></a>
 <a href="https://api.swo.moe/stats/medium/SpencerWooo"><img src="docs/public/assets/sources/logo_medium.png" width="auto" height="64px" alt="logo_medium" /></a>
 <a href="https://api.swo.moe/stats/neteasemusic/416608258"><img src="docs/public/assets/sources/logo_neteasemusic.png" width="auto" height="64px" alt="logo_neteasemusic" /></a>
 <a href="https://api.swo.moe/stats/reddit/jushoro"><img src="docs/public/assets/sources/logo_reddit.png" width="auto" height="64px" alt="logo_reddit" /></a>
