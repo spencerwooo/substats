@@ -13,6 +13,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     name: Deploy to Cloudflare Workers (Staging)
+    environment: Staging
     steps:
       - uses: actions/checkout@master
 
@@ -35,3 +36,4 @@ jobs:
         with:
           apiToken: ${{ secrets.CF_API_TOKEN }}
           workingDirectory: "worker"
+          command: publish --env staging

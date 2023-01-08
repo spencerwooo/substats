@@ -34,5 +34,6 @@ jobs:
         uses: cloudflare/wrangler-action@2.0.0
         with:
           apiToken: ${{ secrets.CF_API_TOKEN }}
-          environment: "production"
+          # environment: "production"
           workingDirectory: "worker"
+          command: publish --env production
