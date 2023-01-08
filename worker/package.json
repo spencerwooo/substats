@@ -43,7 +43,7 @@
   "dependencies": {
     "cheerio": "1.0.0-rc.12",
     "crypto-js": "^4.1.1",
-    "itty-router": "^2.4.10",
+    "itty-router": "^3.0.11",
     "itty-router-extras": "^0.4.2",
     "object-path": "^0.11.8"
   }
