@@ -27,7 +27,7 @@ import { RiHashtag } from 'react-icons/ri'
 import useLocalStorage from 'use-local-storage'
 import { availableSources } from '@/sources'
 
-type Badge = Omit<typeof availableSources[number]['badge'], 'link'>
+type Badge = Omit<(typeof availableSources)[number]['badge'], 'link'>
 
 const badgeUrlBuilder = ({
   url,
@@ -126,7 +126,7 @@ const ModalEditBadge = ({
   onClose: () => void
   apiUrl: string
   key: string
-  details: typeof availableSources[number]
+  details: (typeof availableSources)[number]
   buildBadgeUrl: (url: string) => void
 }) => {
   // All customisable options - also stored locally

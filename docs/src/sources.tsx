@@ -194,9 +194,9 @@ export const availableSources = [
     warning: '',
     helper: (
       <Text>
-        Enter the concatanation of your username and hostname using <Code fontSize="xs">@</Code>,
-        such as <Code fontSize="xs">oldpanda@mastodon.social</Code> derived from your user profile URL:{' '}
-        <Link href='https://mastodon.social/@oldpanda' isExternal>
+        Enter the concatanation of your username and hostname using <Code fontSize="xs">@</Code>, such as{' '}
+        <Code fontSize="xs">oldpanda@mastodon.social</Code> derived from your user profile URL:{' '}
+        <Link href="https://mastodon.social/@oldpanda" isExternal>
           https://mastodon.social/@oldpanda
         </Link>
       </Text>
@@ -208,10 +208,10 @@ export const availableSources = [
       suffix: 'follows',
       color: '6364ff',
       link: (k: string) => {
-        let parts = k.split("@");
-        let domain = parts.pop();
-        let user = parts.join("@");
-        return `https://${domain}/@${user}`;
+        let parts = k.split('@')
+        let domain = parts.pop()
+        let user = parts.join('@')
+        return `https://${domain}/@${user}`
       },
     },
   },

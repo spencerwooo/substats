@@ -7,7 +7,7 @@ import { Link as RouterLink } from 'react-router-dom'
 import { availableSources, whiteLogoSources } from '@/sources'
 
 // GridItem component for each of the available sources
-const SourceGrid = ({ source }: { source: typeof availableSources[number] }) => {
+const SourceGrid = ({ source }: { source: (typeof availableSources)[number] }) => {
   const blackIconFilter = whiteLogoSources.includes(source.source)
     ? useColorModeValue('grayscale(0.5)', 'grayscale(0.5) invert(1)')
     : 'grayscale(0.5)'
