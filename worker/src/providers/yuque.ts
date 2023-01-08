@@ -2,12 +2,11 @@ import type { SubstatsResponse } from '@/types'
 import { commonProviderHandler } from '.'
 
 // https://www.yuque.com/lyndon
-type YuqueResponse =
-  { 
-    data: {
-        followers_count: number
-    }
-   }
+type YuqueResponse = {
+  data: {
+    followers_count: number
+  }
+}
 
 export default async function yuqueProvider(
   key: string,
