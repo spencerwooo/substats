@@ -11,6 +11,7 @@ const HelperText = ({ source, uid, url }: { source: string; uid: string; url: st
     </Link>
   </Text>
 )
+
 const SteamHelperText = () => (
   <Text>
     Note that your steam ID is not your steam username! Find your steam ID here:{' '}
@@ -19,6 +20,20 @@ const SteamHelperText = () => (
     </Link>
     , with your username or profile URL, then pass the <Code fontSize="xs">steamID64</Code> to substats here. An
     example: <Code fontSize="xs">76561198336249957</Code>
+  </Text>
+)
+
+const YuqueHelperText = () => (
+  <Text>
+    Go to your Yuque homepage, such as{' '}
+    <Link href="https://www.yuque.com/lyndon" isExternal color="orange.400">
+      https://www.yuque.com/lyndon
+    </Link>
+    , copy the link to <Code>粉丝</Code>, which should look like{' '}
+    <Link href="https://www.yuque.com/explore/follows?type=Fans&userId=85213" isExternal>
+      https://www.yuque.com/explore/follows?type=Fans&userId=85213
+    </Link>
+    . Pass <Code fontSize="xs">userId</Code> to substats, which is <Code fontSize="xs">85213</Code> in this case.
   </Text>
 )
 
@@ -418,7 +433,7 @@ export const availableSources = [
     icon: '/assets/sources/logo_yuque.png',
     description: '语雀 - articles、文章',
     warning: '',
-    helper: <HelperText source="语雀" uid="lyndon" url="https://www.yuque.com/lyndon" />,
+    helper: <YuqueHelperText />,
     badge: {
       label: '语雀',
       labelColor: '36d07c',
