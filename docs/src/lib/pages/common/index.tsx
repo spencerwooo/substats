@@ -57,7 +57,7 @@ const Common = () => {
   const [dataPath, setDataPath] = useLocalStorage<string>('common.datapath', '')
   const onSetDataPath = (e: React.ChangeEvent<HTMLInputElement>) => setDataPath(e.target.value)
 
-  const apiUrl = `${API}/common/?endpoint=${userEnteredApi}&datapath=${dataPath}`
+  const apiUrl = `${API}/common?endpoint=${userEnteredApi}&datapath=${dataPath}`
 
   return (
     <Flex gap={4} direction="column">
