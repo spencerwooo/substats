@@ -1,5 +1,5 @@
 import cacheProvider from './cache'
-import { handleRequest } from './handler'
+import handler from './handler'
 
 export default {
   async fetch(
@@ -19,7 +19,7 @@ export default {
     }
 
     // On cache miss, we pass the request to the router
-    const freshResponse = await handleRequest(request, env)
+    const freshResponse = await handler(request, env, context)
 
     // Cloudflare Edge Cache-Control TTL, 5 minutes for statistics response
     freshResponse.headers.set('Cache-Control', 'public, max-age=300')
