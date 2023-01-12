@@ -37,7 +37,6 @@ app.get('/stats/common', async c => {
 // A simpler route in the format of /:source/:key, returning only single sources
 app.get('/stats/:source/:key', async c => {
   const { source, key } = c.req.param()
-  console.log({ source, key })
 
   // If 'source' is somehow 'common', return 501 error
   if (source === 'common') {

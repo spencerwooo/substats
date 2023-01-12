@@ -1,5 +1,5 @@
 name = "substats-ts"
-type = "javascript"
+main = "dist/index.mjs"
 
 workers_dev = true
 account_id = "b87997a496f985b46b927b3f24c61de1"
@@ -18,6 +18,9 @@ vars = { ENVIRONMENT = "production" }
 kv_namespaces = [
   { binding = "KV_COOKIES", id = "26e244725345488e89d06fbdedeed3da" },
 ]
+
+[build]
+command = "node build.js"
 
 [build.upload]
 format = "modules"
