@@ -3,9 +3,9 @@ main = "dist/index.mjs"
 
 workers_dev = true
 account_id = "b87997a496f985b46b927b3f24c61de1"
-zone_id = "37799ee61788957c4ff51597f94a92c2"
+# zone_id = "37799ee61788957c4ff51597f94a92c2"
 
-compatibility_date = "2022-01-17"
+compatibility_date = "2022-11-30"
 
 vars = { ENVIRONMENT = "dev" }
 kv_namespaces = [
@@ -21,10 +21,6 @@ kv_namespaces = [
 
 [build]
 command = "node build.js"
-
-[build.upload]
-format = "modules"
-main = "index.mjs"
 
 [miniflare]
 env_path = ".env"
