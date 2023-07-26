@@ -12,7 +12,7 @@ export default async function feedlyProvider(
   return commonProviderHandler<FeedlyResponse>({
     providerName: 'feedly',
     queryKey: key,
-    fetchUrl: `https://feedly.com/v3/recommendations/feeds/feed%2F${key}?count=0`,
+    fetchUrl: `https://feedly.com/v3/recommendations/feeds/feed%2F${encodeURIComponent(key)}?count=0`,
     countObjPath: 'source.subscribers',
     errorMessageObjPath: 'no error message fallback to default',
     isResponseValid: d => 'source' in d,
