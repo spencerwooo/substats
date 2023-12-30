@@ -172,7 +172,7 @@ Yes, `substats` is now version `v2.0-beta`! Most of the updates are under-the-ho
 - [x] Updated to CloudFlare's module workers.
 - [x] Worker is built with `esbuild` instead of `webpack`, extra fast!
 - [x] Support for Newsblur has been deprecated ~~(seems nobody uses it)~~.
-- [x] KV storages are now supported, some routes including `instagram` and `inoreader` depends on this for storing cookies (wip).
+- [x] KV storages are now supported, some routes including `instagram` depends on this for storing cookies (wip).
 - [x] Caching is ported to module workers in 2.0 and supported as always.
 - [x] New documentation and query builder.
 
