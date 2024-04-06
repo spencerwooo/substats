@@ -12,7 +12,7 @@ export default async function zhihuProvider(
   return commonProviderHandler<ZhihuResponse>({
     providerName: 'zhihu',
     queryKey: key,
-    fetchUrl: `https://www.zhihu.com/api/v4/members/${key}?include=follower_count`,
+    fetchUrl: `https://api.zhihu.com/people/${key}/profile`,
     countObjPath: 'follower_count',
     errorMessageObjPath: 'error.message',
     isResponseValid: d => 'follower_count' in d,
