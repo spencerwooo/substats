@@ -30,6 +30,7 @@ import zhihuProvider from './zhihu'
 import instagramProvider from './instagram'
 import juejinProvider from './juejin'
 import yuqueProvider from './yuque'
+import qqMusicProvider from "./qqMusic";
 
 type FailedSubstatsResponse = Extract<SubstatsResponse, { failed: true }>
 
@@ -153,6 +154,7 @@ export default function getProviders(): Record<
     mastodon: mastodonProvider,
     medium: mediumProvider,
     neteasemusic: neteaseMusicProvider,
+    qqmusic: qqMusicProvider,
     reddit: redditProvider,
     sspai: sspaiProvider,
     steamgames: steamGamesProvider,

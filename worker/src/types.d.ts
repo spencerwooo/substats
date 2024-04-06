@@ -41,6 +41,7 @@ export type SupportedProviders =
   | 'mastodon'
   | 'medium'
   | 'neteasemusic'
+  | 'qqmusic'
   | 'reddit'
   | 'sspai'
   | 'steamgames'
