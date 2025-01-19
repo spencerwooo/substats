@@ -25,7 +25,7 @@ export default async function afdianProvider(
   return commonProviderHandler<AfdianResponse>({
     providerName: 'afdian',
     queryKey: key,
-    fetchUrl: `https://afdian.net/api/user/get-profile-by-slug?url_slug=${key}`,
+    fetchUrl: `https://afdian.com/api/user/get-profile-by-slug?url_slug=${key}`,
     countObjPath: 'data.user.creator.monthly_fans',
     errorMessageObjPath: 'em',
     isResponseValid: d => d.ec === 200 && 'user' in d.data,
