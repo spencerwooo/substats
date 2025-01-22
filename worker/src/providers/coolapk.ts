@@ -38,16 +38,55 @@ export default async function coolapkProvider(
   key: string,
 ): Promise<SubstatsResponse> {
   const headers = {
-    'User-Agent':
-      'Dalvik/2.1.0 (Linux; U; Android 9; MI 8 SE MIUI/9.5.9) (#Build; Xiaomi; MI 8 SE; PKQ1.181121.001; 9) +CoolMarket/9.2.2-1905301',
-    'X-App-Id': 'com.coolapk.market',
+    'User-Agent': 'Dalvik/2.1.0 (Linux; U; Android 14)',
+    /**
+     * {
+     *   "status": 1000,
+     *   "error": null,
+     *   "message": "请求方式错误"
+     * }
+     */
     'X-Requested-With': 'XMLHttpRequest',
-    'X-Sdk-Locale': 'zh-CN',
+    /**
+     * {
+     *   "status": 1001,
+     *   "error": null,
+     *   "message": "应用未授权"
+     * }
+     */
+    'X-App-Id': 'com.coolapk.market',
+    /**
+     * {
+     *   "status": 1004,
+     *   "error": null,
+     *   "message": "请求验证错误"
+     * }
+     */
     'X-App-Device':
-      'AyOzEjLG9VMx8FMx00QHBFI7ATMNN0RQByOPBFUPByOPBFUPByOgsDI7AyOzcjMBlmZYtWLshncvNmM3ZFdwMkMZFWMXlHWGRDTalTLoVFR',
+      'YTZlhTNxUGNiV2NmVGM4EGI7cDMw4SNwATMzIjLBFDUVByODFUMxITM0AjMyAyOp1GZlJFI7kWbvFWaYByOgsDI7AyOxcGd5NkYwhHRQRDcqVTc0FXW3tGRJVneRhEZuV1XIpHOKVFR',
+    /**
+     * {
+     *   "status": 1004,
+     *   "error": null,
+     *   "message": "请求验证错误"
+     * }
+     */
+    'X-App-Code': 2408121,
+    // 'X-App-Token': getAppToken(),
+    /**
+     * {
+     *   "status": 1001,
+     *   "error": null,
+     *   "message": "请求方式错误(1)"
+     * }
+     */
+    'X-App-Token':
+      'v3JDJ5JDEwJE5qYzRZMkkzWkdNdlpqSTFPV1UzWWVYeDBOZGtKLkVFYXBhZ0R1RFlPRGVrWVlBMTVjVUNt',
+    'X-App-Version': '14.4.0',
+    'X-Api-Version': 14,
+    'X-Sdk-Locale': 'zh-CN',
     Host: 'api.coolapk.com',
     'X-Dark-Mode': '0',
-    'X-App-Token': getAppToken(),
   }
   return commonProviderHandler<CoolapkResponse>({
     providerName: 'coolapk',
