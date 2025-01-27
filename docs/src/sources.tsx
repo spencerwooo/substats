@@ -37,6 +37,23 @@ const YuqueHelperText = () => (
   </Text>
 )
 
+const QQMusicHelperText = () => (
+    <Text>
+      Go to your QQMusic APP's homepage, copy the link and visit it, then notice the redirected uri, which should look like{' '}
+      <Link href="https://y.qq.com/n3/other/pages/share/profile_v2/index.html?ADTAG=musicapp&channelId=10036163&encrypt_uin=oi6qoivlowCq7c%2A%2A" isExternal>
+        https://y.qq.com/n3/other/pages/share/profile_v2/index.html?...&encrypt_uin=oi6qoivlowCq7c%2A%2A
+      </Link>.
+      <br />
+      Pass <Code fontSize="xs">encrypt_uin</Code> to substats, which is <Code fontSize="xs">oi6qoivlowCq7c**</Code> in this case.
+      <br /><br />
+      Or go to a singer's homepage, like{' '}
+      <Link href="https://y.qq.com/n/ryqq/singer/0025NhlN2yWrP4" isExternal>
+        https://y.qq.com/n/ryqq/singer/0025NhlN2yWrP4
+      </Link>.
+      <br />Pass <Code fontSize="xs">singer_mid</Code> to substats, which is <Code fontSize="xs">0025NhlN2yWrP4</Code> in this case.
+    </Text>
+)
+
 export const availableSources = [
   {
     source: 'afdian',
@@ -258,6 +275,27 @@ export const availableSources = [
       suffix: '粉丝',
       color: '282c34',
       link: (k: string) => `https://music.163.com/#/user/home?id=${k}`,
+    },
+  },
+  {
+    source: 'qqmusic',
+    icon: '/assets/sources/logo_qqmusic.png',
+    description: 'QQ音乐 - social, music',
+    warning: '',
+    helper: <QQMusicHelperText />,
+    badge: {
+      label: 'QQ音乐',
+      labelColor: '31c27c',
+      logo: 'qqmusic',
+      suffix: '粉丝',
+      color: '282c34',
+      link: (k: string) => {
+        if (k.startsWith('00')) {
+          return `https://y.qq.com/n/ryqq/singer/${k}`
+        } else {
+          return `https://y.qq.com/n3/other/pages/share/profile_v2/index.html?ADTAG=musicapp&channelId=10036163&encrypt_uin=${encodeURIComponent(k)}`
+        }
+      },
     },
   },
   {
